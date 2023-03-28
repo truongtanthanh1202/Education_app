@@ -27,6 +27,8 @@ const styles = StyleSheet.create({
   text: {
     color: 'white',
     fontSize: 16,
+    fontWeight: 600,
+    fontFamily: 'Poppins',
     textAlign: 'center',
     textAlignVertical: 'center',
   },

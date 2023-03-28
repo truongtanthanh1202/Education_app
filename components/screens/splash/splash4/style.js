@@ -18,6 +18,7 @@ const text = {
   fontSize: fontSizes.h1,
   textAlign: 'center',
   textAlignVertical: 'center',
+  fontFamily: 'Poppins',
   fontWeight: 700,
 };
 
