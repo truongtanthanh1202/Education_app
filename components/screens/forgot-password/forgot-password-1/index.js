@@ -7,12 +7,15 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
+  StatusBar,
 } from 'react-native';
 
 import {images} from '../../../../constants';
 import styles from './style';
+import ForgotPasswordSVG from '../../../../asset/img/forgot-password-svg';
 
 function Forgot1({navigation}) {
+  const statusBarHeight = StatusBar.currentHeight;
   const [accountTypes, setAccountTypes] = useState([
     {
       name: 'Continue',
@@ -22,14 +25,14 @@ function Forgot1({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.top}>
-        <Image
-          source={images.key2}
+        <ForgotPasswordSVG
+          width="50%"
+          height="50%"
           style={{
-            width: 100,
-            height: 100,
             alignSelf: 'center',
-            marginBottom: 12,
-          }}></Image>
+            marginBottom: 16,
+            marginTop: statusBarHeight,
+          }}></ForgotPasswordSVG>
         <Text style={styles.text1}>Forgot Password</Text>
 
         <Text style={styles.text2}>A handful of model sentence structures</Text>
