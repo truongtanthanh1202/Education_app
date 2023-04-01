@@ -6,21 +6,13 @@ import {
   TouchableOpacity,
   StatusBar,
 } from 'react-native';
+import {colors, fontSizes} from '../../../../constants';
 
 import UIButton3 from '../../../atoms/UIButton3';
 import styles from './style';
-
+import Google from '../../../../asset/icons/google';
+import Facebook from '../../../../asset/icons/facebook';
 function Register1({navigation}) {
-  const [accountTypes, setAccountTypes] = useState([
-    {
-      name: 'Sign Up with Google ',
-      isSelected: 'false',
-    },
-    {
-      name: 'Sign Up with Facebook',
-      isSelected: 'false',
-    },
-  ]);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.context}>
@@ -28,21 +20,16 @@ function Register1({navigation}) {
         <Text style={styles.text}> Sign up to continue!</Text>
       </View>
       <View style={styles.top}>
-        {accountTypes.map(accountType => (
-          <UIButton3
-            onPress={() => {
-              setAccountTypes(
-                accountTypes.map(eachAccountType => {
-                  return {
-                    ...eachAccountType,
-                    isSelected: eachAccountType.name == accountType.name,
-                  };
-                }),
-              );
-            }}
-            title={accountType.name}
-            isSelected={accountType.isSelected}></UIButton3>
-        ))}
+        <TouchableOpacity style={styles.button3}>
+          <Google width="28" height="28" style={styles.icon}></Google>
+
+          <Text style={styles.textInButton}> Sign Up with Google</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button3}>
+          <Facebook width="28" height="28" style={styles.icon}></Facebook>
+          <Text style={styles.textInButton}>Sign Up with Facebook</Text>
+        </TouchableOpacity>
+
         <Text
           style={{
             fontSize: 14,

@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItem: 'center',
     margin: 8,
+    fontSize: 15,
   },
   text1: {
     ...TEXT,
@@ -71,6 +72,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: 'center',
     fontWeight: 700,
+  },
+  icon: {
+    position: 'absolute',
+    marginTop: 22,
+    marginLeft: 35,
   },
 });
 

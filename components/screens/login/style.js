@@ -60,6 +60,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 500,
   },
+  icon: {
+    position: 'absolute',
+    marginLeft: 90,
+  },
+  icons: {
+    position: 'absolute',
+    marginTop: 20,
+    marginLeft: 35,
+    // marginLeft: 90,
+  },
 });
 
 export default styles;

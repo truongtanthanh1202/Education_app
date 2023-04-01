@@ -9,7 +9,7 @@ import {
 
 import {images} from '../../../../constants';
 import styles from './style';
-
+import ArrowRight from '../../../../asset/icons/arrow_right';
 const Splash3 = ({navigation}) => {
   const handlerNextScreen = () => {
     navigation.navigate('Splash4');
@@ -30,6 +30,7 @@ const Splash3 = ({navigation}) => {
         <View style={styles.context}>
           <TouchableOpacity style={styles.button} onPress={handlerNextScreen}>
             <Text style={styles.text}>Get started</Text>
+            <ArrowRight width="28" height="28" style={styles.icon}></ArrowRight>
           </TouchableOpacity>
         </View>
       </ImageBackground>

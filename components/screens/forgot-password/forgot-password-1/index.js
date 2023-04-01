@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 
 import {images} from '../../../../constants';
+import Email from '../../../../asset/icons/email';
+
 import styles from './style';
 
 function Forgot1({navigation}) {
@@ -36,11 +38,13 @@ function Forgot1({navigation}) {
       </View>
 
       <View style={styles.mid}>
+        <Email width="28" height="28" style={styles.icon}></Email>
+
         <TextInput
           style={styles.inputText}
           //   keyboardType="numeric"
 
-          paddingLeft={12}
+          paddingLeft={55}
           //   secureTextEntry={true} // tao dau **** trong password
           autoFocus={true} // tu dong bat ra khi mo app
           placeholder="Email"

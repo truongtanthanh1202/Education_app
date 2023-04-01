@@ -8,7 +8,7 @@ import { Splash1, Splash2, Splash3, Splash4 } from './components/screens/splash'
 import Login from './components/screens/login';
 import { Register1, Register2, Register3 } from './components/screens/register';
 import { Forgot1, Forgot2, Forgot3, Forgot4 } from './components/screens/forgot-password';
-import { Search1 } from './components/screens/search';
+import { Search1, Search2 } from './components/screens/search';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +30,7 @@ const App = () => {
         <Stack.Screen name="Forgot4" component={Forgot4} />
       </Stack.Navigator>
     </NavigationContainer>
-    // <Search1></Search1>
+    // <Search2></Search2>
   );
 };
 

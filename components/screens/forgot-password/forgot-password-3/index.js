@@ -10,6 +10,7 @@ import {
 
 import {images} from '../../../../constants';
 import styles from './style';
+import Invisible from '../../../../asset/icons/invisible';
 
 function Forgot3({navigation}) {
   const [accountTypes, setAccountTypes] = useState([
@@ -36,26 +37,35 @@ function Forgot3({navigation}) {
       </View>
 
       <View style={styles.mid}>
-        <TextInput
-          style={styles.inputText}
-          //   keyboardType="numeric"
+        <View>
+          <Invisible width="28" height="28" style={styles.icon}></Invisible>
 
-          paddingLeft={12}
-          //   secureTextEntry={true} // tao dau **** trong password
-          autoFocus={true} // tu dong bat ra khi mo app
-          placeholder="New Password"
-          placeholderTextColor="black" // chu cua holder
-        />
-        <TextInput
-          style={styles.inputText}
-          //   keyboardType="numeric"
+          <TextInput
+            style={styles.inputText}
+            //   keyboardType="numeric"
 
-          paddingLeft={12}
-          //   secureTextEntry={true} // tao dau **** trong password
-          autoFocus={true} // tu dong bat ra khi mo app
-          placeholder="Confirm Password"
-          placeholderTextColor="black" // chu cua holder
-        />
+            paddingLeft={50}
+            //   secureTextEntry={true} // tao dau **** trong password
+            autoFocus={true} // tu dong bat ra khi mo app
+            placeholder="New Password"
+            placeholderTextColor="black" // chu cua holder
+          />
+        </View>
+        <View>
+          <Invisible width="28" height="28" style={styles.icon}></Invisible>
+
+          <TextInput
+            style={styles.inputText}
+            //   keyboardType="numeric"
+
+            paddingLeft={50}
+            //   secureTextEntry={true} // tao dau **** trong password
+            autoFocus={true} // tu dong bat ra khi mo app
+            placeholder="Confirm Password"
+            placeholderTextColor="black" // chu cua holder
+          />
+        </View>
+
         {accountTypes.map(accountType => (
           <TouchableOpacity
             onPress={() => {

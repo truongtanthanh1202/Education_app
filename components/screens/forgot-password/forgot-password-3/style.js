@@ -73,6 +73,11 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
     fontWeight: 700,
   },
+  icon: {
+    position: 'absolute',
+    marginTop: 20,
+    marginLeft: 35,
+  },
 });
 
 export default styles;

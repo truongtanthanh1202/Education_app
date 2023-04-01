@@ -12,7 +12,5 @@ export default {
 
   forgotPassword: require('../asset/img/img_forgotPassword.png'),
 
-  icon_facebook: require('../asset/icons/icon_facebook.png'),
-  icon_facebook: require('../asset/icons/icon_google.png'),
   icon_search: require('../asset/icons/icon_search.png'),
 };
