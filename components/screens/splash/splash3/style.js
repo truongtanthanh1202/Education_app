@@ -33,10 +33,10 @@ const styles = StyleSheet.create({
     letterSpacing: 0.2,
     textAlign: 'center',
     textAlignVertical: 'center',
-    marginLeft: '20%',
+    marginLeft: '28%',
   },
   icon: {
-    marginRight: '12%',
+    marginRight: '10%',
   },
 });
 
