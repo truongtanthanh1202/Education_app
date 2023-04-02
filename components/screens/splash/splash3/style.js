@@ -22,15 +22,21 @@ const styles = StyleSheet.create({
     marginHorizontal: 110,
     backgroundColor: '#3787ff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
   },
   text: {
     color: 'white',
     fontSize: 16,
-    fontWeight: 600,
+    fontWeight: 700,
     fontFamily: 'Poppins',
+    letterSpacing: 0.2,
     textAlign: 'center',
     textAlignVertical: 'center',
+    marginLeft: '20%',
+  },
+  icon: {
+    marginRight: '12%',
   },
 });
 

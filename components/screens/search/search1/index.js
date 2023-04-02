@@ -1,8 +1,18 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, Image, StyleSheet, TextInput, FlatList} from 'react-native';
+import {
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  TextInput,
+  FlatList,
+  StatusBar,
+} from 'react-native';
+import Filter from '../../../../asset/icons/filter';
 import {images} from '../../../../constants';
 import CourseItem from '../CourseItem';
 import styles from './style';
+
 /**
  * ListView from a map of objects
  * FlatList
@@ -49,80 +59,69 @@ function Search1(props) {
     );
   return (
     <View style={styles.container}>
+      <StatusBar
+        barStyle="dark-content"
+        hidden={false}
+        backgroundColor="transparent"
+        translucent={true}
+      />
       <View style={styles.top}>
-        <View
+        <TextInput
+          autoCorrect={false}
+          onChangeText={text => {
+            setSearchText(text);
+          }}
           style={{
-            flex: 70,
-            // backgroundColor: 'yellow',
-            justifyContent: 'center',
-            // flexDirection: 'row',
-          }}>
-          <TextInput
-            autoCorrect={false}
-            onChangeText={text => {
-              setSearchText(text);
-            }}
-            style={{
-              height: 70,
-              marginTop: 55,
+            height: 65,
+            marginTop: 75,
+            marginHorizontal: 15,
+            backgroundColor: 'white',
+            borderRadius: 5,
+          }}
+          placeholder="Search for new Courses!"
+          paddingLeft={12}
+          placeholderTextColor="black"></TextInput>
 
-              marginHorizontal: 15,
-              backgroundColor: 'white',
-              //   paddingHorizontal: 20,
-              borderRadius: 5,
-            }}
-            placeholder="Search for new Courses!"
-            paddingLeft={12}
-            placeholderTextColor="black"></TextInput>
-          <Image
-            style={{
-              position: 'absolute',
-              top: 85,
-              right: 22,
-            }}
-            source={images.icon_search}></Image>
-        </View>
+        <Image
+          style={{
+            position: 'absolute',
+            top: 75,
+            right: 22,
+            width: 50,
+            height: 50,
+          }}
+          source={images.icon_search}></Image>
+
         <View
           style={{
-            flex: 30,
-            // backgroundColor: 'yellow',
-            // justifyContent: 'center',
+            flexDirection: 'row',
+            // backgroundColor: 'red',
           }}>
           <Text
             style={{
               marginLeft: 20,
               fontSize: 16,
-              margin: 20,
+              margin: 30,
             }}>
             Your search result
           </Text>
+          <Filter width="28" height="28" style={styles.icon}></Filter>
         </View>
       </View>
       <View style={styles.mid}>
-        {/* <ScrollView>
-          {courses.map(eachCourse => (
-            <CourseItem
-              onPress={() => {
-                alert(`You press item's name: ${eachCourse.name}`);
-              }}
-              course={eachCourse}
-            />
-          ))}
-        </ScrollView> */}
-
         {filteredCourses().length > 0 ? (
           <FlatList
             data={filteredCourses()}
             renderItem={({item}) => (
               <CourseItem
                 onPress={() => {
-                  alert(`You press course's name: ${eachCourse.name}`);
+                  alert(`You press course's name: ${item.name}`);
                 }}
                 course={item}
                 key={item.name}
               />
             )}
-            keyExtractor={eachCourse => eachCourse.name}
+            keyExtractor={item => item.name}
           />
         ) : (
           <View
@@ -138,18 +137,6 @@ function Search1(props) {
             </Text>
           </View>
         )}
-        {/* <FlatList
-          data={courses}
-          renderItem={({item}) => <CourseItem course={item} key={item.name} />}
-          keyExtractor={eachCourse => eachCourse.name}
-        /> */}
-        {/* <FlatList
-          data={foods}
-          renderItem={({item}) => (
-            <CourseItem course={eachCourse} key={eachCourse.name} />
-          )}
-          keyExtractor={eachCourse => eachCourse.name}
-        /> */}
       </View>
       <View style={styles.below}></View>
     </View>

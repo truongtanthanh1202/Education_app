@@ -9,12 +9,12 @@ const styles = StyleSheet.create({
   },
 
   top: {
-    flex: 30,
+    flex: 25,
     justifyContent: 'center',
     // backgroundColor: 'purple',
   },
   mid: {
-    flex: 60,
+    flex: 65,
     // backgroundColor: 'yellow',
     paddingLeft: 15,
     paddingTop: 10,
@@ -24,6 +24,11 @@ const styles = StyleSheet.create({
     flex: 10,
     // justifyContent: 'center',
     backgroundColor: 'pink',
+  },
+  icon: {
+    marginLeft: 160,
+
+    marginTop: 25,
   },
 });
 export default styles;

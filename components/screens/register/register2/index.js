@@ -11,8 +11,13 @@ import {
 } from 'react-native';
 
 import {images} from '../../../../constants';
+import User from '../../../../asset/icons/user';
+import Invisible from '../../../../asset/icons/invisible';
+import Email from '../../../../asset/icons/email';
+
 import {isValidEmail, isValidPassword} from '../../../utilies/Validations';
 import styles from './style';
+import {Use} from 'react-native-svg';
 
 function Register2({navigation}) {
   //states for validating
@@ -50,60 +55,69 @@ function Register2({navigation}) {
       </View>
 
       <View style={styles.mid}>
-        <TextInput
-          style={styles.inputText}
-          keyboardType="numeric"
-          //   secureTextEntry={true} // tao dau **** trong password
-          autoFocus={true} // tu dong bat ra khi mo app
-          placeholder="Username"
-          paddingLeft={12}
-          placeholderTextColor="black" // chu cua holder
-        />
-        <TextInput
-          onChangeText={text => {
-            // if (isValidEmail(text) == false) {
-            //   setErrorEmail('Email not in correct format');
-            // } else {
-            //   setErrorEmail('');
-            // }
-            setErrorEmail(
-              isValidEmail(text) == true ? '' : 'Please enter valid email',
-            );
-            setEmail(text);
-          }}
-          style={styles.inputText}
-          keyboardType="numeric"
-          paddingLeft={12}
-          //   secureTextEntry={true} // tao dau **** trong password
-          autoFocus={true} // tu dong bat ra khi mo app
-          placeholder="email"
-          placeholderTextColor="black" // chu cua holder
-        />
-        <Text
-          style={{
-            color: 'red',
-            fontSize: 12,
-            marginLeft: 32,
-          }}>
-          {errorEmail}
-        </Text>
-        <TextInput
-          onChangeText={text => {
-            setErrorPassword(
-              isValidPassword(text) == true
-                ? ''
-                : 'Password must be at least 6 characters',
-            );
-            setPassword(text);
-          }}
-          style={styles.inputText}
-          keyboardType="numeric"
-          secureTextEntry={true} // tao dau **** trong password
-          autoFocus={true} // tu dong bat ra khi mo app
-          placeholder="password"
-          paddingLeft={12}
-          placeholderTextColor="black" // chu cua holder
-        />
+        <View>
+          <User width="28" height="28" style={styles.icon}></User>
+
+          <TextInput
+            style={styles.inputText}
+            keyboardType="numeric"
+            //   secureTextEntry={true} // tao dau **** trong password
+            autoFocus={true} // tu dong bat ra khi mo app
+            placeholder="Username"
+            paddingLeft={50}
+            placeholderTextColor="black" // chu cua holder
+          />
+        </View>
+
+        <View style={{height: 12}}></View>
+        <View>
+          <Email width="28" height="28" style={styles.icon}></Email>
+
+          <TextInput
+            onChangeText={text => {
+              setErrorEmail(
+                isValidEmail(text) == true ? '' : 'Please enter valid email',
+              );
+              setEmail(text);
+            }}
+            style={styles.inputText}
+            keyboardType="numeric"
+            paddingLeft={50}
+            //   secureTextEntry={true} // tao dau **** trong password
+            autoFocus={true} // tu dong bat ra khi mo app
+            placeholder="Email id"
+            placeholderTextColor="black" // chu cua holder
+          />
+          <Text
+            style={{
+              color: 'red',
+              fontSize: 12,
+              marginLeft: 32,
+            }}>
+            {errorEmail}
+          </Text>
+        </View>
+        <View>
+          <Invisible width="28" height="28" style={styles.icon}></Invisible>
+
+          <TextInput
+            onChangeText={text => {
+              setErrorPassword(
+                isValidPassword(text) == true
+                  ? ''
+                  : 'Password must be at least 6 characters',
+              );
+              setPassword(text);
+            }}
+            style={styles.inputText}
+            keyboardType="numeric"
+            secureTextEntry={true} // tao dau **** trong password
+            autoFocus={true} // tu dong bat ra khi mo app
+            placeholder="Password"
+            paddingLeft={50}
+            placeholderTextColor="black" // chu cua holder
+          />
+        </View>
 
         <Text
           style={{
