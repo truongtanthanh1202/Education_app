@@ -191,7 +191,7 @@ function Register2({navigation}) {
                 textDecorationLine: 'underline',
               }}>
               {' '}
-              Sign up
+              Sign in
             </Text>
           </TouchableOpacity>
         </View>
