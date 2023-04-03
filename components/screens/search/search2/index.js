@@ -3,18 +3,15 @@ import {
   Text,
   View,
   Image,
-  StyleSheet,
   TouchableOpacity,
   TextInput,
+  ScrollView,
   FlatList,
 } from 'react-native';
-import {images} from '../../../../constants';
-import CourseItem from '../CourseItem';
 import styles from './style';
-/**
- * ListView from a map of objects
- * FlatList
- */
+import {images, colors, fontSizes} from '../../../constants';
+import {UIButton, UIButton2, UIButton3} from '../../atoms';
+
 function Search2(props) {
   const [products, setProducts] = useState([
     {
