@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-
 const TopSearch = {
   backgroundColor: '#3787ff',
   alignItems: 'center',
@@ -55,5 +54,4 @@ const styles = StyleSheet.create({
     backgroundColor: 'pink',
   },
 });
-
 export default styles;
