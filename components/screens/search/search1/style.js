@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   below: {
     flex: 10,
     // justifyContent: 'center',
-    backgroundColor: 'pink',
+    // backgroundColor: 'pink',
   },
   icon: {
     marginLeft: 160,

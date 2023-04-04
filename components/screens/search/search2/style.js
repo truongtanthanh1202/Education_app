@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   below: {
     flex: 8,
     // justifyContent: 'center',
-    backgroundColor: 'pink',
+    // backgroundColor: 'pink',
   },
 });
 export default styles;

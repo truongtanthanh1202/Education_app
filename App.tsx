@@ -2,6 +2,9 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
+//Navigation bar
+import Navbar from './components/screens/nav-bar';
+
 //Screen components
 import { Splash1, Splash2, Splash3, Splash4 } from './components/screens/splash';
 import Login from './components/screens/login';
@@ -14,8 +17,7 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-      
+      {/* <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Splash1" component={Splash1} />
         <Stack.Screen name="Splash2" component={Splash2} />
         <Stack.Screen name="Splash3" component={Splash3} />
@@ -28,9 +30,9 @@ const App = () => {
         <Stack.Screen name="Forgot2" component={Forgot2} />
         <Stack.Screen name="Forgot3" component={Forgot3} />
         <Stack.Screen name="Forgot4" component={Forgot4} />
-      </Stack.Navigator>
+      </Stack.Navigator> */}
+      <Navbar></Navbar>
     </NavigationContainer>
-    // <Search2></Search2>
   );
 };
 

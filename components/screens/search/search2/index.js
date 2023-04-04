@@ -9,9 +9,7 @@ import {
   FlatList,
 } from 'react-native';
 import styles from './style';
-import {images, colors, fontSizes} from '../../../constants';
-import {UIButton, UIButton2, UIButton3} from '../../atoms';
-
+import {images} from '../../../../constants';
 function Search2(props) {
   const [products, setProducts] = useState([
     {
