@@ -3,7 +3,7 @@ module.exports = {
     ios: {},
     android: {},
   },
-  assets: ['./asset/fonts/'],
+  assets: ['./asset/fonts/', './node_modules/react-native-vector-icons/Fonts'],
 };
 
 //npx react-native-asset

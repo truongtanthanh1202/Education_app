@@ -1,6 +1,7 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {View, Text, Image} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Home from '../home';
 import {Search1, Search2} from '../search';
@@ -26,31 +27,30 @@ const Navbar = () => {
           borderRadius: 15,
           minHeight: 60,
         },
-        tabBarIcon: ({focused}) => {
-          let iconName = route.name;
-          let iconSource = '../../../asset/icons/' + route.name + '.png';
+        tabBarIcon: ({focused, color, size}) => {
+          let iconName;
 
+          if (route.name === 'Home') {
+            iconName = focused ? 'home' : 'home-outline';
+          } else if (route.name === 'Search') {
+            iconName = focused ? 'search' : 'search-outline';
+          } else if (route.name === 'Course') {
+            iconName = focused ? 'terminal' : 'terminal-outline';
+          } else if (route.name === 'Profile') {
+            iconName = focused ? 'person' : 'person-outline';
+          }
           return (
             <View
               style={{
                 alignItems: 'center',
               }}>
-              <Image
-                source={require('../../../asset/icons/Search.png')}
-                // source={require(iconSource)}
-                resizeMode="contain"
-                style={{
-                  width: 32,
-                  height: 32,
-                  tintColor: focused ? '#3788ff' : '#333',
-                }}
-              />
+              <Ionicons name={iconName} size={size} color={color} />
               <Text
                 disabled={focused ? false : true}
                 style={{
                   color: focused ? '#3788ff' : '#333',
                 }}>
-                {iconName}
+                {route.name}
               </Text>
             </View>
           );
