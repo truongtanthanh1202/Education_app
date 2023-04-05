@@ -42,5 +42,11 @@ const styles = StyleSheet.create({
   below: {
     flex: 8,
   },
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5,
+  },
 });
 export default styles;

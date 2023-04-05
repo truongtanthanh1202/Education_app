@@ -20,9 +20,9 @@ const Navbar = () => {
         tabBarStyle: {
           position: 'absolute',
           bottom: 20,
-          left: 12,
-          right: 12,
-          elevation: 0.7,
+          left: 20,
+          right: 20,
+          elevation: 0.2,
           backgroundColor: '#fff',
           borderRadius: 15,
           minHeight: 60,
