@@ -4,8 +4,7 @@ const TopSearch = {
   backgroundColor: '#3787ff',
   alignItems: 'center',
   justifyContent: 'center',
-  marginHorizontal: 15,
-
+  marginRight: '8%',
   borderRadius: 20,
   height: 40,
 };
@@ -17,15 +16,15 @@ const styles = StyleSheet.create({
   },
   button1: {
     ...TopSearch,
-    width: 100,
+    minWidth: 40,
   },
-  button2: {
-    ...TopSearch,
-    width: 70,
-  },
-  button3: {
-    ...TopSearch,
-    width: 60,
+  textTopSearch: {
+    color: 'white',
+    fontSize: 12,
+    fontWeight: 500,
+    fontFamily: 'Poppins',
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   top: {
     flex: 15,
@@ -33,7 +32,6 @@ const styles = StyleSheet.create({
   },
   topSearch: {
     flex: 22,
-    marginLeft: 20,
     justifyContent: 'center',
   },
   mid: {

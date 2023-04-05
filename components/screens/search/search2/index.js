@@ -6,10 +6,13 @@ import {
   TouchableOpacity,
   TextInput,
   ScrollView,
+  SafeAreaView,
   FlatList,
+  ImageBackground,
 } from 'react-native';
 import styles from './style';
 import {images} from '../../../../constants';
+import LinearGradient from 'react-native-linear-gradient';
 function Search2(props) {
   const [products, setProducts] = useState([
     {
@@ -42,7 +45,7 @@ function Search2(props) {
     },
     {
       name: 'Web develop',
-      url: 'https://images.squarespace-cdn.com/content/v1/5b464028697a98ff8ade2f62/1626195523488-D2V7CU4PEFLS6GJV4YFZ/2021-5-26+Colored+Pencil+Drawing+WEBSITE.png',
+      url: 'https://static.stringee.com/blog/images/web-developer-2.jpeg',
     },
   ]);
 
@@ -57,9 +60,7 @@ function Search2(props) {
         <View
           style={{
             flex: 50,
-            // backgroundColor: 'yellow',
             justifyContent: 'center',
-            // flexDirection: 'row',
           }}>
           <TextInput
             autoCorrect={false}
@@ -69,10 +70,7 @@ function Search2(props) {
             style={{
               height: 60,
               marginTop: 55,
-
-              marginHorizontal: 15,
               backgroundColor: 'white',
-              //   paddingHorizontal: 20,
               borderRadius: 5,
             }}
             placeholder="Search for new Courses!"
@@ -81,10 +79,10 @@ function Search2(props) {
           <Image
             style={{
               position: 'absolute',
-              top: 70,
-              right: 22,
-              width: 50,
-              height: 50,
+              top: 75,
+              right: 16,
+              width: 40,
+              height: 40,
             }}
             source={images.icon_search}></Image>
         </View>
@@ -93,64 +91,36 @@ function Search2(props) {
       <View style={styles.topSearch}>
         <Text
           style={{
-            fontSize: 24,
-            margin: 10,
+            fontSize: 20,
+            marginBottom: 20,
+            fontFamily: 'Poppins',
+            marginTop: 28,
             fontWeight: 500,
           }}>
           Top searches
         </Text>
         <View style={{flexDirection: 'row', marginBottom: 10}}>
           <TouchableOpacity style={styles.button1}>
-            <Text
-              style={{
-                color: 'white',
-              }}>
-              photography
-            </Text>
+            <Text style={styles.textTopSearch}>photography</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button2}>
-            <Text
-              style={{
-                color: 'white',
-              }}>
-              craft
-            </Text>
+          <TouchableOpacity style={styles.button1}>
+            <Text style={styles.textTopSearch}>craft</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button3}>
-            <Text
-              style={{
-                color: 'white',
-              }}>
-              art
-            </Text>
+          <TouchableOpacity style={styles.button1}>
+            <Text style={styles.textTopSearch}>art</Text>
           </TouchableOpacity>
         </View>
         <View style={{flexDirection: 'row', marginBottom: 10}}>
           <TouchableOpacity style={styles.button1}>
-            <Text
-              style={{
-                color: 'white',
-              }}>
-              procreate
-            </Text>
+            <Text style={styles.textTopSearch}>procreate</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button1}>
-            <Text
-              style={{
-                color: 'white',
-              }}>
-              marketing
-            </Text>
+            <Text style={styles.textTopSearch}>marketing</Text>
           </TouchableOpacity>
         </View>
         <View style={{flexDirection: 'row', marginBottom: 10}}>
           <TouchableOpacity style={styles.button1}>
-            <Text
-              style={{
-                color: 'white',
-              }}>
-              UX design
-            </Text>
+            <Text style={styles.textTopSearch}>UX design</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -158,10 +128,11 @@ function Search2(props) {
       <View style={styles.mid}>
         <Text
           style={{
-            fontSize: 24,
-            margin: 10,
+            fontSize: 20,
             fontWeight: 500,
-            marginTop: 0,
+            fontFamily: 'Poppins',
+            marginTop: 28,
+            marginBottom: 12,
           }}>
           Categories
         </Text>
@@ -172,27 +143,31 @@ function Search2(props) {
             renderItem={({item, index}) => (
               <View
                 style={{
-                  backgroundColor: index % 2 == 0 ? 'red' : 'green',
                   flex: 0.5,
                   height: 160,
-                  marginLeft: index % 2 == 0 ? 10 : 0,
-                  marginTop: index == 0 && index == 1 ? 10 : 5,
-                  marginRight: 10,
-                  marginBottom: 5,
-                  borderRadius: 10,
+                  marginLeft: index % 2 == 0 ? 0 : 16,
+                  marginTop: index == 0 && index == 1 ? 4 : 14,
                 }}>
-                <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-                  <Image
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                  }}>
+                  <ImageBackground
                     style={{
-                      //   width: 168,
                       flex: 1,
                       height: 160,
                       resizeMode: 'cover',
-                      borderRadius: 10,
+                      borderRadius: 8,
+                      overflow: 'hidden',
                     }}
                     source={{
                       uri: item.url,
-                    }}></Image>
+                    }}>
+                    <LinearGradient
+                      colors={['#00000000', '#000000']}
+                      style={{height: '100%', width: '100%'}}></LinearGradient>
+                  </ImageBackground>
                   <Text
                     style={{
                       color: 'white',
