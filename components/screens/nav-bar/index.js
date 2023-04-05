@@ -18,23 +18,25 @@ const Navbar = () => {
         tabBarShowLabel: false,
         tabBarStyle: {
           position: 'absolute',
-          bottom: 16,
+          bottom: 20,
           left: 12,
           right: 12,
           elevation: 0.2,
           backgroundColor: '#fff',
           borderRadius: 15,
-          height: 60,
+          minHeight: 60,
         },
         tabBarIcon: ({focused}) => {
           let iconName = route.name;
           let iconSource = '../../../asset/icons/' + route.name + '.png';
-          //   console.log(iconSource);
 
           return (
-            <View style={{alignItems: 'center'}}>
+            <View
+              style={{
+                alignItems: 'center',
+              }}>
               <Image
-                source={require('../../../asset/icons/Home.png')}
+                source={require('../../../asset/icons/Search.png')}
                 // source={require(iconSource)}
                 resizeMode="contain"
                 style={{
