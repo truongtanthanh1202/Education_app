@@ -140,7 +140,7 @@ function Search2(props) {
             fontSize: 20,
             fontWeight: 500,
             fontFamily: 'Poppins',
-            marginTop: 28,
+            marginTop: 20,
             marginBottom: 12,
           }}>
           Categories
