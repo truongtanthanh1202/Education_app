@@ -7,15 +7,13 @@ const TopSearch = {
   marginRight: '8%',
   borderRadius: 20,
   height: 40,
-  //   marginRight: 20,
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 100,
-    paddingHorizontal: 20,
-
     backgroundColor: '#e4f1f9',
+    paddingHorizontal: 20,
   },
   button1: {
     ...TopSearch,
@@ -32,22 +30,17 @@ const styles = StyleSheet.create({
   top: {
     flex: 15,
     justifyContent: 'center',
-    // backgroundColor: 'purple',
   },
   topSearch: {
     flex: 22,
     justifyContent: 'center',
-    // backgroundColor: 'green',
   },
   mid: {
     flex: 50,
     paddingTop: 10,
-    // flexDirection: 'row',
   },
   below: {
     flex: 8,
-    // justifyContent: 'center',
-    backgroundColor: 'pink',
   },
   linearGradient: {
     flex: 1,
