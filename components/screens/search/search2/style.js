@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 100,
     backgroundColor: '#e4f1f9',
+    paddingHorizontal: 20,
   },
   button1: {
     ...TopSearch,
@@ -36,8 +37,6 @@ const styles = StyleSheet.create({
   },
   mid: {
     flex: 50,
-    paddingLeft: 15,
-    paddingRight: 15,
     paddingTop: 10,
   },
   below: {

@@ -13,6 +13,7 @@ import {
 import styles from './style';
 import {images} from '../../../../constants';
 import LinearGradient from 'react-native-linear-gradient';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 function Search2(props) {
   const [products, setProducts] = useState([
     {
@@ -36,7 +37,7 @@ function Search2(props) {
       url: 'https://images.squarespace-cdn.com/content/v1/5b464028697a98ff8ade2f62/1626195523488-D2V7CU4PEFLS6GJV4YFZ/2021-5-26+Colored+Pencil+Drawing+WEBSITE.png',
     },
     {
-      name: 'Calligraphy & lettering',
+      name: 'Calligraphy',
       url: 'https://images.squarespace-cdn.com/content/v1/5b464028697a98ff8ade2f62/1626195523488-D2V7CU4PEFLS6GJV4YFZ/2021-5-26+Colored+Pencil+Drawing+WEBSITE.png',
     },
     {
@@ -55,7 +56,7 @@ function Search2(props) {
       eachCourse.name.toLowerCase().includes(searchText.toLowerCase()),
     );
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.top}>
         <View
           style={{
@@ -75,7 +76,15 @@ function Search2(props) {
             }}
             placeholder="Search for new Courses!"
             paddingLeft={12}
-            placeholderTextColor="black"></TextInput>
+            placeholderTextColor="black">
+            {/* <Ionicons
+              name="search-outline"
+              size={38}
+              style={{
+                backgroundColor: 'pink',
+              }}
+            /> */}
+          </TextInput>
           <Image
             style={{
               position: 'absolute',
@@ -171,8 +180,10 @@ function Search2(props) {
                   <Text
                     style={{
                       color: 'white',
-                      fontSize: 22,
-                      fontWeight: 500,
+                      fontSize: 20,
+                      fontWeight: 600,
+                      letterSpacing: 0.2,
+                      fontFamily: 'Poppins',
                       position: 'absolute',
                       top: 120,
                     }}>
@@ -184,7 +195,7 @@ function Search2(props) {
         </View>
       </View>
       <View style={styles.below}></View>
-    </View>
+    </ScrollView>
   );
 }
 export default Search2;

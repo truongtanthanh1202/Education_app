@@ -22,7 +22,7 @@ const Navbar = () => {
           bottom: 20,
           left: 12,
           right: 12,
-          elevation: 0.2,
+          elevation: 0.7,
           backgroundColor: '#fff',
           borderRadius: 15,
           minHeight: 60,
@@ -58,7 +58,7 @@ const Navbar = () => {
         // '#3788ff',
       })}>
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Search" component={Search1} />
+      <Tab.Screen name="Search" component={Search2} />
       <Tab.Screen name="Course" component={Course} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
