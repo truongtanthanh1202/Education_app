@@ -14,37 +14,39 @@ const styles = StyleSheet.create({
   },
 
   top: {
-    flex: 35,
+    flex: 45,
     justifyContent: 'center',
   },
   mid: {
-    flex: 30,
+    flex: 55,
+    alignItems: 'center',
   },
-  below: {
-    flex: 35,
-  },
+
   text1: {
     ...TEXT,
     color: 'black',
-    fontSize: 30,
+    fontSize: 28,
     fontWeight: 500,
+    marginBottom: 2,
   },
   text2: {
     ...TEXT,
-    fontSize: 14,
+    fontSize: 12,
+    fontWeight: 500,
     color: '#383838',
-    lineHeight: 20,
-    marginTop: 2,
+    lineHeight: 18,
+    // marginTop: 2,
   },
   button: {
+    marginTop: 60,
     borderColor: colors.primary,
     borderWidth: 1,
-    height: 55,
+    height: 52,
+    width: 330,
+    borderRadius: 28,
     margin: 5,
     marginHorizontal: 20,
     backgroundColor: colors.primary,
-    borderRadius: 28,
-    alignItems: 'center',
     justifyContent: 'center',
   },
   textInnerBtn: {
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.h1,
     textAlign: 'center',
     textAlignVertical: 'center',
-    fontWeight: 700,
+    fontWeight: 600,
   },
 });
 

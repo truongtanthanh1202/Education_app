@@ -15,14 +15,17 @@ const styles = StyleSheet.create({
   top: {
     flex: 30,
     justifyContent: 'center',
+    alignItems: 'center',
   },
   mid: {
     flex: 20,
     marginTop: 5,
+    alignItems: 'center',
   },
   below: {
     flex: 25,
     justifyContent: 'center',
+    alignItems: 'center',
   },
   text: {
     textAlign: 'center',
@@ -32,13 +35,12 @@ const styles = StyleSheet.create({
   button3: {
     borderColor: 'white',
     borderWidth: 1,
-    height: 50,
-    margin: 5,
-    marginHorizontal: 40,
+    height: 60,
+    width: 336,
+    margin: 10,
     backgroundColor: 'white',
-    borderRadius: 25,
+    borderRadius: 40,
     alignItems: 'center',
-    // justifyContent: 'center',
     flexDirection: 'row',
   },
   textInButton: {

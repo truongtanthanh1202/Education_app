@@ -28,6 +28,7 @@ function Forgot4({navigation}) {
           style={{
             width: 110,
             height: 110,
+            marginTop: '25%',
             alignSelf: 'center',
           }}></Image>
       </View>
@@ -43,9 +44,6 @@ function Forgot4({navigation}) {
           you need to be sure there isn't anything
         </Text>
         <Text style={styles.text2}>embarrassing</Text>
-      </View>
-
-      <View style={styles.below}>
         {accountTypes.map(accountType => (
           <TouchableOpacity
             onPress={() => {

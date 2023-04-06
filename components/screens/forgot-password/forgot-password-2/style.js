@@ -14,19 +14,15 @@ const styles = StyleSheet.create({
   },
 
   top: {
-    flex: 40,
+    flex: 45,
     justifyContent: 'center',
-    // backgroundColor: 'yellow',
+    alignItems: 'center',
   },
   mid: {
-    flex: 30,
-    // backgroundColor: 'green',
+    flex: 55,
+    alignItems: 'center',
   },
-  below: {
-    flex: 30,
-    // justifyContent: 'center',
-    // backgroundColor: 'red',
-  },
+
   text1: {
     ...TEXT,
     color: 'black',
@@ -46,7 +42,8 @@ const styles = StyleSheet.create({
     color: '#3787ff',
   },
   inputText: {
-    height: 55,
+    height: 52,
+    width: 330,
     borderRadius: 28,
     borderColor: '#3787ff',
     borderWidth: 1,
@@ -58,11 +55,12 @@ const styles = StyleSheet.create({
   button: {
     borderColor: colors.primary,
     borderWidth: 1,
-    height: 55,
-    margin: 5,
+    height: 52,
+    width: 330,
+    borderRadius: 28,
+    margin: 12,
     marginHorizontal: 20,
     backgroundColor: colors.primary,
-    borderRadius: 28,
     alignItems: 'center',
     justifyContent: 'center',
   },

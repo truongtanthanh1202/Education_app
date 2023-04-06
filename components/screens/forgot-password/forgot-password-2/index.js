@@ -26,7 +26,7 @@ function Forgot2({navigation}) {
           style={{
             width: 100,
             height: 100,
-            alignSelf: 'center',
+            marginTop: '25%',
             marginBottom: 12,
           }}></Image>
         <Text style={styles.text1}>Enter a Code</Text>
@@ -78,8 +78,6 @@ function Forgot2({navigation}) {
           </Text>
         </TouchableOpacity>
       </View>
-
-      <View style={styles.below}></View>
     </SafeAreaView>
   );
 }

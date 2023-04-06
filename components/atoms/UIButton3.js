@@ -9,11 +9,12 @@ function UIButton3(props) {
       style={{
         borderColor: 'white',
         borderWidth: 1,
-        height: 50,
-        margin: 5,
+        height: 60,
+        width: 336,
+        margin: 12,
         marginHorizontal: 40,
         backgroundColor: 'white',
-        borderRadius: 25,
+        borderRadius: 40,
         alignItems: 'center',
         justifyContent: 'center',
       }}>

@@ -33,7 +33,10 @@ function Register1({navigation}) {
         <Text
           style={{
             fontSize: 14,
+            fontWeight: 600,
             textAlign: 'center',
+            marginTop: 10,
+            marginBottom: 20,
             color: '#585d69',
           }}>
           or
@@ -45,20 +48,42 @@ function Register1({navigation}) {
           onPress={() => {
             navigation.navigate('Register2');
           }}></UIButton3>
-        <Text style={{fontSize: 12, textAlign: 'center', color: '#585d69'}}>
+        <Text
+          style={{
+            fontSize: 12,
+            fontWeight: 600,
+            textAlign: 'center',
+            color: '#585d69',
+          }}>
           {' '}
           By signing up you are agreed with our
         </Text>
-        <Text style={{fontSize: 12, textAlign: 'center', color: '#585d69'}}>
+        <Text
+          style={{
+            fontSize: 12,
+            fontWeight: 600,
+            textAlign: 'center',
+            color: '#585d69',
+          }}>
           {' '}
           friendly terms and condition
         </Text>
       </View>
       <View style={styles.below}>
-        <Text style={{fontSize: 14, textAlign: 'center', color: '#383838'}}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontWeight: 600,
+            textAlign: 'center',
+            color: '#383838',
+          }}>
           Already have an account?
         </Text>
-        <UIButton3 title="Sign in"></UIButton3>
+        <UIButton3
+          title="Sign in"
+          onPress={() => {
+            navigation.navigate('Login');
+          }}></UIButton3>
       </View>
     </SafeAreaView>
   );

@@ -6,10 +6,9 @@ const TEXT = {
   fontSize: 12,
 };
 const Button = {
-  height: 48,
+  height: 52,
+  width: 330,
   borderRadius: 28,
-  marginLeft: 24,
-  marginRight: 24,
   justifyContent: 'center',
   alignItem: 'center',
   margin: 8,
@@ -24,16 +23,18 @@ const styles = StyleSheet.create({
   top: {
     flex: 40,
     justifyContent: 'center',
+    alignItems: 'center',
   },
   mid: {
-    flex: 30,
+    flex: 35,
+    alignItems: 'center',
   },
   below: {
-    flex: 30,
+    flex: 25,
   },
-
   inputButton: {
     ...Button,
+    marginTop: 16,
     backgroundColor: 'white',
   },
   buttonSignIn: {
@@ -50,12 +51,12 @@ const styles = StyleSheet.create({
   text2: {
     ...TEXT,
     fontSize: 14,
+    fontWeight: 500,
     color: '#383838',
-
-    marginTop: 2,
+    marginTop: 12,
   },
   text3: {
-    margin: 8,
+    marginVertical: 10,
     textAlign: 'center',
     fontSize: 16,
     fontWeight: 500,
@@ -66,9 +67,8 @@ const styles = StyleSheet.create({
   },
   icons: {
     position: 'absolute',
-    marginTop: 20,
-    marginLeft: 35,
-    // marginLeft: 90,
+    marginTop: 30,
+    marginLeft: 20,
   },
 });
 

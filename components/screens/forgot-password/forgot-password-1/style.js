@@ -14,19 +14,14 @@ const styles = StyleSheet.create({
   },
 
   top: {
-    flex: 40,
+    flex: 45,
     justifyContent: 'center',
-    // backgroundColor: 'yellow',
   },
   mid: {
-    flex: 30,
-    // backgroundColor: 'green',
+    flex: 55,
+    // alignItems: 'center',
   },
-  below: {
-    flex: 30,
-    // justifyContent: 'center',
-    // backgroundColor: 'red',
-  },
+
   text1: {
     ...TEXT,
     color: 'black',
@@ -46,23 +41,25 @@ const styles = StyleSheet.create({
     color: '#3787ff',
   },
   inputText: {
-    height: 55,
+    height: 52,
+    width: 330,
     borderRadius: 28,
     borderColor: '#3787ff',
     borderWidth: 1,
-    marginHorizontal: 20,
-    justifyContent: 'center',
-    alignItem: 'center',
-    margin: 8,
+    marginHorizontal: 30,
+    margin: 9,
+    // justifyContent: 'center',
+    // alignItem: 'center',
   },
   button: {
     borderColor: colors.primary,
     borderWidth: 1,
-    height: 55,
-    margin: 5,
-    marginHorizontal: 20,
-    backgroundColor: colors.primary,
+    height: 52,
+    width: 330,
     borderRadius: 28,
+    margin: 9,
+    marginHorizontal: 30,
+    backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -76,7 +73,7 @@ const styles = StyleSheet.create({
   icon: {
     position: 'absolute',
     marginTop: 22,
-    marginLeft: 35,
+    marginLeft: 42,
   },
 });
 

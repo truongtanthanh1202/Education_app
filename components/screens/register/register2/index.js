@@ -45,6 +45,7 @@ function Register2({navigation}) {
           style={{
             width: 100,
             height: 100,
+            margin: 20,
             alignSelf: 'center',
           }}></Image>
         <Text style={styles.text1}> Create an Account</Text>
@@ -56,7 +57,7 @@ function Register2({navigation}) {
 
       <View style={styles.mid}>
         <View>
-          <User width="28" height="28" style={styles.icon}></User>
+          <User width="24" height="24" style={styles.icon}></User>
 
           <TextInput
             style={styles.inputText}
@@ -64,14 +65,14 @@ function Register2({navigation}) {
             //   secureTextEntry={true} // tao dau **** trong password
             autoFocus={true} // tu dong bat ra khi mo app
             placeholder="Username"
-            paddingLeft={50}
+            paddingLeft={48}
             placeholderTextColor="black" // chu cua holder
           />
         </View>
 
         <View style={{height: 12}}></View>
         <View>
-          <Email width="28" height="28" style={styles.icon}></Email>
+          <Email width="24" height="24" style={styles.icon}></Email>
 
           <TextInput
             onChangeText={text => {
@@ -82,7 +83,7 @@ function Register2({navigation}) {
             }}
             style={styles.inputText}
             keyboardType="numeric"
-            paddingLeft={50}
+            paddingLeft={48}
             //   secureTextEntry={true} // tao dau **** trong password
             autoFocus={true} // tu dong bat ra khi mo app
             placeholder="Email id"
@@ -98,7 +99,7 @@ function Register2({navigation}) {
           </Text>
         </View>
         <View>
-          <Invisible width="28" height="28" style={styles.icon}></Invisible>
+          <Invisible width="24" height="24" style={styles.icon}></Invisible>
 
           <TextInput
             onChangeText={text => {
@@ -114,7 +115,7 @@ function Register2({navigation}) {
             secureTextEntry={true} // tao dau **** trong password
             autoFocus={true} // tu dong bat ra khi mo app
             placeholder="Password"
-            paddingLeft={50}
+            paddingLeft={48}
             placeholderTextColor="black" // chu cua holder
           />
         </View>
