@@ -11,7 +11,7 @@ import Profile from '../profile';
 const Tab = createBottomTabNavigator();
 
 const Navbar = () => {
-  const [bottomMarginStatus, setbottomMarginStatus] = useState();
+  const [bottomMarginStatus, setbottomMarginStatus] = useState(20);
   useEffect(() => {
     const showNavBar = Keyboard.addListener('keyboardDidShow', () => {
       setbottomMarginStatus(0);
