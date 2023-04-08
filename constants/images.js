@@ -9,6 +9,7 @@ export default {
   key: require('../asset/img/img_key.png'),
   key1: require('../asset/img/key1.png'),
   key2: require('../asset/img/key2.png'),
+  avatar: require('../asset/img/img_avatar.jpeg'),
 
   forgotPassword: require('../asset/img/img_forgotPassword.png'),
 

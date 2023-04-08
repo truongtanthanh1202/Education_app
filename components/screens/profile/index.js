@@ -1,18 +1,4 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import Profile1 from './profile1';
+import Profile2 from './profile2';
 
-const Profile = () => {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#e4f1f9',
-      }}>
-      <Text>Profile</Text>
-    </View>
-  );
-};
-
-export default Profile;
+export {Profile1, Profile2};
