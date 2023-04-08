@@ -21,8 +21,8 @@ function Login({navigation}) {
       isSelected: 'false',
     },
   ]);
-  const handlerToSignup = () => {
-    console.log('Process to sign up');
+  const handlerToLogin = () => {
+    navigation.navigate('Navbar');
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -87,7 +87,7 @@ function Login({navigation}) {
             Forgot Password?
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonSignIn}>
+        <TouchableOpacity style={styles.buttonSignIn} onPress={handlerToLogin}>
           <Text
             style={{
               color: 'white',
