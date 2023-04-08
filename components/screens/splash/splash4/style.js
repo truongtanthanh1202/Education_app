@@ -5,11 +5,12 @@ import {colors, fontSizes} from '../../../../constants';
 
 const button = {
   borderColor: colors.primary,
-  borderWidth: 1.2,
-  height: 55,
+  borderWidth: 1,
+  height: 70,
+  width: 354,
   margin: 8,
   marginHorizontal: 20,
-  borderRadius: 28,
+  borderRadius: 40,
   alignItems: 'center',
   justifyContent: 'center',
 };
@@ -19,7 +20,7 @@ const text = {
   textAlign: 'center',
   textAlignVertical: 'center',
   fontFamily: 'Poppins',
-  fontWeight: 700,
+  fontWeight: 600,
 };
 
 const styles = StyleSheet.create({

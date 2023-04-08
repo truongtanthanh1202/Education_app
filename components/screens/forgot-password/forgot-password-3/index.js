@@ -27,6 +27,7 @@ function Forgot3({navigation}) {
           style={{
             width: 100,
             height: 100,
+            marginTop: '25%',
             alignSelf: 'center',
             marginBottom: 12,
           }}></Image>
@@ -38,7 +39,7 @@ function Forgot3({navigation}) {
 
       <View style={styles.mid}>
         <View>
-          <Invisible width="28" height="28" style={styles.icon}></Invisible>
+          <Invisible width="24" height="24" style={styles.icon}></Invisible>
 
           <TextInput
             style={styles.inputText}
@@ -52,7 +53,7 @@ function Forgot3({navigation}) {
           />
         </View>
         <View>
-          <Invisible width="28" height="28" style={styles.icon}></Invisible>
+          <Invisible width="24" height="24" style={styles.icon}></Invisible>
 
           <TextInput
             style={styles.inputText}
@@ -85,8 +86,6 @@ function Forgot3({navigation}) {
           </TouchableOpacity>
         ))}
       </View>
-
-      <View style={styles.below}></View>
     </SafeAreaView>
   );
 }

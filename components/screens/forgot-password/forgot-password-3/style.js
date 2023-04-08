@@ -14,24 +14,21 @@ const styles = StyleSheet.create({
   },
 
   top: {
-    flex: 40,
+    flex: 45,
     justifyContent: 'center',
-    // backgroundColor: 'yellow',
   },
   mid: {
-    flex: 30,
+    flex: 55,
+    alignItems: 'center',
     // backgroundColor: 'green',
   },
-  below: {
-    flex: 30,
-    // justifyContent: 'center',
-    // backgroundColor: 'red',
-  },
+
   text1: {
     ...TEXT,
     color: 'black',
     fontSize: 30,
     fontWeight: 500,
+    marginVertical: 5,
   },
   text2: {
     ...TEXT,
@@ -46,7 +43,8 @@ const styles = StyleSheet.create({
     color: '#3787ff',
   },
   inputText: {
-    height: 55,
+    height: 52,
+    width: 330,
     borderRadius: 28,
     borderColor: '#3787ff',
     borderWidth: 1,
@@ -58,7 +56,9 @@ const styles = StyleSheet.create({
   button: {
     borderColor: colors.primary,
     borderWidth: 1,
-    height: 55,
+    height: 52,
+    width: 330,
+    borderRadius: 28,
     margin: 5,
     marginHorizontal: 20,
     backgroundColor: colors.primary,
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     position: 'absolute',
-    marginTop: 20,
+    marginTop: 22,
     marginLeft: 35,
   },
 });

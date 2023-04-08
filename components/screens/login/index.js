@@ -38,7 +38,8 @@ function Login({navigation}) {
           style={{
             width: 100,
             height: 100,
-            alignSelf: 'center',
+            marginTop: '25%',
+            marginBottom: 10,
           }}></Image>
         <Text style={styles.text1}>Welcome Back!</Text>
         <Text style={styles.text2}>A handful of model sentence structures</Text>
@@ -55,7 +56,7 @@ function Login({navigation}) {
             paddingLeft={50}
             placeholderTextColor="black"
           />
-          <Email width="26" height="26" style={styles.icons}></Email>
+          <Email width="24" height="24" style={styles.icons}></Email>
         </View>
 
         <View>
@@ -68,7 +69,7 @@ function Login({navigation}) {
             placeholder="Password"
             placeholderTextColor="black"
           />
-          <Invisible width="26" height="26" style={styles.icons}></Invisible>
+          <Invisible width="24" height="24" style={styles.icons}></Invisible>
         </View>
 
         <TouchableOpacity
@@ -79,11 +80,11 @@ function Login({navigation}) {
             style={{
               color: '#5297fe',
               textDecorationLine: 'underline',
-              marginLeft: 255,
-              marginBottom: 12, // TODO FIX
+              marginLeft: 210,
+              marginVertical: 10,
             }}>
             {' '}
-            Forgot Password
+            Forgot Password?
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttonSignIn}>
@@ -103,7 +104,7 @@ function Login({navigation}) {
       <View style={styles.below}>
         <Text style={styles.text3}>(or)</Text>
         <View style={{justifyContent: 'center'}}>
-          <Google width="28" height="28" style={styles.icon}></Google>
+          <Google width="24" height="24" style={styles.icon}></Google>
 
           <TouchableOpacity
             style={{

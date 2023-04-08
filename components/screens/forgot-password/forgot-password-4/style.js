@@ -14,19 +14,14 @@ const styles = StyleSheet.create({
   },
 
   top: {
-    flex: 35,
+    flex: 40,
     justifyContent: 'center',
-    // backgroundColor: 'yellow',
   },
   mid: {
-    flex: 25,
-    // backgroundColor: 'green',
+    flex: 60,
+    alignItems: 'center',
   },
-  below: {
-    flex: 40,
-    // justifyContent: 'center',
-    // backgroundColor: 'red',
-  },
+
   text1: {
     ...TEXT,
     color: 'black',
@@ -43,12 +38,11 @@ const styles = StyleSheet.create({
   button: {
     borderColor: colors.primary,
     borderWidth: 1,
-    height: 55,
-    margin: 5,
-    marginHorizontal: 20,
-    backgroundColor: colors.primary,
+    height: 52,
+    width: 330,
     borderRadius: 28,
-    alignItems: 'center',
+    margin: 50,
+    backgroundColor: colors.primary,
     justifyContent: 'center',
   },
   textInnerBtn: {
@@ -56,7 +50,7 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.h1,
     textAlign: 'center',
     textAlignVertical: 'center',
-    fontWeight: 700,
+    fontWeight: 600,
   },
 });
 export default styles;

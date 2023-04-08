@@ -155,7 +155,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFCC29BE65C09FB092136ED9 /* libPods-Education_app-Education_appTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +162,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E25B9C93FD7AA0E022F79631 /* libPods-Education_app.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,18 +411,11 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				804A2EB6DDED4DA3964A58AC /* Poppins-Black.ttf in Resources */,
 				A7C5D8F8753F4F8AA41CC26C /* Poppins-BlackItalic.ttf in Resources */,
 				C0DDB996865741A2B86FD818 /* Poppins-Bold.ttf in Resources */,
-				4AD9DB59D2C44186B4A5E0C2 /* Poppins-BoldItalic.ttf in Resources */,
-				483DA44DB34C4A5E83586C74 /* Poppins-ExtraBold.ttf in Resources */,
 				B741A9E16B214BCC90CDE290 /* Poppins-ExtraBoldItalic.ttf in Resources */,
-				1A353E45715440328914D1FE /* Poppins-ExtraLight.ttf in Resources */,
-				2C7BB329FC25407EAAE57727 /* Poppins-ExtraLightItalic.ttf in Resources */,
-				1CBF9F7685294A1293859A5D /* Poppins-Italic.ttf in Resources */,
 				842DB61512D14480BD39FEB2 /* Poppins-Light.ttf in Resources */,
 				C1EF1DD436CE4FCDAEE7DEC6 /* Poppins-LightItalic.ttf in Resources */,
-				6EA39BB94235415C927AF3EE /* Poppins-Medium.ttf in Resources */,
 				93E9F576169A4D91A0049BA7 /* Poppins-MediumItalic.ttf in Resources */,
 				F1DAB8FC69E3415AAD1BBD70 /* Poppins-Regular.ttf in Resources */,
 				8348DAEC7D194422BB40F429 /* Poppins-SemiBold.ttf in Resources */,

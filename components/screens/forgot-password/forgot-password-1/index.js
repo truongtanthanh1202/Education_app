@@ -39,15 +39,12 @@ function Forgot1({navigation}) {
 
         <Text style={styles.text2}>A handful of model sentence structures</Text>
       </View>
-
       <View style={styles.mid}>
-        <Email width="28" height="28" style={styles.icon}></Email>
+        <Email width="24" height="24" style={styles.icon}></Email>
 
         <TextInput
           style={styles.inputText}
-          //   keyboardType="numeric"
-
-          paddingLeft={55}
+          paddingLeft={50}
           //   secureTextEntry={true} // tao dau **** trong password
           autoFocus={true} // tu dong bat ra khi mo app
           placeholder="Email"
@@ -79,11 +76,9 @@ function Forgot1({navigation}) {
           }}>
           <Text>We sent a</Text>
           <Text style={styles.text3}> Veritication Code </Text>
-          <Text>to your Email</Text>
+          <Text> to your Email</Text>
         </View>
       </View>
-
-      <View style={styles.below}></View>
     </SafeAreaView>
   );
 }
