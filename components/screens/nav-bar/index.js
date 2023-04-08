@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, Keyboard} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Home from '../home';
@@ -11,15 +11,29 @@ import Profile from '../profile';
 const Tab = createBottomTabNavigator();
 
 const Navbar = () => {
+  const [bottomMarginStatus, setbottomMarginStatus] = useState(20);
+  useEffect(() => {
+    const showNavBar = Keyboard.addListener('keyboardDidShow', () => {
+      setbottomMarginStatus(0);
+    });
+    const hideNavBar = Keyboard.addListener('keyboardDidHide', () => {
+      setbottomMarginStatus(20);
+    });
+
+    return () => {
+      showNavBar.remove();
+      hideNavBar.remove();
+    };
+  }, []);
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
-        tabBarShowLabel: true,
-        headerShown: false,
         tabBarShowLabel: false,
+        headerShown: false,
+        tabBarHideOnKeyboard: true,
         tabBarStyle: {
           position: 'absolute',
-          bottom: 20,
+          bottom: bottomMarginStatus,
           left: 20,
           right: 20,
           elevation: 0.2,
