@@ -7,14 +7,38 @@ import {
   TouchableOpacity,
   TextInput,
   StatusBar,
+  Keyboard,
 } from 'react-native';
 import Google from '../../../asset/icons/google';
 import Invisible from '../../../asset/icons/invisible';
 import Email from '../../../asset/icons/email';
 import {images, fontSizes} from '../../../constants';
 import styles from './style';
+import {isValidEmail, isValidPassword} from '../../utilies/Validations';
 
 function Login({navigation}) {
+  const [KeyboardIsShow, setKeyboardIsShow] = useState(false);
+  // Validate email/password
+  const [textErrorEmail, setTextErrorEmail] = useState('');
+  const [textErrorPassword, setTextErrorPassword] = useState('');
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const isValidationOK = () =>
+    email.length >= 0 &&
+    password.length >= 0 &&
+    isValidEmail(email) == true &&
+    isValidPassword(password) == true;
+
+  useEffect(() => {
+    Keyboard.addListener('keyboardDidShow', () => {
+      setKeyboardIsShow(true);
+    });
+    Keyboard.addListener('keyboardDidHide', () => {
+      setKeyboardIsShow(false);
+    });
+  });
   const [accountTypes, setAccountTypes] = useState([
     {
       name: 'Sign in ',
@@ -22,6 +46,7 @@ function Login({navigation}) {
     },
   ]);
   const handlerToLogin = () => {
+    alert(`Email = ${email}, Password = ${password}`);
     navigation.navigate('Navbar');
   };
   return (
@@ -49,28 +74,56 @@ function Login({navigation}) {
         <View>
           <TextInput
             style={styles.inputButton}
-            // keyboardType="numeric"
-            // secureTextEntry={true} // tao dau **** trong password
-            autoFocus={true} // tu dong bat ra khi mo app
+            // autoFocus={true}
             placeholder="Email id"
             paddingLeft={50}
             placeholderTextColor="black"
+            onChangeText={text => {
+              setTextErrorEmail(
+                isValidEmail(text) == true ? '' : 'Please enter valid email',
+              );
+              setEmail(text);
+            }}
           />
           <Email width="24" height="24" style={styles.icons}></Email>
         </View>
+        <Text
+          style={{
+            color: 'red',
+            fontSize: 12,
+            marginLeft: 0,
+            // marginBottom: 10,
+          }}>
+          {textErrorEmail}
+        </Text>
 
         <View>
           <TextInput
             style={styles.inputButton}
-            // keyboardType="numeric"
             secureTextEntry={true}
-            autoFocus={true}
             paddingLeft={50}
             placeholder="Password"
             placeholderTextColor="black"
+            onChangeText={text => {
+              setTextErrorPassword(
+                isValidPassword(text) == true
+                  ? ''
+                  : 'Password must be at least 6 characters',
+              );
+              setPassword(text);
+            }}
           />
           <Invisible width="24" height="24" style={styles.icons}></Invisible>
         </View>
+        <Text
+          style={{
+            color: 'red',
+            fontSize: 12,
+            marginLeft: 0,
+            // marginBottom: 10,
+          }}>
+          {textErrorPassword}
+        </Text>
 
         <TouchableOpacity
           onPress={() => {
@@ -87,7 +140,10 @@ function Login({navigation}) {
             Forgot Password?
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonSignIn} onPress={handlerToLogin}>
+        <TouchableOpacity
+          style={styles.buttonSignIn}
+          disabled={isValidationOK() == false}
+          onPress={handlerToLogin}>
           <Text
             style={{
               color: 'white',
@@ -101,43 +157,45 @@ function Login({navigation}) {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.below}>
-        <Text style={styles.text3}>(or)</Text>
-        <View style={{justifyContent: 'center'}}>
-          <Google width="24" height="24" style={styles.icon}></Google>
+      {KeyboardIsShow == false && (
+        <View style={styles.below}>
+          <Text style={styles.text3}>(or)</Text>
+          <View style={{justifyContent: 'center'}}>
+            <Google width="24" height="24" style={styles.icon}></Google>
 
-          <TouchableOpacity
+            <TouchableOpacity
+              style={{
+                // alignItems: 'center',
+                flexDirection: 'row',
+                justifyContent: 'center',
+              }}>
+              <Text style={styles.text3}> Sign in with Google</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View
             style={{
-              // alignItems: 'center',
               flexDirection: 'row',
               justifyContent: 'center',
+              padding: 20,
             }}>
-            <Text style={styles.text3}> Sign in with Google</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-            padding: 20,
-          }}>
-          <Text>Don't have an account? </Text>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('Register1');
-            }}>
-            <Text
-              style={{
-                color: '#5297fe',
-                textDecorationLine: 'underline',
+            <Text>Don't have an account? </Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Register1');
               }}>
-              {' '}
-              Sign up
-            </Text>
-          </TouchableOpacity>
+              <Text
+                style={{
+                  color: '#5297fe',
+                  textDecorationLine: 'underline',
+                }}>
+                {' '}
+                Sign up
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      )}
     </SafeAreaView>
   );
 }
