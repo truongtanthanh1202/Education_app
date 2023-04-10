@@ -26,23 +26,23 @@ function Search2(props) {
     },
     {
       name: '3D Animation',
-      url: 'https://images.squarespace-cdn.com/content/v1/5b464028697a98ff8ade2f62/1626195523488-D2V7CU4PEFLS6GJV4YFZ/2021-5-26+Colored+Pencil+Drawing+WEBSITE.png',
+      url: 'https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/812DiPC+UCS._AC_UF894,1000_QL80_.jpg',
     },
     {
       name: 'Marketing',
-      url: 'https://images.squarespace-cdn.com/content/v1/5b464028697a98ff8ade2f62/1626195523488-D2V7CU4PEFLS6GJV4YFZ/2021-5-26+Colored+Pencil+Drawing+WEBSITE.png',
+      url: 'https://www.insegment.com/blog/wp-content/uploads/2016/04/The-Role-of-Marketing-1.jpg',
     },
     {
       name: 'Photography',
-      url: 'https://images.squarespace-cdn.com/content/v1/5b464028697a98ff8ade2f62/1626195523488-D2V7CU4PEFLS6GJV4YFZ/2021-5-26+Colored+Pencil+Drawing+WEBSITE.png',
+      url: 'https://cdn.ceoworld.biz/wp-content/uploads/2021/03/wealthy-photographer.jpg',
     },
     {
       name: 'Calligraphy',
-      url: 'https://images.squarespace-cdn.com/content/v1/5b464028697a98ff8ade2f62/1626195523488-D2V7CU4PEFLS6GJV4YFZ/2021-5-26+Colored+Pencil+Drawing+WEBSITE.png',
+      url: 'https://images.squarespace-cdn.com/content/v1/57919d3ab3db2b28ff821d48/1479442745914-16R12UIXAJVLZS4MOC45/Botts+Logo+Scan-transparent-1.png',
     },
     {
       name: 'UX design',
-      url: 'https://images.squarespace-cdn.com/content/v1/5b464028697a98ff8ade2f62/1626195523488-D2V7CU4PEFLS6GJV4YFZ/2021-5-26+Colored+Pencil+Drawing+WEBSITE.png',
+      url: 'https://www.acquisition-international.com/wp-content/uploads/2021/09/UI-UX-Design.jpg',
     },
     {
       name: 'Web develop',

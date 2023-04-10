@@ -72,7 +72,7 @@ const Navbar = () => {
         // '#3788ff',
       })}>
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Search" component={Search2} />
+      <Tab.Screen name="Search" component={Search1} />
       <Tab.Screen name="Course" component={Course} />
       <Tab.Screen name="Profile" component={Profile2} />
     </Tab.Navigator>

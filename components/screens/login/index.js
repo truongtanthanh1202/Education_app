@@ -13,6 +13,7 @@ import Invisible from '../../../asset/icons/invisible';
 import Email from '../../../asset/icons/email';
 import {images, fontSizes} from '../../../constants';
 import styles from './style';
+import {isValidEmail, isValidPassword} from '../../utilies/Validations';
 
 function Login({navigation}) {
   const [accountTypes, setAccountTypes] = useState([
@@ -24,6 +25,21 @@ function Login({navigation}) {
   const handlerToSignup = () => {
     console.log('Process to sign up');
   };
+  //states for validating
+  const [errorEmail, setErrorEmail] = useState('');
+  const [errorPassword, setErrorPassword] = useState('');
+  // state to store email, password
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const handlerToLogin = () => {
+    navigation.navigate('Navbar');
+  };
+  const isValidationOK = () =>
+    email.length >= 0 &&
+    password.length >= 0 &&
+    isValidEmail(email) == true &&
+    isValidPassword(password) == true;
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -48,6 +64,12 @@ function Login({navigation}) {
       <View style={styles.mid}>
         <View>
           <TextInput
+            onChangeText={text => {
+              setErrorEmail(
+                isValidEmail(text) == true ? '' : 'Please enter valid email',
+              );
+              setEmail(text);
+            }}
             style={styles.inputButton}
             // keyboardType="numeric"
             // secureTextEntry={true} // tao dau **** trong password
@@ -56,11 +78,27 @@ function Login({navigation}) {
             paddingLeft={50}
             placeholderTextColor="black"
           />
+          <Text
+            style={{
+              color: 'red',
+              fontSize: 12,
+              marginLeft: 32,
+            }}>
+            {errorEmail}
+          </Text>
           <Email width="24" height="24" style={styles.icons}></Email>
         </View>
 
         <View>
           <TextInput
+            onChangeText={text => {
+              setErrorPassword(
+                isValidPassword(text) == true
+                  ? ''
+                  : 'Password must be at least 6 characters',
+              );
+              setPassword(text);
+            }}
             style={styles.inputButton}
             // keyboardType="numeric"
             secureTextEntry={true}
@@ -69,6 +107,14 @@ function Login({navigation}) {
             placeholder="Password"
             placeholderTextColor="black"
           />
+          <Text
+            style={{
+              color: 'red',
+              fontSize: 12,
+              marginLeft: 32,
+            }}>
+            {errorPassword}
+          </Text>
           <Invisible width="24" height="24" style={styles.icons}></Invisible>
         </View>
 
@@ -87,7 +133,11 @@ function Login({navigation}) {
             Forgot Password?
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonSignIn}>
+        <TouchableOpacity
+          disabled={isValidationOK() == false}
+          style={styles.buttonSignIn}
+          onPress={handlerToLogin}
+          isSelected={isValidationOK() == true ? true : false}>
           <Text
             style={{
               color: 'white',
@@ -132,7 +182,6 @@ function Login({navigation}) {
                 color: '#5297fe',
                 textDecorationLine: 'underline',
               }}>
-              {' '}
               Sign up
             </Text>
           </TouchableOpacity>
