@@ -44,6 +44,7 @@ function Register3(props) {
         {accountTypes.map(accountType => (
           <TouchableOpacity
             onPress={() => {
+              props.navigation.navigate('Login');
               setAccountTypes(
                 accountTypes.map(eachAccountType => {
                   return {
@@ -55,7 +56,7 @@ function Register3(props) {
             }}
             isSelected={accountType.isSelected}
             style={styles.button}>
-            <Text style={styles.textInnerBtn}>Let Start Learning</Text>
+            <Text style={styles.textInnerBtn}>Login, then Learning</Text>
           </TouchableOpacity>
         ))}
       </View>
