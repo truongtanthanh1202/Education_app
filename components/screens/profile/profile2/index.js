@@ -90,7 +90,7 @@ const Profile2 = () => {
           </ScrollView>
         </View>
 
-        <View style={styles.below}>
+        <View style={styles.mid}>
           <ScrollView style={{marginHorizontal: 20, marginTop: 14}}>
             <Text style={{fontSize: 20, fontWeight: 500, marginTop: 14}}>
               Profile information
@@ -98,6 +98,56 @@ const Profile2 = () => {
             {/* Profile Section 1 */}
             {renderProfileSection1()}
           </ScrollView>
+        </View>
+        <View style={styles.below}>
+          <View
+            style={{
+              flexDirection: 'row',
+              backgroundColor: '#3787ff',
+              borderRadius: 50,
+              height: 90,
+              marginHorizontal: 20,
+            }}>
+            <TouchableOpacity
+              style={{
+                backgroundColor: '#e4f1f8',
+                width: 120,
+                height: 50,
+                borderRadius: 28,
+                justifyContent: 'center',
+                margin: 20,
+              }}>
+              <Text
+                style={{
+                  fontSize: 22,
+                  fontWeight: 500,
+                  color: 'black',
+                  textAlign: 'center',
+                }}>
+                Cancel
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                backgroundColor: '#e4f1f8',
+                width: 160,
+                height: 50,
+                borderRadius: 28,
+                justifyContent: 'center',
+                marginLeft: 16,
+                marginTop: 20,
+              }}>
+              <Text
+                style={{
+                  fontSize: 22,
+                  fontWeight: 500,
+                  color: 'black',
+                  textAlign: 'center',
+                }}>
+                Save
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
         {/* </View> */}
       </View>

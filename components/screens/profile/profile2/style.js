@@ -26,8 +26,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
 
+  mid: {
+    flex: 45,
+    backgroundColor: '#e4f1f9',
+  },
   below: {
-    flex: 65,
+    flex: 20,
     backgroundColor: '#e4f1f9',
   },
   text1: {
