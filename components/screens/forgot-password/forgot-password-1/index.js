@@ -45,10 +45,9 @@ function Forgot1({navigation}) {
         <TextInput
           style={styles.inputText}
           paddingLeft={50}
-          //   secureTextEntry={true} // tao dau **** trong password
-          autoFocus={true} // tu dong bat ra khi mo app
+          autoFocus={true}
           placeholder="Email"
-          placeholderTextColor="black" // chu cua holder
+          placeholderTextColor="black"
         />
         {accountTypes.map(accountType => (
           <TouchableOpacity

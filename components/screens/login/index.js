@@ -22,8 +22,8 @@ function Login({navigation}) {
       isSelected: 'false',
     },
   ]);
-  const handlerToSignup = () => {
-    console.log('Process to sign up');
+  const handlerToLogin = () => {
+    navigation.navigate('Navbar');
   };
   //states for validating
   const [errorEmail, setErrorEmail] = useState('');
@@ -31,9 +31,7 @@ function Login({navigation}) {
   // state to store email, password
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const handlerToLogin = () => {
-    navigation.navigate('Navbar');
-  };
+
   const isValidationOK = () =>
     email.length >= 0 &&
     password.length >= 0 &&
@@ -133,11 +131,7 @@ function Login({navigation}) {
             Forgot Password?
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          disabled={isValidationOK() == false}
-          style={styles.buttonSignIn}
-          onPress={handlerToLogin}
-          isSelected={isValidationOK() == true ? true : false}>
+        <TouchableOpacity style={styles.buttonSignIn} onPress={handlerToLogin}>
           <Text
             style={{
               color: 'white',

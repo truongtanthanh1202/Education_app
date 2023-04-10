@@ -92,12 +92,10 @@ function Register2({navigation}) {
           <User width="24" height="24" style={styles.icon}></User>
           <TextInput
             style={styles.inputText}
-            keyboardType="numeric"
-            //   secureTextEntry={true} // tao dau **** trong password
-            autoFocus={true} // tu dong bat ra khi mo app
+            autoFocus={true}
             placeholder="Username"
             paddingLeft={48}
-            placeholderTextColor="black" // chu cua holder
+            placeholderTextColor="black"
           />
         </View>
 
@@ -113,12 +111,9 @@ function Register2({navigation}) {
               setEmail(text);
             }}
             style={styles.inputText}
-            keyboardType="numeric"
             paddingLeft={48}
-            //   secureTextEntry={true} // tao dau **** trong password
-            autoFocus={true} // tu dong bat ra khi mo app
             placeholder="Email id"
-            placeholderTextColor="black" // chu cua holder
+            placeholderTextColor="black"
           />
           <Text
             style={{
@@ -142,12 +137,10 @@ function Register2({navigation}) {
               setPassword(text);
             }}
             style={styles.inputText}
-            keyboardType="numeric"
             secureTextEntry={true} // tao dau **** trong password
-            autoFocus={true} // tu dong bat ra khi mo app
             placeholder="Password"
             paddingLeft={48}
-            placeholderTextColor="black" // chu cua holder
+            placeholderTextColor="black"
           />
         </View>
 
