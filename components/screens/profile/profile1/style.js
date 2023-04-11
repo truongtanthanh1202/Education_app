@@ -1,18 +1,6 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 
-const TEXT = {
-  textAlign: 'center',
-  fontSize: 12,
-};
-const Button = {
-  height: 52,
-  width: 330,
-  borderRadius: 28,
-  justifyContent: 'center',
-  alignItem: 'center',
-  margin: 8,
-};
 const styles = StyleSheet.create({
   container: {
     flex: 100,

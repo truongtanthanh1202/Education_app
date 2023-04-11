@@ -105,17 +105,17 @@ const Profile2 = () => {
               flexDirection: 'row',
               backgroundColor: '#3787ff',
               borderRadius: 50,
-              height: 90,
+              height: 80,
               marginHorizontal: 20,
             }}>
             <TouchableOpacity
               style={{
                 backgroundColor: '#e4f1f8',
-                width: 120,
+                width: 140,
                 height: 50,
                 borderRadius: 28,
                 justifyContent: 'center',
-                margin: 20,
+                margin: 16,
               }}>
               <Text
                 style={{
@@ -130,12 +130,12 @@ const Profile2 = () => {
             <TouchableOpacity
               style={{
                 backgroundColor: '#e4f1f8',
-                width: 160,
+                width: 140,
                 height: 50,
                 borderRadius: 28,
                 justifyContent: 'center',
-                marginLeft: 16,
-                marginTop: 20,
+                marginLeft: 28,
+                marginTop: 16,
               }}>
               <Text
                 style={{

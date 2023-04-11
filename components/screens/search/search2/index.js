@@ -7,6 +7,7 @@ import {
   TextInput,
   ScrollView,
   SafeAreaView,
+  StatusBar,
   FlatList,
   ImageBackground,
 } from 'react-native';
@@ -51,12 +52,18 @@ function Search2(props) {
   ]);
 
   const [searchText, setSearchText] = useState('');
-  const filteredCourses = () =>
-    courses.filter(eachCourse =>
-      eachCourse.name.toLowerCase().includes(searchText.toLowerCase()),
+  const filteredProduct = () =>
+    products.filter(eachProduct =>
+      eachProduct.name.toLowerCase().includes(searchText.toLowerCase()),
     );
   return (
     <ScrollView style={styles.container}>
+      <StatusBar
+        barStyle="dark-content"
+        hidden={false}
+        backgroundColor="transparent"
+        translucent={true}
+      />
       <View style={styles.top}>
         <View
           style={{
@@ -76,19 +83,11 @@ function Search2(props) {
             }}
             placeholder="Search for new Courses!"
             paddingLeft={12}
-            placeholderTextColor="black">
-            {/* <Ionicons
-              name="search-outline"
-              size={38}
-              style={{
-                backgroundColor: 'pink',
-              }}
-            /> */}
-          </TextInput>
+            placeholderTextColor="black"></TextInput>
           <Image
             style={{
               position: 'absolute',
-              top: 75,
+              top: 65,
               right: 16,
               width: 40,
               height: 40,
@@ -147,7 +146,7 @@ function Search2(props) {
         </Text>
         <View style={{flex: 1}}>
           <FlatList
-            data={products}
+            data={filteredProduct()}
             numColumns={2}
             renderItem={({item, index}) => (
               <View

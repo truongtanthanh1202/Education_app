@@ -11,14 +11,14 @@ import Login from './components/screens/login';
 import { Register1, Register2, Register3 } from './components/screens/register';
 import { Forgot1, Forgot2, Forgot3, Forgot4 } from './components/screens/forgot-password';
 import { Search1, Search2 } from './components/screens/search';
-
+import { Profile3 } from './components/screens/profile';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
      <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        {/* <Stack.Screen name="Splash1" component={Splash1} />
+        <Stack.Screen name="Splash1" component={Splash1} />
         <Stack.Screen name="Splash2" component={Splash2} />
         <Stack.Screen name="Splash3" component={Splash3} />
         <Stack.Screen name="Splash4" component={Splash4} />
@@ -29,7 +29,7 @@ const App = () => {
         <Stack.Screen name="Forgot1" component={Forgot1} />
         <Stack.Screen name="Forgot2" component={Forgot2} />
         <Stack.Screen name="Forgot3" component={Forgot3} />
-        <Stack.Screen name="Forgot4" component={Forgot4} /> */}
+        <Stack.Screen name="Forgot4" component={Forgot4} />
         <Stack.Screen name="Navbar" component={Navbar} />
       </Stack.Navigator>
     </NavigationContainer>
