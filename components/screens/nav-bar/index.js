@@ -6,7 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from '../home';
 import {Search1, Search2} from '../search';
 import Course from '../course';
-import {Profile1, Profile2} from '../profile';
+import {Profile1, Profile2, Profile3} from '../profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -69,7 +69,6 @@ const Navbar = () => {
             </View>
           );
         },
-        // '#3788ff',
       })}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Search" component={Search2} />

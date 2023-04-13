@@ -10,11 +10,11 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {images} from '../../../../constants';
+import {images, colors} from '../../../../constants';
 import User from '../../../../asset/icons/user';
 import Invisible from '../../../../asset/icons/invisible';
 import Email from '../../../../asset/icons/email';
-
+import SelectDropdown from 'react-native-select-dropdown';
 import {isValidEmail, isValidPassword} from '../../../utilies/Validations';
 import styles from './style';
 import {Use} from 'react-native-svg';
@@ -37,6 +37,8 @@ function Register2({navigation}) {
       isSelected: 'false',
     },
   ]);
+  const roles = ['Teacher', 'Student'];
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.top}>
@@ -56,9 +58,38 @@ function Register2({navigation}) {
       </View>
 
       <View style={styles.mid}>
+        <View
+          style={{
+            alignItems: 'center',
+            marginBottom: 12,
+          }}>
+          <SelectDropdown
+            buttonStyle={{
+              backgroundColor: '#3787ff',
+              borderRadius: 28,
+              width: 330,
+            }}
+            buttonTextStyle={{color: 'white', fontWeight: 500}}
+            defaultButtonText={'Choose a role'}
+            dropdownStyle={{borderRadius: 16}}
+            data={roles}
+            onSelect={(selectedItem, index) => {
+              console.log(selectedItem, index);
+            }}
+            buttonTextAfterSelection={(selectedItem, index) => {
+              // text represented after item is selected
+              // if data array is an array of objects then return selectedItem.property to render after item is selected
+              return selectedItem;
+            }}
+            rowTextForSelection={(item, index) => {
+              // text represented for each item in dropdown
+              // if data array is an array of objects then return item.property to represent item in dropdown
+              return item;
+            }}
+          />
+        </View>
         <View>
           <User width="24" height="24" style={styles.icon}></User>
-
           <TextInput
             style={styles.inputText}
             autoFocus={true}
@@ -121,23 +152,6 @@ function Register2({navigation}) {
           }}>
           {errorPassword}
         </Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            paddingLeft: 60,
-          }}>
-          <Text style={styles.text2}> I hereby agree to</Text>
-          <Text style={styles.text3}> terms of</Text>
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            paddingLeft: 60,
-          }}>
-          <Text style={styles.text3}> service</Text>
-          <Text style={styles.text2}> and</Text>
-          <Text style={styles.text3}> privacy policy</Text>
-        </View>
       </View>
 
       <View style={styles.below}>

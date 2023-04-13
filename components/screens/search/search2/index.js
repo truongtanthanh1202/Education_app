@@ -7,6 +7,7 @@ import {
   TextInput,
   ScrollView,
   SafeAreaView,
+  StatusBar,
   FlatList,
   ImageBackground,
 } from 'react-native';
@@ -26,23 +27,23 @@ function Search2(props) {
     },
     {
       name: '3D Animation',
-      url: 'https://images.squarespace-cdn.com/content/v1/5b464028697a98ff8ade2f62/1626195523488-D2V7CU4PEFLS6GJV4YFZ/2021-5-26+Colored+Pencil+Drawing+WEBSITE.png',
+      url: 'https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/812DiPC+UCS._AC_UF894,1000_QL80_.jpg',
     },
     {
       name: 'Marketing',
-      url: 'https://images.squarespace-cdn.com/content/v1/5b464028697a98ff8ade2f62/1626195523488-D2V7CU4PEFLS6GJV4YFZ/2021-5-26+Colored+Pencil+Drawing+WEBSITE.png',
+      url: 'https://www.insegment.com/blog/wp-content/uploads/2016/04/The-Role-of-Marketing-1.jpg',
     },
     {
       name: 'Photography',
-      url: 'https://images.squarespace-cdn.com/content/v1/5b464028697a98ff8ade2f62/1626195523488-D2V7CU4PEFLS6GJV4YFZ/2021-5-26+Colored+Pencil+Drawing+WEBSITE.png',
+      url: 'https://cdn.ceoworld.biz/wp-content/uploads/2021/03/wealthy-photographer.jpg',
     },
     {
       name: 'Calligraphy',
-      url: 'https://images.squarespace-cdn.com/content/v1/5b464028697a98ff8ade2f62/1626195523488-D2V7CU4PEFLS6GJV4YFZ/2021-5-26+Colored+Pencil+Drawing+WEBSITE.png',
+      url: 'https://images.squarespace-cdn.com/content/v1/57919d3ab3db2b28ff821d48/1479442745914-16R12UIXAJVLZS4MOC45/Botts+Logo+Scan-transparent-1.png',
     },
     {
       name: 'UX design',
-      url: 'https://images.squarespace-cdn.com/content/v1/5b464028697a98ff8ade2f62/1626195523488-D2V7CU4PEFLS6GJV4YFZ/2021-5-26+Colored+Pencil+Drawing+WEBSITE.png',
+      url: 'https://www.acquisition-international.com/wp-content/uploads/2021/09/UI-UX-Design.jpg',
     },
     {
       name: 'Web develop',
@@ -51,12 +52,18 @@ function Search2(props) {
   ]);
 
   const [searchText, setSearchText] = useState('');
-  const filteredCourses = () =>
-    courses.filter(eachCourse =>
-      eachCourse.name.toLowerCase().includes(searchText.toLowerCase()),
+  const filteredProduct = () =>
+    products.filter(eachProduct =>
+      eachProduct.name.toLowerCase().includes(searchText.toLowerCase()),
     );
   return (
     <ScrollView style={styles.container}>
+      <StatusBar
+        barStyle="dark-content"
+        hidden={false}
+        backgroundColor="transparent"
+        translucent={true}
+      />
       <View style={styles.top}>
         <View
           style={{
@@ -76,19 +83,11 @@ function Search2(props) {
             }}
             placeholder="Search for new Courses!"
             paddingLeft={12}
-            placeholderTextColor="black">
-            {/* <Ionicons
-              name="search-outline"
-              size={38}
-              style={{
-                backgroundColor: 'pink',
-              }}
-            /> */}
-          </TextInput>
+            placeholderTextColor="black"></TextInput>
           <Image
             style={{
               position: 'absolute',
-              top: 75,
+              top: 65,
               right: 16,
               width: 40,
               height: 40,
@@ -147,7 +146,7 @@ function Search2(props) {
         </Text>
         <View style={{flex: 1}}>
           <FlatList
-            data={products}
+            data={filteredProduct()}
             numColumns={2}
             renderItem={({item, index}) => (
               <View

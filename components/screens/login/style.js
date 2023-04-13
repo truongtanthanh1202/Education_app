@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
   inputButton: {
     ...Button,
-    marginTop: 16,
+    marginTop: 10,
     backgroundColor: 'white',
   },
   buttonSignIn: {
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   },
   icons: {
     position: 'absolute',
-    marginTop: 30,
+    marginTop: 26,
     marginLeft: 20,
   },
 });

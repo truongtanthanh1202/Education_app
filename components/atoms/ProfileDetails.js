@@ -8,6 +8,7 @@ import {
   StyleSheet,
   StatusBar,
   Alert,
+  TextInput,
 } from 'react-native';
 const ProfileValue = ({icon, label, value, onPress}) => {
   return (
@@ -22,7 +23,7 @@ const ProfileValue = ({icon, label, value, onPress}) => {
           {label}
         </Text>
       )}
-      <View
+      <TextInput
         style={{
           flexDirection: 'row',
           height: 50,
@@ -30,22 +31,20 @@ const ProfileValue = ({icon, label, value, onPress}) => {
           alignItems: 'center',
           borderRadius: 24,
           marginBottom: 14,
-        }}>
-        {/* Label and Value */}
-        <View
-          style={{
-            flex: 1,
-            marginLeft: 20,
-          }}>
-          <Text
+        }}
+        paddingLeft={20}
+        placeholder={value}
+        placeholderTextColor={'black'}
+        color>
+        {/* <Text
             style={{
               fontSize: 14,
               fontWeight: 400,
             }}>
             {value}
-          </Text>
-        </View>
-      </View>
+          </Text> */}
+        {/* </View> */}
+      </TextInput>
     </View>
   );
 };

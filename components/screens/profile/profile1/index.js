@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Text,
   View,
@@ -74,6 +74,7 @@ const Profile1 = () => {
         backgroundColor="transparent"
         translucent={true}
       />
+
       <View style={styles.context}>
         <View style={styles.top}>
           {renderHeader()}
@@ -86,16 +87,11 @@ const Profile1 = () => {
 
         <View style={styles.below}>
           <ScrollView style={{marginHorizontal: 20, marginTop: 14}}>
-            {/* <Text style={{fontSize: 20, fontWeight: 500, marginTop: 20}}>
-              Profile information
-            </Text> */}
             {/* Profile Section 1 */}
             {renderProfileSection1()}
           </ScrollView>
         </View>
-        {/* </View> */}
       </View>
-      {/* //Header */}
     </SafeAreaView>
   );
 };
