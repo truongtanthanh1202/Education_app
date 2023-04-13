@@ -49,19 +49,6 @@ function Login({navigation}) {
     alert(`Email = ${email}, Password = ${password}`);
     navigation.navigate('Navbar');
   };
-  //states for validating
-  const [errorEmail, setErrorEmail] = useState('');
-  const [errorPassword, setErrorPassword] = useState('');
-  // state to store email, password
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const isValidationOK = () =>
-    email.length >= 0 &&
-    password.length >= 0 &&
-    isValidEmail(email) == true &&
-    isValidPassword(password) == true;
-
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -86,12 +73,6 @@ function Login({navigation}) {
       <View style={styles.mid}>
         <View>
           <TextInput
-            onChangeText={text => {
-              setErrorEmail(
-                isValidEmail(text) == true ? '' : 'Please enter valid email',
-              );
-              setEmail(text);
-            }}
             style={styles.inputButton}
             // autoFocus={true}
             placeholder="Email id"
@@ -104,14 +85,6 @@ function Login({navigation}) {
               setEmail(text);
             }}
           />
-          <Text
-            style={{
-              color: 'red',
-              fontSize: 12,
-              marginLeft: 32,
-            }}>
-            {errorEmail}
-          </Text>
           <Email width="24" height="24" style={styles.icons}></Email>
         </View>
         <Text
@@ -126,14 +99,6 @@ function Login({navigation}) {
 
         <View>
           <TextInput
-            onChangeText={text => {
-              setErrorPassword(
-                isValidPassword(text) == true
-                  ? ''
-                  : 'Password must be at least 6 characters',
-              );
-              setPassword(text);
-            }}
             style={styles.inputButton}
             secureTextEntry={true}
             paddingLeft={50}
@@ -148,14 +113,6 @@ function Login({navigation}) {
               setPassword(text);
             }}
           />
-          <Text
-            style={{
-              color: 'red',
-              fontSize: 12,
-              marginLeft: 32,
-            }}>
-            {errorPassword}
-          </Text>
           <Invisible width="24" height="24" style={styles.icons}></Invisible>
         </View>
         <Text
