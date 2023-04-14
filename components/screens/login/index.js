@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from 'react';
 import {
   Text,
   View,
@@ -8,23 +8,23 @@ import {
   TextInput,
   StatusBar,
   Keyboard,
-} from "react-native";
-import Google from "../../../asset/icons/google";
-import Invisible from "../../../asset/icons/invisible";
-import Email from "../../../asset/icons/email";
-import { images, fontSizes } from "../../../constants";
-import styles from "./style";
-import { isValidEmail, isValidPassword } from "../../utilies/Validations";
-import axios from "axios";
+} from 'react-native';
+import Google from '../../../asset/icons/google';
+import Invisible from '../../../asset/icons/invisible';
+import Email from '../../../asset/icons/email';
+import {images, fontSizes} from '../../../constants';
+import styles from './style';
+import {isValidEmail, isValidPassword} from '../../utilies/Validations';
+import axios from 'axios';
 
-function Login({ navigation }) {
+function Login({navigation}) {
   const [KeyboardIsShow, setKeyboardIsShow] = useState(false);
   // Validate email/password
-  const [textErrorEmail, setTextErrorEmail] = useState("");
-  const [textErrorPassword, setTextErrorPassword] = useState("");
+  const [textErrorEmail, setTextErrorEmail] = useState('');
+  const [textErrorPassword, setTextErrorPassword] = useState('');
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const isValidationOK = () =>
     email.length >= 0 &&
@@ -33,17 +33,17 @@ function Login({ navigation }) {
     isValidPassword(password) == true;
 
   useEffect(() => {
-    Keyboard.addListener("keyboardDidShow", () => {
+    Keyboard.addListener('keyboardDidShow', () => {
       setKeyboardIsShow(true);
     });
-    Keyboard.addListener("keyboardDidHide", () => {
+    Keyboard.addListener('keyboardDidHide', () => {
       setKeyboardIsShow(false);
     });
   });
   const [accountTypes, setAccountTypes] = useState([
     {
-      name: "Sign in ",
-      isSelected: "false",
+      name: 'Sign in ',
+      isSelected: 'false',
     },
   ]);
   const handlerToLogin = async () => {
@@ -55,7 +55,7 @@ function Login({ navigation }) {
     const res = await axios.post(`http://10.0.2.2:4848/me/logintest`, userdata);
     const data = res.data;
     alert(JSON.stringify(data));
-    navigation.navigate("Navbar");
+    navigation.navigate('Navbar');
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -71,10 +71,9 @@ function Login({ navigation }) {
           style={{
             width: 100,
             height: 100,
-            marginTop: "25%",
+            marginTop: '25%',
             marginBottom: 10,
-          }}
-        ></Image>
+          }}></Image>
         <Text style={styles.text1}>Welcome Back!</Text>
         <Text style={styles.text2}>A handful of model sentence structures</Text>
       </View>
@@ -87,9 +86,9 @@ function Login({ navigation }) {
             placeholder="Email id"
             paddingLeft={52}
             placeholderTextColor="black"
-            onChangeText={(text) => {
+            onChangeText={text => {
               setTextErrorEmail(
-                isValidEmail(text) == true ? "" : "Please enter valid email"
+                isValidEmail(text) == true ? '' : 'Please enter valid email',
               );
               setEmail(text);
             }}
@@ -98,12 +97,11 @@ function Login({ navigation }) {
         </View>
         <Text
           style={{
-            color: "red",
+            color: 'red',
             fontSize: 12,
             marginLeft: 0,
             // marginBottom: 10,
-          }}
-        >
+          }}>
           {textErrorEmail}
         </Text>
 
@@ -114,11 +112,11 @@ function Login({ navigation }) {
             paddingLeft={50}
             placeholder="Password"
             placeholderTextColor="black"
-            onChangeText={(text) => {
+            onChangeText={text => {
               setTextErrorPassword(
                 isValidPassword(text) == true
-                  ? ""
-                  : "Password must be at least 6 characters"
+                  ? ''
+                  : 'Password must be at least 6 characters',
               );
               setPassword(text);
             }}
@@ -127,46 +125,41 @@ function Login({ navigation }) {
         </View>
         <Text
           style={{
-            color: "red",
+            color: 'red',
             fontSize: 12,
             marginLeft: 0,
             // marginBottom: 10,
-          }}
-        >
+          }}>
           {textErrorPassword}
         </Text>
 
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("Forgot1");
-          }}
-        >
+            navigation.navigate('Forgot1');
+          }}>
           <Text
             style={{
-              color: "#5297fe",
-              textDecorationLine: "underline",
+              color: '#5297fe',
+              textDecorationLine: 'underline',
               marginLeft: 210,
               marginVertical: 10,
-            }}
-          >
-            {" "}
+            }}>
+            {' '}
             Forgot Password?
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonSignIn}
           disabled={isValidationOK() == false}
-          onPress={handlerToLogin}
-        >
+          onPress={handlerToLogin}>
           <Text
             style={{
-              color: "white",
+              color: 'white',
               fontSize: fontSizes.h1,
-              textAlign: "center",
-              textAlignVertical: "center",
+              textAlign: 'center',
+              textAlignVertical: 'center',
               fontWeight: 600,
-            }}
-          >
+            }}>
             Sign in
           </Text>
         </TouchableOpacity>
@@ -175,40 +168,36 @@ function Login({ navigation }) {
       {KeyboardIsShow == false && (
         <View style={styles.below}>
           <Text style={styles.text3}>(or)</Text>
-          <View style={{ justifyContent: "center" }}>
+          <View style={{justifyContent: 'center'}}>
             <Google width="24" height="24" style={styles.icon}></Google>
 
             <TouchableOpacity
               style={{
                 // alignItems: 'center',
-                flexDirection: "row",
-                justifyContent: "center",
-              }}
-            >
+                flexDirection: 'row',
+                justifyContent: 'center',
+              }}>
               <Text style={styles.text3}> Sign in with Google</Text>
             </TouchableOpacity>
           </View>
 
           <View
             style={{
-              flexDirection: "row",
-              justifyContent: "center",
+              flexDirection: 'row',
+              justifyContent: 'center',
               padding: 20,
-            }}
-          >
+            }}>
             <Text>Don't have an account? </Text>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate("Register1");
-              }}
-            >
+                navigation.navigate('Register1');
+              }}>
               <Text
                 style={{
-                  color: "#5297fe",
-                  textDecorationLine: "underline",
-                }}
-              >
-                {" "}
+                  color: '#5297fe',
+                  textDecorationLine: 'underline',
+                }}>
+                {' '}
                 Sign up
               </Text>
             </TouchableOpacity>
