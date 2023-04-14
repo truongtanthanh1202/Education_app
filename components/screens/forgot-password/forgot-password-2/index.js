@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Text,
   View,
@@ -8,17 +8,19 @@ import {
   TextInput,
 } from 'react-native';
 
-import {images} from '../../../../constants';
+import { images } from '../../../../constants';
 import styles from './style';
+import axios from 'axios';
 
-function Forgot2({route, navigation}) {
+function Forgot2({ route, navigation }) {
   const [accountTypes, setAccountTypes] = useState([
     {
       name: 'Change Password',
       isSelected: 'false',
     },
   ]);
-  const {email} = route.params;
+  const { email } = route.params;
+  const [otp, setOTP] = useState('');
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.top}>
@@ -38,6 +40,9 @@ function Forgot2({route, navigation}) {
 
       <View style={styles.mid}>
         <TextInput
+          onChangeText={text => {
+            setOTP(text);
+          }}
           style={styles.inputText}
           //   keyboardType="numeric"
 
@@ -50,7 +55,15 @@ function Forgot2({route, navigation}) {
 
         {accountTypes.map(accountType => (
           <TouchableOpacity
-            onPress={() => {
+            onPress={async () => {
+              const res = await axios.post(
+                `http://10.0.2.2:4848/check/checkOTP`,
+                {
+                  email: email,
+                  otp: otp
+                },
+              );
+              alert(JSON.stringify(res.data));
               navigation.navigate('Forgot3', {
                 email: email,
               });
