@@ -32,8 +32,8 @@ function Register1({navigation}) {
 
         <Text
           style={{
-            fontSize: 14,
-            fontWeight: 600,
+            fontSize: 16,
+            fontFamily: 'Poppins-Medium',
             textAlign: 'center',
             marginTop: 10,
             marginBottom: 20,
@@ -45,14 +45,16 @@ function Register1({navigation}) {
       <View style={styles.mid}>
         <UIButton3
           title="Sign up with email"
+          Backgroundcolor="#3787ff"
+          TextInnreColor="white"
           onPress={() => {
             navigation.navigate('Register2');
           }}></UIButton3>
         <Text
           style={{
             fontSize: 12,
-            fontWeight: 600,
             textAlign: 'center',
+            fontFamily: 'Poppins-Medium',
             color: '#585d69',
           }}>
           {' '}
@@ -61,7 +63,7 @@ function Register1({navigation}) {
         <Text
           style={{
             fontSize: 12,
-            fontWeight: 600,
+            fontFamily: 'Poppins-Medium',
             textAlign: 'center',
             color: '#585d69',
           }}>
@@ -73,7 +75,7 @@ function Register1({navigation}) {
         <Text
           style={{
             fontSize: 14,
-            fontWeight: 600,
+            fontFamily: 'Poppins-Medium',
             textAlign: 'center',
             color: '#383838',
           }}>
@@ -81,6 +83,7 @@ function Register1({navigation}) {
         </Text>
         <UIButton3
           title="Sign in"
+          TextInnreColor="#3787ff"
           onPress={() => {
             navigation.navigate('Login');
           }}></UIButton3>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   button: {
     borderColor: '#3787ff',
     borderRadius: 40,
-    height: 68,
+    height: Platform.OS === 'ios' ? 68 : 60,
     width: 196,
     backgroundColor: '#3787ff',
     alignItems: 'center',
@@ -27,8 +27,7 @@ const styles = StyleSheet.create({
   text: {
     color: 'white',
     fontSize: 16,
-    fontWeight: 600,
-    fontFamily: 'Poppins',
+    fontFamily: 'Poppins-Medium',
     letterSpacing: 0.2,
     textAlign: 'center',
     textAlignVertical: 'center',

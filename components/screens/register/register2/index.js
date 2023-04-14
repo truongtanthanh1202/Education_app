@@ -4,31 +4,47 @@ import {
   View,
   Image,
   SafeAreaView,
-  StyleSheet,
   TouchableOpacity,
   TextInput,
-  StatusBar,
+  TouchableWithoutFeedback,
+  Keyboard,
+  Platform,
 } from 'react-native';
 
 import {images, colors} from '../../../../constants';
 import User from '../../../../asset/icons/user';
 import Invisible from '../../../../asset/icons/invisible';
 import Email from '../../../../asset/icons/email';
-import SelectDropdown from 'react-native-select-dropdown';
 import {isValidEmail, isValidPassword} from '../../../utilies/Validations';
 import styles from './style';
-import {Use} from 'react-native-svg';
+import {Dropdown} from 'react-native-element-dropdown';
+
+const data = [
+  {label: 'Student', value: 'student'},
+  {label: 'Teacher', value: 'teacher'},
+];
 
 function Register2({navigation}) {
+  const [KeyboardIsShow, setKeyboardIsShow] = useState(false);
+  useEffect(() => {
+    Keyboard.addListener('keyboardDidShow', () => {
+      setKeyboardIsShow(true);
+    });
+    Keyboard.addListener('keyboardDidHide', () => {
+      setKeyboardIsShow(false);
+    });
+  });
   //states for validating
   const [errorEmail, setErrorEmail] = useState('');
   const [errorPassword, setErrorPassword] = useState('');
   // state to store email, password
+  const [value, setValue] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const isValidationOK = () =>
     email.length >= 0 &&
     password.length >= 0 &&
+    value !== null &&
     isValidEmail(email) == true &&
     isValidPassword(password) == true;
   const [accountTypes, setAccountTypes] = useState([
@@ -37,7 +53,6 @@ function Register2({navigation}) {
       isSelected: 'false',
     },
   ]);
-  const roles = ['Teacher', 'Student'];
 
   return (
     <SafeAreaView style={styles.container}>
@@ -51,53 +66,35 @@ function Register2({navigation}) {
             alignSelf: 'center',
           }}></Image>
         <Text style={styles.text1}> Create an Account</Text>
-        <Text style={styles.text2}>
-          {' '}
-          A handful of model sentence structures
-        </Text>
+        {KeyboardIsShow == false && (
+          <Text style={styles.text2}>
+            {' '}
+            A handful of model sentence structures
+          </Text>
+        )}
       </View>
 
-      <View style={styles.mid}>
-        <View
-          style={{
-            alignItems: 'center',
-            marginBottom: 12,
-          }}>
-          <SelectDropdown
-            buttonStyle={{
-              backgroundColor: '#3787ff',
-              borderRadius: 28,
-              width: 330,
-            }}
-            buttonTextStyle={{color: 'white', fontWeight: 500}}
-            defaultButtonText={'Choose a role'}
-            dropdownStyle={{borderRadius: 16}}
-            data={roles}
-            onSelect={(selectedItem, index) => {
-              console.log(selectedItem, index);
-            }}
-            buttonTextAfterSelection={(selectedItem, index) => {
-              // text represented after item is selected
-              // if data array is an array of objects then return selectedItem.property to render after item is selected
-              return selectedItem;
-            }}
-            rowTextForSelection={(item, index) => {
-              // text represented for each item in dropdown
-              // if data array is an array of objects then return item.property to represent item in dropdown
-              return item;
-            }}
-          />
-        </View>
-        <View>
-          <User width="24" height="24" style={styles.icon}></User>
-          <TextInput
-            style={styles.inputText}
-            autoFocus={true}
-            placeholder="Username"
-            paddingLeft={48}
-            placeholderTextColor="black"
-          />
-        </View>
+      <View
+        style={styles.mid}
+        onAccessibilityTap={() => {
+          Keyboard.dismiss;
+        }}>
+        <Dropdown
+          style={styles.dropdown}
+          placeholderStyle={styles.placeholderStyle}
+          selectedTextStyle={styles.selectedTextStyle}
+          iconStyle={styles.iconStyle}
+          data={data}
+          maxHeight={300}
+          labelField="label"
+          valueField="value"
+          placeholder="Select a role ..."
+          value={value}
+          onChange={item => {
+            setValue(item.value);
+            // console.log(value);
+          }}
+        />
 
         <View style={{height: 12}}></View>
         <View>
@@ -111,7 +108,6 @@ function Register2({navigation}) {
               setEmail(text);
             }}
             style={styles.inputText}
-            paddingLeft={48}
             placeholder="Email id"
             placeholderTextColor="black"
           />
@@ -119,7 +115,7 @@ function Register2({navigation}) {
             style={{
               color: 'red',
               fontSize: 12,
-              marginLeft: 32,
+              marginLeft: Platform.OS === 'ios' ? 32 : 56,
             }}>
             {errorEmail}
           </Text>
@@ -139,7 +135,6 @@ function Register2({navigation}) {
             style={styles.inputText}
             secureTextEntry={true} // tao dau **** trong password
             placeholder="Password"
-            paddingLeft={48}
             placeholderTextColor="black"
           />
         </View>
@@ -148,7 +143,7 @@ function Register2({navigation}) {
           style={{
             color: 'red',
             fontSize: 12,
-            marginLeft: 32,
+            marginLeft: Platform.OS === 'ios' ? 32 : 56,
           }}>
           {errorPassword}
         </Text>
@@ -160,7 +155,7 @@ function Register2({navigation}) {
             disabled={isValidationOK() == false}
             onPress={() => {
               navigation.navigate('Register3');
-              alert(`Email = ${email}, password= ${password}`);
+              alert(`Role = ${value}, Email = ${email}, password= ${password}`);
               setAccountTypes(
                 accountTypes.map(eachAccountType => {
                   return {
@@ -175,10 +170,6 @@ function Register2({navigation}) {
             <Text style={styles.textInnerBtn}>Create Account</Text>
           </TouchableOpacity>
         ))}
-        <View
-          style={{
-            margin: 4,
-          }}></View>
         <View
           style={{
             flexDirection: 'row',

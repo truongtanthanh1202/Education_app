@@ -1,12 +1,12 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 
 import {colors, fontSizes} from '../../../../constants';
 
 const button = {
   borderColor: colors.primary,
   borderWidth: 1,
-  height: 70,
+  height: Platform.OS === 'ios' ? 68 : 68,
   width: 354,
   margin: 8,
   marginHorizontal: 20,
@@ -19,8 +19,7 @@ const text = {
   fontSize: fontSizes.h1,
   textAlign: 'center',
   textAlignVertical: 'center',
-  fontFamily: 'Poppins',
-  fontWeight: 600,
+  fontFamily: 'Poppins-Medium',
 };
 
 const styles = StyleSheet.create({

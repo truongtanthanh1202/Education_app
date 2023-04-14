@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import {colors, fontSizes} from '../../../../constants';
 
 const TEXT = {
@@ -26,24 +26,22 @@ const styles = StyleSheet.create({
     ...TEXT,
     color: 'black',
     fontSize: 28,
-    fontWeight: 500,
-    marginBottom: 2,
+    fontFamily: 'Poppins-Medium',
   },
   text2: {
     ...TEXT,
     fontSize: 12,
-    fontWeight: 500,
+    fontFamily: 'Poppins-Medium',
     color: '#383838',
-    lineHeight: 18,
-    // marginTop: 2,
+    marginHorizontal: 50,
   },
   button: {
     marginTop: 60,
     borderColor: colors.primary,
     borderWidth: 1,
-    height: 52,
+    height: Platform.OS === 'ios' ? 52 : 60,
     width: 330,
-    borderRadius: 28,
+    borderRadius: 30,
     margin: 5,
     marginHorizontal: 20,
     backgroundColor: colors.primary,
@@ -54,7 +52,7 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.h1,
     textAlign: 'center',
     textAlignVertical: 'center',
-    fontWeight: 600,
+    fontFamily: 'Poppins-Medium',
   },
 });
 

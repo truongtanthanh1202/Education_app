@@ -13,7 +13,7 @@ function UIButton3(props) {
         width: 336,
         margin: 12,
         marginHorizontal: 40,
-        backgroundColor: 'white',
+        backgroundColor: props.Backgroundcolor ?? 'white',
         borderRadius: 40,
         alignItems: 'center',
         justifyContent: 'center',
@@ -22,11 +22,11 @@ function UIButton3(props) {
         color: 'black'}}/> */}
       <Text
         style={{
-          color: 'black',
+          color: props.TextInnreColor ?? 'black',
           fontSize: fontSizes.h1,
           textAlign: 'center',
           textAlignVertical: 'center',
-          fontWeight: '500',
+          fontFamily: 'Poppins-Medium',
         }}>
         {title}
       </Text>

@@ -1,17 +1,15 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 
 const TEXT = {
   textAlign: 'center',
   fontSize: 12,
 };
 const Button = {
-  height: 52,
+  height: Platform.OS === 'ios' ? 52 : 60,
   width: 330,
   borderRadius: 28,
   justifyContent: 'center',
-  alignItem: 'center',
-  margin: 8,
 };
 const styles = StyleSheet.create({
   container: {
@@ -36,22 +34,24 @@ const styles = StyleSheet.create({
     ...Button,
     marginTop: 10,
     backgroundColor: 'white',
+    fontFamily: 'Poppins-Regular',
   },
   buttonSignIn: {
     ...Button,
+    marginVertical: 8,
     backgroundColor: '#3787ff',
   },
   text1: {
     ...TEXT,
     color: 'black',
     fontSize: 26,
-    fontWeight: 500,
+    fontFamily: 'Poppins-Medium',
     marginTop: 10,
   },
   text2: {
     ...TEXT,
     fontSize: 14,
-    fontWeight: 500,
+    fontFamily: 'Poppins-Medium',
     color: '#383838',
     marginTop: 12,
   },
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     textAlign: 'center',
     fontSize: 16,
-    fontWeight: 500,
+    fontFamily: 'Poppins-Medium',
   },
   icon: {
     position: 'absolute',

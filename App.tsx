@@ -10,8 +10,6 @@ import { Splash1, Splash2, Splash3, Splash4 } from './components/screens/splash'
 import Login from './components/screens/login';
 import { Register1, Register2, Register3 } from './components/screens/register';
 import { Forgot1, Forgot2, Forgot3, Forgot4 } from './components/screens/forgot-password';
-import { Search1, Search2 } from './components/screens/search';
-import { Profile3 } from './components/screens/profile';
 const Stack = createNativeStackNavigator();
 
 const App = () => {

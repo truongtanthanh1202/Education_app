@@ -76,7 +76,7 @@ function Login({navigation}) {
             style={styles.inputButton}
             // autoFocus={true}
             placeholder="Email id"
-            paddingLeft={50}
+            paddingLeft={52}
             placeholderTextColor="black"
             onChangeText={text => {
               setTextErrorEmail(

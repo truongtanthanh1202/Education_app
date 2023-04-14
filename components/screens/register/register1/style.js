@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: 'center',
-    fontSize: 30,
-    fontWeight: '500',
+    fontSize: 28,
+    fontFamily: 'Poppins-Medium',
   },
   button3: {
     borderColor: 'white',
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: 'center',
     justifyContent: 'center',
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
   },
   icon: {marginLeft: '8%', marginRight: '8%'},
 });
