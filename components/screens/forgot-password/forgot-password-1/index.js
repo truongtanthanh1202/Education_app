@@ -16,7 +16,7 @@ import Email from '../../../../asset/icons/email';
 
 import styles from './style';
 import ForgotPasswordSVG from '../../../../asset/img/forgot-password-svg';
-import axios from 'axios';
+// import axios from 'axios';
 
 function Forgot1({navigation}) {
   const statusBarHeight = StatusBar.currentHeight;
@@ -58,13 +58,13 @@ function Forgot1({navigation}) {
         {accountTypes.map(accountType => (
           <TouchableOpacity
             onPress={async () => {
-              const res = await axios.post(
-                `http://10.0.2.2:4848/check/sendOTP`,
-                {
-                  email: email,
-                },
-              );
-              alert(JSON.stringify(res.data));
+              // const res = await axios.post(
+              //   `http://10.0.2.2:4848/check/sendOTP`,
+              //   {
+              //     email: email,
+              //   },
+              // );
+              // alert(JSON.stringify(res.data));
               navigation.navigate('Forgot2', {
                 email: email,
               });

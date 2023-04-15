@@ -8,25 +8,17 @@ const styles = StyleSheet.create({
   },
   context: {
     flex: 100,
-    margin: 20,
+    marginHorizontal: 20,
   },
   top: {
-    flex: 90,
+    flex: 30,
+    marginTop: 20,
   },
 
   below: {
-    flex: 10,
-
-    justifyContent: 'center',
+    flex: 70,
   },
 
-  image: {
-    width: 150,
-    height: 150,
-    marginTop: 40,
-
-    alignSelf: 'center',
-  },
   button: {
     backgroundColor: '#3787ff',
     height: 52,

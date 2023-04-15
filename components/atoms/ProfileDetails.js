@@ -10,7 +10,7 @@ import {
   Alert,
   TextInput,
 } from 'react-native';
-const ProfileValue = ({icon, label, value, onPress}) => {
+const ProfileDetails = ({icon, label, value, onPress}) => {
   return (
     <View>
       {label && (
@@ -48,4 +48,4 @@ const ProfileValue = ({icon, label, value, onPress}) => {
     </View>
   );
 };
-export default ProfileValue;
+export default ProfileDetails;
