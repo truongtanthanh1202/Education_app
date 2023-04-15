@@ -11,12 +11,12 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   top: {
-    flex: 90,
+    flex: 80,
   },
 
   below: {
-    flex: 10,
-
+    flex: 20,
+    flexDirection: 'row',
     justifyContent: 'center',
   },
 
@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#3787ff',
-    height: 52,
-    width: 352,
+    width: 92,
+    height: 36,
     borderRadius: 28,
     justifyContent: 'center',
     marginHorizontal: 20,

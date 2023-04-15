@@ -18,7 +18,7 @@ import Email from '../../../../asset/icons/email';
 import {isValidEmail, isValidPassword} from '../../../utilies/Validations';
 import styles from './style';
 import {Dropdown} from 'react-native-element-dropdown';
-import axios from 'axios';
+// import axios from 'axios';
 
 const data = [
   {label: 'Student', value: 'student'},
@@ -163,16 +163,16 @@ function Register2({navigation}) {
                 email: email,
                 password: password,
               };
-              try {
-                const res = await axios.post(
-                  `http://10.0.2.2:4848/${value}/storeInfor`,
-                  userdata,
-                );
-                const data = res.data;
-                alert(JSON.stringify(data));
-              } catch (error) {
-                alert(error);
-              }
+              // try {
+              //   const res = await axios.post(
+              //     `http://10.0.2.2:4848/${value}/storeInfor`,
+              //     userdata,
+              //   );
+              //   const data = res.data;
+              //   alert(JSON.stringify(data));
+              // } catch (error) {
+              //   alert(error);
+              // }
               setAccountTypes(
                 accountTypes.map(eachAccountType => {
                   return {
