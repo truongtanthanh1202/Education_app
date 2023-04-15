@@ -11,13 +11,14 @@ import {
 import {images} from '../../../../constants';
 import styles from './style';
 
-function Forgot2({navigation}) {
+function Forgot2({route, navigation}) {
   const [accountTypes, setAccountTypes] = useState([
     {
       name: 'Change Password',
       isSelected: 'false',
     },
   ]);
+  const {email} = route.params;
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.top}>
@@ -50,7 +51,9 @@ function Forgot2({navigation}) {
         {accountTypes.map(accountType => (
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate('Forgot3');
+              navigation.navigate('Forgot3', {
+                email: email,
+              });
               setAccountTypes(
                 accountTypes.map(eachAccountType => {
                   return {

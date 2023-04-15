@@ -13,13 +13,14 @@ import {
 import {images} from '../../../../constants';
 import styles from './style';
 
-function Forgot4({navigation}) {
+function Forgot4({route, navigation}) {
   const [accountTypes, setAccountTypes] = useState([
     {
       name: 'Sign in',
       isSelected: 'false',
     },
   ]);
+  const {email} = route.params;
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.top}>

@@ -15,6 +15,7 @@ import Email from '../../../asset/icons/email';
 import {images, fontSizes} from '../../../constants';
 import styles from './style';
 import {isValidEmail, isValidPassword} from '../../utilies/Validations';
+import axios from 'axios';
 
 function Login({navigation}) {
   const [KeyboardIsShow, setKeyboardIsShow] = useState(false);
@@ -45,8 +46,15 @@ function Login({navigation}) {
       isSelected: 'false',
     },
   ]);
-  const handlerToLogin = () => {
+  const handlerToLogin = async () => {
     alert(`Email = ${email}, Password = ${password}`);
+    const userdata = {
+      email: email,
+      password: password,
+    };
+    const res = await axios.post(`http://10.0.2.2:4848/me/logintest`, userdata);
+    const data = res.data;
+    alert(JSON.stringify(data));
     navigation.navigate('Navbar');
   };
   return (

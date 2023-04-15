@@ -18,6 +18,7 @@ import Email from '../../../../asset/icons/email';
 import {isValidEmail, isValidPassword} from '../../../utilies/Validations';
 import styles from './style';
 import {Dropdown} from 'react-native-element-dropdown';
+import axios from 'axios';
 
 const data = [
   {label: 'Student', value: 'student'},
@@ -64,7 +65,8 @@ function Register2({navigation}) {
             height: 100,
             margin: 20,
             alignSelf: 'center',
-          }}></Image>
+          }}
+        />
         <Text style={styles.text1}> Create an Account</Text>
         {KeyboardIsShow == false && (
           <Text style={styles.text2}>
@@ -96,9 +98,9 @@ function Register2({navigation}) {
           }}
         />
 
-        <View style={{height: 12}}></View>
+        <View style={{height: 12}} />
         <View>
-          <Email width="24" height="24" style={styles.icon}></Email>
+          <Email width="24" height="24" style={styles.icon} />
 
           <TextInput
             onChangeText={text => {
@@ -121,7 +123,7 @@ function Register2({navigation}) {
           </Text>
         </View>
         <View>
-          <Invisible width="24" height="24" style={styles.icon}></Invisible>
+          <Invisible width="24" height="24" style={styles.icon} />
 
           <TextInput
             onChangeText={text => {
@@ -153,9 +155,24 @@ function Register2({navigation}) {
         {accountTypes.map(accountType => (
           <TouchableOpacity
             disabled={isValidationOK() == false}
-            onPress={() => {
+            onPress={async () => {
               navigation.navigate('Register3');
               alert(`Role = ${value}, Email = ${email}, password= ${password}`);
+              const userdata = {
+                title: value,
+                email: email,
+                password: password,
+              };
+              try {
+                const res = await axios.post(
+                  `http://10.0.2.2:4848/${value}/storeInfor`,
+                  userdata,
+                );
+                const data = res.data;
+                alert(JSON.stringify(data));
+              } catch (error) {
+                alert(error);
+              }
               setAccountTypes(
                 accountTypes.map(eachAccountType => {
                   return {

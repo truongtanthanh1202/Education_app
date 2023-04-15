@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   TextInput,
   StatusBar,
+  Alert,
 } from 'react-native';
 
 import {images} from '../../../../constants';
@@ -15,9 +16,11 @@ import Email from '../../../../asset/icons/email';
 
 import styles from './style';
 import ForgotPasswordSVG from '../../../../asset/img/forgot-password-svg';
+import axios from 'axios';
 
 function Forgot1({navigation}) {
   const statusBarHeight = StatusBar.currentHeight;
+  const [email, setEmail] = useState('');
   const [accountTypes, setAccountTypes] = useState([
     {
       name: 'Continue',
@@ -43,6 +46,9 @@ function Forgot1({navigation}) {
         <Email width="24" height="24" style={styles.icon}></Email>
 
         <TextInput
+          onChangeText={text => {
+            setEmail(text);
+          }}
           style={styles.inputText}
           paddingLeft={50}
           autoFocus={true}
@@ -51,8 +57,17 @@ function Forgot1({navigation}) {
         />
         {accountTypes.map(accountType => (
           <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('Forgot2');
+            onPress={async () => {
+              const res = await axios.post(
+                `http://10.0.2.2:4848/check/sendOTP`,
+                {
+                  email: email,
+                },
+              );
+              alert(JSON.stringify(res.data));
+              navigation.navigate('Forgot2', {
+                email: email,
+              });
               setAccountTypes(
                 accountTypes.map(eachAccountType => {
                   return {
