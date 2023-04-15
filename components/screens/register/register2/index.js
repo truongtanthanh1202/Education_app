@@ -200,7 +200,10 @@ function Register2({navigation}) {
             Already have an account?
           </Text>
 
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Login');
+            }}>
             <Text
               style={{
                 color: '#5297fe',

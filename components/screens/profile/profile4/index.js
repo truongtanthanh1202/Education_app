@@ -14,7 +14,7 @@ import UIButton3 from '../../../atoms/UIButton3';
 import styles from './style';
 import Google from '../../../../asset/icons/google';
 import Facebook from '../../../../asset/icons/facebook';
-function Profile4() {
+function Profile4(props) {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -69,7 +69,11 @@ function Profile4() {
             }}></View>
         </View>
         <View style={styles.below}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              props.navigation.goBack();
+            }}>
             <Text
               style={{
                 fontSize: 14,
@@ -80,7 +84,11 @@ function Profile4() {
               Cancel
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              props.navigation.goBack('Profile3', {});
+            }}>
             <Text
               style={{
                 fontSize: 14,

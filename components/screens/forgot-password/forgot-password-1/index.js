@@ -86,11 +86,13 @@ function Forgot1({navigation}) {
           style={{
             flexDirection: 'row',
             justifyContent: 'center',
-            margin: 8,
+            alignItems: 'center',
+            marginHorizontal: 32,
+            marginTop: 12,
           }}>
-          <Text>We sent a</Text>
+          <Text style={styles.describe}>We sent a</Text>
           <Text style={styles.text3}> Veritication Code </Text>
-          <Text> to your Email</Text>
+          <Text style={styles.describe}> to your Email</Text>
         </View>
       </View>
     </SafeAreaView>

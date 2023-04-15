@@ -14,7 +14,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './style';
 
 import {ProfileSettings, ProfileSettings2} from '../../../atoms';
-function Profile3() {
+function Profile3(props) {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   return (
@@ -28,6 +28,9 @@ function Profile3() {
       <View style={styles.context}>
         <View style={styles.top}>
           <TouchableOpacity
+            onPress={() => {
+              props.navigation.goBack('Profile1', {});
+            }}
             style={{
               position: 'absolute',
               marginLeft: 4,
@@ -48,6 +51,9 @@ function Profile3() {
 
           <View>
             <ProfileSettings
+              onPress={() => {
+                props.navigation.navigate('Profile4');
+              }}
               label="Account"
               value="Profile settings"></ProfileSettings>
             <View style={{margin: 8}}>
@@ -92,6 +98,9 @@ function Profile3() {
                 }}></View>
             </View>
             <ProfileSettings
+              onPress={() => {
+                props.navigation.navigate('Profile5');
+              }}
               label="Security"
               value="Password change"></ProfileSettings>
             <ProfileSettings2

@@ -43,7 +43,7 @@ const ProfileInformation = ({icon, label, onPress}) => {
           )}
 
           {
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onPress}>
               <Ionicons
                 name="create-outline"
                 size={24}

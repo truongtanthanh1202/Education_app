@@ -33,6 +33,7 @@ const ProfileSettings = ({icon, label, value, onPress}) => {
         </Text>
 
         <TouchableOpacity
+          onPress={onPress}
           style={{
             position: 'absolute',
             marginLeft: 260,

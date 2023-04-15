@@ -22,21 +22,19 @@ function Forgot3({route, navigation}) {
   const {email} = route.params;
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.top}>
-        <Image
-          source={images.key2}
-          style={{
-            width: 100,
-            height: 100,
-            marginTop: '25%',
-            alignSelf: 'center',
-            marginBottom: 12,
-          }}></Image>
-        <Text style={styles.text1}>Change Password</Text>
-
-        <Text style={styles.text2}>Your password length consist of</Text>
-        <Text style={styles.text2}>6-characters</Text>
-      </View>
+      <Image
+        source={images.key2}
+        style={{
+          width: 100,
+          height: 100,
+          marginTop: '25%',
+          alignSelf: 'center',
+          marginBottom: 12,
+        }}></Image>
+      <Text style={styles.text1}>Change Password</Text>
+      <Text style={styles.text2}>
+        Your password length consist of 6-characters
+      </Text>
 
       <View style={styles.mid}>
         <View>
@@ -44,13 +42,11 @@ function Forgot3({route, navigation}) {
 
           <TextInput
             style={styles.inputText}
-            //   keyboardType="numeric"
-
             paddingLeft={50}
-            //   secureTextEntry={true} // tao dau **** trong password
-            autoFocus={true} // tu dong bat ra khi mo app
+            autoFocus={true}
+            secureTextEntry={true}
             placeholder="New Password"
-            placeholderTextColor="black" // chu cua holder
+            placeholderTextColor="#333"
           />
         </View>
         <View>
@@ -58,13 +54,10 @@ function Forgot3({route, navigation}) {
 
           <TextInput
             style={styles.inputText}
-            //   keyboardType="numeric"
-
             paddingLeft={50}
-            //   secureTextEntry={true} // tao dau **** trong password
-            autoFocus={true} // tu dong bat ra khi mo app
+            secureTextEntry={true}
             placeholder="Confirm Password"
-            placeholderTextColor="black" // chu cua holder
+            placeholderTextColor="#333"
           />
         </View>
 

@@ -8,7 +8,7 @@ import {
   TextInput,
 } from 'react-native';
 
-import {images} from '../../../../constants';
+import {colors, images} from '../../../../constants';
 import styles from './style';
 
 function Forgot2({route, navigation}) {
@@ -21,66 +21,59 @@ function Forgot2({route, navigation}) {
   const {email} = route.params;
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.top}>
-        <Image
-          source={images.key2}
-          style={{
-            width: 100,
-            height: 100,
-            marginTop: '25%',
-            marginBottom: 12,
-          }}></Image>
-        <Text style={styles.text1}>Enter a Code</Text>
+      <Image
+        source={images.key2}
+        style={{
+          width: 100,
+          height: 100,
+          marginBottom: 8,
+        }}></Image>
+      <Text style={styles.text1}>Enter a Code</Text>
+      <Text style={styles.text2}>
+        We sent a verification code to your email
+      </Text>
 
-        <Text style={styles.text2}>We sent a verification code to</Text>
-        <Text style={styles.text2}>your email </Text>
-      </View>
+      <TextInput
+        style={styles.inputText}
+        keyboardType="numeric"
+        autoFocus={true} // tu dong bat ra khi mo app
+        placeholder="Enter OTP code..."
+        placeholderTextColor="black" // chu cua holder
+      />
 
-      <View style={styles.mid}>
-        <TextInput
-          style={styles.inputText}
-          //   keyboardType="numeric"
-
-          paddingLeft={12}
-          //   secureTextEntry={true} // tao dau **** trong password
-          autoFocus={true} // tu dong bat ra khi mo app
-          placeholder="Enter OTP code..."
-          placeholderTextColor="black" // chu cua holder
-        />
-
-        {accountTypes.map(accountType => (
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('Forgot3', {
-                email: email,
-              });
-              setAccountTypes(
-                accountTypes.map(eachAccountType => {
-                  return {
-                    ...eachAccountType,
-                    isSelected: eachAccountType.name == accountType.name,
-                  };
-                }),
-              );
-            }}
-            style={styles.button}
-            isSelected={accountType.isSelected}>
-            <Text style={styles.textInnerBtn}>Change Password</Text>
-          </TouchableOpacity>
-        ))}
-        <TouchableOpacity>
-          <Text
-            style={{
-              textAlign: 'center',
-              marginTop: 12,
-              color: '#3787ff',
-              textDecorationLine: 'underline',
-            }}>
-            {' '}
-            Resend Code
-          </Text>
+      {accountTypes.map(accountType => (
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Forgot3', {
+              email: email,
+            });
+            setAccountTypes(
+              accountTypes.map(eachAccountType => {
+                return {
+                  ...eachAccountType,
+                  isSelected: eachAccountType.name == accountType.name,
+                };
+              }),
+            );
+          }}
+          style={styles.button}
+          isSelected={accountType.isSelected}>
+          <Text style={styles.textInnerBtn}>Change Password</Text>
         </TouchableOpacity>
-      </View>
+      ))}
+      <TouchableOpacity>
+        <Text
+          style={{
+            textAlign: 'center',
+            marginTop: 12,
+            color: '#3787ff',
+            fontFamily: 'Poppins-Medium',
+            borderBottomColor: colors.primary,
+            borderBottomWidth: 0.5,
+          }}>
+          Resend Code
+        </Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }

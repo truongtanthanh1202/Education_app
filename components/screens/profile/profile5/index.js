@@ -14,7 +14,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './style';
 
 import {ProfileSettings, ProfileSettings2} from '../../../atoms';
-function Profile5() {
+function Profile5(props) {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -25,7 +25,10 @@ function Profile5() {
       />
       <View style={styles.context}>
         <View style={styles.top}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              props.navigation.goBack();
+            }}>
             <Ionicons name="chevron-back-outline" size={24}></Ionicons>
           </TouchableOpacity>
           <Text
@@ -82,7 +85,11 @@ function Profile5() {
               backgroundColor: '#757372',
               marginBottom: 75,
             }}></View>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              props.navigation.goBack('Profile3', {});
+            }}>
             <Text
               style={{
                 fontSize: 14,

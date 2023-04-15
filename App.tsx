@@ -10,14 +10,15 @@ import { Splash1, Splash2, Splash3, Splash4 } from './components/screens/splash'
 import Login from './components/screens/login';
 import { Register1, Register2, Register3 } from './components/screens/register';
 import { Forgot1, Forgot2, Forgot3, Forgot4 } from './components/screens/forgot-password';
-import { Profile3, Profile4, Profile5 } from './components/screens/profile';
+import { Profile1, Profile2, Profile3, Profile4, Profile5 } from './components/screens/profile';
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
      <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        {/* <Stack.Screen name="Splash1" component={Splash1} />
+        <Stack.Screen name="Splash1" component={Splash1} />
         <Stack.Screen name="Splash2" component={Splash2} />
         <Stack.Screen name="Splash3" component={Splash3} />
         <Stack.Screen name="Splash4" component={Splash4} />
@@ -28,10 +29,13 @@ const App = () => {
         <Stack.Screen name="Forgot1" component={Forgot1} />
         <Stack.Screen name="Forgot2" component={Forgot2} />
         <Stack.Screen name="Forgot3" component={Forgot3} />
-        <Stack.Screen name="Forgot4" component={Forgot4} /> */}
+        <Stack.Screen name="Forgot4" component={Forgot4} />
+        <Stack.Screen name="Navbar" component={Navbar} />
+        <Stack.Screen name="Profile1" component={Profile1} />
+        <Stack.Screen name="Profile2" component={Profile2} />
+        <Stack.Screen name="Profile3" component={Profile3} />
+        <Stack.Screen name="Profile4" component={Profile4} />
         <Stack.Screen name="Profile5" component={Profile5} />
-
-        {/* <Stack.Screen name="Navbar" component={Navbar} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import {colors, fontSizes} from '../../../../constants';
 
 const TEXT = {
@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 100,
     justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#e4f1f9',
   },
 
@@ -27,15 +28,19 @@ const styles = StyleSheet.create({
     ...TEXT,
     color: 'black',
     fontSize: 30,
-    fontWeight: 500,
-    marginVertical: 5,
+    fontFamily: 'Poppins-Medium',
+    marginTop: 4,
+    marginBottom: 4,
   },
   text2: {
     ...TEXT,
     fontSize: 14,
-    color: '#383838',
-    lineHeight: 20,
+    color: '#888',
+    fontFamily: 'Poppins-Medium',
+    marginHorizontal: 50,
+    lineHeight: 24,
     marginTop: 2,
+    marginBottom: 32,
   },
   text3: {
     ...TEXT,
@@ -43,14 +48,14 @@ const styles = StyleSheet.create({
     color: '#3787ff',
   },
   inputText: {
-    height: 52,
+    height: Platform.OS === 'ios' ? 52 : 52,
+    fontFamily: 'Poppins-Medium',
     width: 330,
     borderRadius: 28,
     borderColor: '#3787ff',
     borderWidth: 1,
     marginHorizontal: 20,
     justifyContent: 'center',
-    alignItem: 'center',
     margin: 8,
   },
   button: {
@@ -69,9 +74,7 @@ const styles = StyleSheet.create({
   textInnerBtn: {
     color: 'white',
     fontSize: fontSizes.h1,
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    fontWeight: 700,
+    fontFamily: 'Poppins-Medium',
   },
   icon: {
     position: 'absolute',

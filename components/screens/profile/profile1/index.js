@@ -15,7 +15,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import styles from './style';
 import {images} from '../../../../constants';
 import {ProgressBar, ProfileValue, ProfileInformation} from '../../../atoms';
-const Profile1 = () => {
+const Profile1 = props => {
   function renderHeader() {
     return (
       <View
@@ -31,7 +31,10 @@ const Profile1 = () => {
           }}>
           Profile
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            props.navigation.navigate('Profile3');
+          }}>
           <Ionicons name="settings-outline" size={24} />
         </TouchableOpacity>
       </View>
@@ -62,7 +65,12 @@ const Profile1 = () => {
           value="12 month at $8.00/month"></ProfileValue>
         <View style={{margin: 20}}></View>
 
-        <ProfileInformation label="Profile information"></ProfileInformation>
+        <ProfileInformation
+          label="Profile information"
+          onPress={() => {
+            // console.log('Navigate to profile2');
+            props.navigation.navigate('Profile2');
+          }}></ProfileInformation>
       </View>
     );
   }

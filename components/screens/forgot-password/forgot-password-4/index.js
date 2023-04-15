@@ -35,16 +35,11 @@ function Forgot4({route, navigation}) {
       </View>
 
       <View style={styles.mid}>
-        <Text style={styles.text1}>Password Changed</Text>
-        <Text style={styles.text1}>Successfully!</Text>
-
+        <Text style={styles.text1}>Password Changed Successfully!</Text>
         <Text style={styles.text2}>
-          If you are going to use a passage of Lorem ipsum
+          If you are going to use a passage of Lorem ipsum you need to be sure
+          there isn't anything embarrassing
         </Text>
-        <Text style={styles.text2}>
-          you need to be sure there isn't anything
-        </Text>
-        <Text style={styles.text2}>embarrassing</Text>
         {accountTypes.map(accountType => (
           <TouchableOpacity
             onPress={() => {

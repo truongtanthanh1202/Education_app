@@ -20,7 +20,7 @@ import {
   ProfileInformation,
   ProfileDetails,
 } from '../../../atoms';
-const Profile2 = () => {
+const Profile2 = props => {
   function renderHeader() {
     return (
       <View
@@ -109,6 +109,9 @@ const Profile2 = () => {
               marginHorizontal: 20,
             }}>
             <TouchableOpacity
+              onPress={() => {
+                props.navigation.goBack();
+              }}
               style={{
                 backgroundColor: '#e4f1f8',
                 width: 140,
@@ -128,6 +131,13 @@ const Profile2 = () => {
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
+              onPress={() => {
+                props.navigation.goBack('Profile1', {
+                  newPassWord: '',
+                  firstNamr: '',
+                  lastName: '',
+                });
+              }}
               style={{
                 backgroundColor: '#e4f1f8',
                 width: 140,
