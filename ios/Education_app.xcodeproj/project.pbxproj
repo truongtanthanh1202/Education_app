@@ -10,6 +10,7 @@
 		00E356F31AD99517003FC87E /* Education_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* Education_appTests.m */; };
 		0A5CE33A6FDD449CA5D8BF1C /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7341956D6A449FD8DE77806 /* Montserrat-SemiBoldItalic.ttf */; };
 		0F87331AA3694A97A635A387 /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D865BD8993A449E6818F5386 /* Comfortaa-Regular.ttf */; };
+		1062DD2129E93EE800B59136 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67205DFB7C844ED7B62DCD84 /* Poppins-Medium.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -393,6 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1062DD2129E93EE800B59136 /* Poppins-Medium.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				A7C5D8F8753F4F8AA41CC26C /* Poppins-BlackItalic.ttf in Resources */,

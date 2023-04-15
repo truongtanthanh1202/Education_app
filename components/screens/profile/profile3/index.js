@@ -5,16 +5,18 @@ import {
   SafeAreaView,
   TouchableOpacity,
   StatusBar,
-  TextInput,
-  Image,
+  Switch,
 } from 'react-native';
 import {colors, fontSizes} from '../../../../constants';
-import {images} from '../../../../constants';
-import UIButton3 from '../../../atoms/UIButton3';
+
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import styles from './style';
-import Google from '../../../../asset/icons/google';
-import Facebook from '../../../../asset/icons/facebook';
-function Profile3({navigation}) {
+
+import {ProfileSettings, ProfileSettings2} from '../../../atoms';
+function Profile3() {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -25,48 +27,79 @@ function Profile3({navigation}) {
       />
       <View style={styles.context}>
         <View style={styles.top}>
+          <TouchableOpacity
+            style={{
+              position: 'absolute',
+              marginLeft: 4,
+            }}>
+            <Ionicons name="chevron-back-outline" size={24}></Ionicons>
+          </TouchableOpacity>
+
           <Text
             style={{
               fontSize: 20,
-              fontWeight: 700,
+              fontWeight: 600,
+              marginBottom: 36,
+              textAlign: 'center',
+              fontFamily: 'Poppins-Medium',
             }}>
-            Profile settings
+            Settings
           </Text>
-          <Image source={images.avatar} style={styles.image}></Image>
-          <TouchableOpacity
-            style={{
-              backgroundColor: '#3787ff',
-              width: 200,
-              height: 40,
-              borderRadius: 28,
-              justifyContent: 'center',
-              marginTop: 12,
-              marginBottom: 40,
-              alignSelf: 'center',
-            }}>
-            <Text
-              style={{
-                fontSize: 14,
-                fontWeight: 500,
-                color: 'white',
-                textAlign: 'center',
-              }}>
-              Change profile picture
-            </Text>
-          </TouchableOpacity>
-          <TextInput
-            style={{
-              flexDirection: 'row',
-              height: 50,
-              alignItems: 'center',
-            }}
-            placeholder={'new username'}
-            placeholderTextColor={'#757372'}></TextInput>
-          <View
-            style={{
-              height: 1,
-              backgroundColor: '#757372',
-            }}></View>
+
+          <View>
+            <ProfileSettings
+              label="Account"
+              value="Profile settings"></ProfileSettings>
+            <View style={{margin: 8}}>
+              <Text
+                style={{
+                  fontSize: 14,
+                  fontWeight: 600,
+                  marginBottom: 8,
+                  fontFamily: 'Poppins-Medium',
+                }}>
+                Notification
+              </Text>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  height: 30,
+                  alignItems: 'center',
+                  marginBottom: 14,
+                }}>
+                <Text
+                  style={{
+                    color: '#767473',
+                    fontSize: 16,
+                    fontWeight: 400,
+                    fontFamily: 'Poppins-Medium',
+                  }}>
+                  Personalized Notifications
+                </Text>
+                <Switch
+                  trackColor={{false: '#767577', true: '#3787ff'}}
+                  thumbColor={isEnabled ? 'white' : '#f4f3f4'}
+                  ios_backgroundColor="#3e3e3e"
+                  onValueChange={toggleSwitch}
+                  value={isEnabled}
+                  marginLeft={84}
+                />
+              </View>
+              <View
+                style={{
+                  height: 1,
+                  backgroundColor: '#757372',
+                }}></View>
+            </View>
+            <ProfileSettings
+              label="Security"
+              value="Password change"></ProfileSettings>
+            <ProfileSettings2
+              label="Help & Support"
+              value="About us"></ProfileSettings2>
+            <ProfileSettings2 value="Terms & Condition"></ProfileSettings2>
+            <ProfileSettings2 value="Privacy policy"></ProfileSettings2>
+          </View>
         </View>
         <View style={styles.below}>
           <TouchableOpacity style={styles.button}>
@@ -76,19 +109,9 @@ function Profile3({navigation}) {
                 fontWeight: 500,
                 color: 'white',
                 textAlign: 'center',
+                fontFamily: 'Poppins-Medium',
               }}>
-              Cancel
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-            <Text
-              style={{
-                fontSize: 14,
-                fontWeight: 500,
-                color: 'white',
-                textAlign: 'center',
-              }}>
-              Save
+              Sign out
             </Text>
           </TouchableOpacity>
         </View>
