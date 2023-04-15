@@ -11,7 +11,7 @@ import {
 import { images } from '../../../../constants';
 import styles from './style';
 import Invisible from '../../../../asset/icons/invisible';
-import axios from 'axios';
+//import axios from 'axios';
 
 function Forgot3({ route, navigation }) {
   const [accountTypes, setAccountTypes] = useState([
@@ -80,15 +80,15 @@ function Forgot3({ route, navigation }) {
         {accountTypes.map(accountType => (
           <TouchableOpacity
             onPress={async () => {
-              const res = await axios.post(
-                `http://10.0.2.2:4848/me/resetPassword`,
-                {
-                  email: email,
-                  password: password,
-                  confirmpassword: confirmpassword
-                },
-              );
-              alert(JSON.stringify(res.data));
+              // const res = await axios.post(
+              //   `http://10.0.2.2:4848/me/resetPassword`,
+              //   {
+              //     email: email,
+              //     password: password,
+              //     confirmpassword: confirmpassword
+              //   },
+              // );
+              // alert(JSON.stringify(res.data));
               navigation.navigate('Forgot4', {
                 email: email,
               });
