@@ -10,6 +10,7 @@ import {
 
 import {colors, images} from '../../../../constants';
 import styles from './style';
+//import axios from 'axios';
 
 function Forgot2({route, navigation}) {
   const [accountTypes, setAccountTypes] = useState([
@@ -19,6 +20,7 @@ function Forgot2({route, navigation}) {
     },
   ]);
   const {email} = route.params;
+  const [otp, setOTP] = useState('');
   return (
     <SafeAreaView style={styles.container}>
       <Image
@@ -34,16 +36,27 @@ function Forgot2({route, navigation}) {
       </Text>
 
       <TextInput
+        onChangeText={text => {
+          setOTP(text);
+        }}
         style={styles.inputText}
-        keyboardType="numeric"
-        autoFocus={true} // tu dong bat ra khi mo app
+        paddingLeft={12}
+        autoFocus={true}
         placeholder="Enter OTP code..."
-        placeholderTextColor="black" // chu cua holder
+        placeholderTextColor="black"
       />
 
       {accountTypes.map(accountType => (
         <TouchableOpacity
           onPress={() => {
+            // const res = await axios.post(
+            //   `http://10.0.2.2:4848/check/checkOTP`,
+            //   {
+            //     email: email,
+            //     otp: otp
+            //   },
+            // );
+            // alert(JSON.stringify(res.data));
             navigation.navigate('Forgot3', {
               email: email,
             });

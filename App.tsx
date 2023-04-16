@@ -6,17 +6,28 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Navbar from './components/screens/nav-bar';
 
 //Screen components
-import { Splash1, Splash2, Splash3, Splash4 } from './components/screens/splash';
+import {Splash1, Splash2, Splash3, Splash4} from './components/screens/splash';
 import Login from './components/screens/login';
-import { Register1, Register2, Register3 } from './components/screens/register';
-import { Forgot1, Forgot2, Forgot3, Forgot4 } from './components/screens/forgot-password';
-import { Profile1, Profile2, Profile3, Profile4, Profile5 } from './components/screens/profile';
+import {Register1, Register2, Register3} from './components/screens/register';
+import {
+  Forgot1,
+  Forgot2,
+  Forgot3,
+  Forgot4,
+} from './components/screens/forgot-password';
+import {
+  Profile1,
+  Profile2,
+  Profile3,
+  Profile4,
+  Profile5,
+} from './components/screens/profile';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-     <NavigationContainer>
+    <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Splash1" component={Splash1} />
         <Stack.Screen name="Splash2" component={Splash2} />

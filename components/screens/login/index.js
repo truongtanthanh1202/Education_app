@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Text,
   View,
@@ -12,12 +12,13 @@ import {
 import Google from '../../../asset/icons/google';
 import Invisible from '../../../asset/icons/invisible';
 import Email from '../../../asset/icons/email';
-import {images, fontSizes} from '../../../constants';
+import { images, fontSizes } from '../../../constants';
 import styles from './style';
-import {isValidEmail, isValidPassword} from '../../utilies/Validations';
+import { isValidEmail, isValidPassword } from '../../utilies/Validations';
+
 // import axios from 'axios';
 
-function Login({navigation}) {
+function Login({ navigation }) {
   const [KeyboardIsShow, setKeyboardIsShow] = useState(false);
   // Validate email/password
   const [textErrorEmail, setTextErrorEmail] = useState('');
@@ -168,7 +169,7 @@ function Login({navigation}) {
       {KeyboardIsShow == false && (
         <View style={styles.below}>
           <Text style={styles.text3}>(or)</Text>
-          <View style={{justifyContent: 'center'}}>
+          <View style={{ justifyContent: 'center' }}>
             <Google width="24" height="24" style={styles.icon}></Google>
 
             <TouchableOpacity
