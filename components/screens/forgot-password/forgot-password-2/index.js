@@ -10,7 +10,7 @@ import {
 
 import {colors, images} from '../../../../constants';
 import styles from './style';
-//import axios from 'axios';
+import axios from 'axios';
 
 function Forgot2({route, navigation}) {
   const [accountTypes, setAccountTypes] = useState([
@@ -48,15 +48,15 @@ function Forgot2({route, navigation}) {
 
       {accountTypes.map(accountType => (
         <TouchableOpacity
-          onPress={() => {
-            // const res = await axios.post(
-            //   `http://10.0.2.2:4848/check/checkOTP`,
-            //   {
-            //     email: email,
-            //     otp: otp
-            //   },
-            // );
-            // alert(JSON.stringify(res.data));
+          onPress={async () => {
+            const res = await axios.post(
+              `http://10.0.2.2:4848/check/checkOTP`,
+              {
+                email: email,
+                otp: otp,
+              },
+            );
+            alert(JSON.stringify(res.data));
             navigation.navigate('Forgot3', {
               email: email,
             });
