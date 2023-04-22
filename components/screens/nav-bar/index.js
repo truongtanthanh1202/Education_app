@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {View, Text, Image, Keyboard} from 'react-native';
+import {View, Text, Image, Keyboard, Platform} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Home from '../home';
@@ -27,19 +27,26 @@ const Navbar = () => {
   }, []);
   return (
     <Tab.Navigator
+      backgroundColor="333"
       screenOptions={({route}) => ({
         tabBarShowLabel: false,
         headerShown: false,
         tabBarHideOnKeyboard: true,
         tabBarStyle: {
           position: 'absolute',
-          bottom: bottomMarginStatus,
-          left: 20,
-          right: 20,
-          elevation: 0.2,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          paddingBottom: bottomMarginStatus,
           backgroundColor: '#fff',
-          borderRadius: 15,
-          minHeight: 60,
+          borderTopLeftRadius: 28,
+          borderTopRightRadius: 28,
+          minHeight: Platform.OS === 'ios' ? 68 : 76,
+
+          elevation: 2,
+          shadowColor: '#171717',
+          shadowOpacity: 0.5,
+          shadowRadius: 8,
         },
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
@@ -57,12 +64,23 @@ const Navbar = () => {
             <View
               style={{
                 alignItems: 'center',
+                paddingTop: 12,
               }}>
-              <Ionicons name={iconName} size={size} color={color} />
+              <Ionicons
+                name={iconName}
+                size={28}
+                color={color}
+                style={{
+                  paddingBottom: 4,
+                  marginTop: 12,
+                }}
+              />
               <Text
                 disabled={focused ? false : true}
                 style={{
-                  color: focused ? '#3788ff' : '#333',
+                  color: focused ? '#3788ff' : '#555',
+                  fontFamily: 'Poppins-Medium',
+                  fontSize: 14,
                 }}>
                 {route.name}
               </Text>

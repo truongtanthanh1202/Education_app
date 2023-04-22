@@ -1,10 +1,10 @@
 import React from 'react';
-import {Text, View, Image} from 'react-native';
+import {Text, View, Image, SafeAreaView} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Home = () => {
   return (
-    <View
+    <SafeAreaView
       style={{
         flex: 1,
         justifyContent: 'center',
@@ -13,7 +13,7 @@ const Home = () => {
       }}>
       <Ionicons name="home-outline" size={32} />
       <Text>Home</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 

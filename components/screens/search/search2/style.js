@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     flex: 100,
     backgroundColor: '#e4f1f9',
     paddingHorizontal: 20,
+    marginBottom: Platform.OS === 'ios' ? 68 : 76,
   },
   button1: {
     ...TopSearch,
