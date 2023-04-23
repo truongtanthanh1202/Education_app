@@ -1,14 +1,5 @@
-import React, {Component} from 'react';
-import {
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-  StyleSheet,
-  StatusBar,
-} from 'react-native';
-import {colors, fontSizes} from '../../constants';
+import React from 'react';
+import {View} from 'react-native';
 const ProgressBar = ({containerStyle, progress}) => {
   return (
     <View

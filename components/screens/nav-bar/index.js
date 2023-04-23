@@ -27,7 +27,6 @@ const Navbar = () => {
   }, []);
   return (
     <Tab.Navigator
-      backgroundColor="333"
       screenOptions={({route}) => ({
         tabBarShowLabel: false,
         headerShown: false,
@@ -78,7 +77,7 @@ const Navbar = () => {
               <Text
                 disabled={focused ? false : true}
                 style={{
-                  color: focused ? '#3788ff' : '#555',
+                  color: focused ? '#3788ff' : '#777',
                   fontFamily: 'Poppins-Medium',
                   fontSize: 14,
                 }}>
