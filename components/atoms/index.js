@@ -5,6 +5,7 @@ import ProfileInformation from './ProfileInformation';
 import ProfileDetails from './ProfileDetails';
 import ProfileSettings from './ProfileSettings';
 import ProfileSettings2 from './ProfileSettings2';
+import CircularProgress from './CircularProgress';
 
 export {
   UIButton3,
@@ -14,4 +15,5 @@ export {
   ProfileDetails,
   ProfileSettings,
   ProfileSettings2,
+  CircularProgress,
 };

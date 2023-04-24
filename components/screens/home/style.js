@@ -9,7 +9,7 @@ const shadow =
         shadowOpacity: 0.2,
         shadowRadius: 3,
       }
-    : {elevation: 20, shadowColor: '#52006A'};
+    : {elevation: 4, shadowColor: '#171717'};
 
 const styles = StyleSheet.create({
   container: {
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   bellow: {
     flex: 90,
-    backgroundColor: 'lightyellow',
+    backgroundColor: 'white',
   },
   headerLeft: {},
   headerRight: {},
@@ -46,11 +46,71 @@ const styles = StyleSheet.create({
   },
   trackingCard: {
     backgroundColor: '#e4f1f8',
-    marginHorizontal: 20,
     borderRadius: 10,
     padding: 16,
+    zIndex: 1,
+    position: 'absolute',
+    width: '90%',
+    alignSelf: 'center',
     // shadow properties
     ...shadow,
+  },
+  categoryScrollList: {
+    marginLeft: 20,
+    position: 'absolute',
+    bottom: 12,
+  },
+  learningPlanContainer: {
+    paddingHorizontal: 12,
+    paddingTop: 20,
+    paddingBottom: 12,
+    backgroundColor: 'white',
+    borderRadius: 12,
+    marginBottom: 16,
+    ...shadow,
+  },
+  learningPlanList: {
+    maxHeight: 160,
+    marginBottom: 4,
+  },
+  learningPlanItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 12,
+  },
+  learningPlanItemCourse: {
+    fontFamily: 'Poppins-Medium',
+    textAlign: 'left',
+    paddingLeft: 12,
+    flex: 80,
+    fontSize: 13,
+    color: '#333',
+  },
+  learningPlanItemTarget: {
+    fontFamily: 'Poppins-Medium',
+    fontSize: 13,
+    color: '#333',
+  },
+  buttonMore: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textInnerButtonMore: {
+    fontFamily: 'Comfortaa-Regular',
+    fontSize: 16,
+    color: '#333',
+  },
+  describeContainer: {
+    flexDirection: 'row',
+  },
+  describeContainerLeft: {
+    flex: 60,
+    paddingLeft: 20,
+  },
+  describeContainerRigt: {
+    flex: 40,
+    alignItems: 'center',
   },
 });
 
