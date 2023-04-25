@@ -11,6 +11,7 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {ProgressBar, CircularProgress} from '../../atoms';
 import HomeMeeting from '../../../asset/img/home_meeting';
+import CategoryItem from './CategoryItem';
 
 import styles from './style';
 
@@ -104,30 +105,24 @@ const Home = ({route, navigation}) => {
   const renderCategoryScrollList = () => {
     return (
       <ScrollView horizontal={true} style={styles.categoryScrollList}>
-        <View
-          style={{
-            width: 250,
-            height: 153,
-            borderRadius: 12,
-            backgroundColor: '#ceecfe',
-            marginRight: 20,
-          }}></View>
-        <View
-          style={{
-            width: 250,
-            height: 153,
-            borderRadius: 12,
-            backgroundColor: '#bfe4c6',
-            marginRight: 20,
-          }}></View>
-        <View
-          style={{
-            width: 250,
-            height: 153,
-            borderRadius: 12,
-            backgroundColor: '#fbf6b5',
-            marginRight: 20,
-          }}></View>
+        <CategoryItem
+          backgroundColor="#ceecfe"
+          title="What do you want to learn today ?"
+          describe="Get started"
+          svgType="homeCategory1"
+          reverseDirection={false}></CategoryItem>
+        <CategoryItem
+          backgroundColor="#bfe4c6"
+          title="Setup your learning plan!"
+          describe="Calendar"
+          svgType="homeCategory2"
+          reverseDirection={true}></CategoryItem>
+        <CategoryItem
+          backgroundColor="#fbf6b5"
+          title="Explore in our whole courses @@"
+          describe="Let's go"
+          svgType="homeCategory3"
+          reverseDirection={false}></CategoryItem>
       </ScrollView>
     );
   };
