@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     ...shadow,
   },
   categoryScrollList: {
-    marginLeft: 20,
+    marginLeft: 10,
     position: 'absolute',
     bottom: 12,
   },

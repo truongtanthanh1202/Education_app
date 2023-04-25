@@ -12,8 +12,44 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {ProgressBar, CircularProgress} from '../../atoms';
 import HomeMeeting from '../../../asset/img/home_meeting';
 import CategoryItem from './CategoryItem';
+import CourseItem from './CourseItem';
 
 import styles from './style';
+
+const fakeCourses = [
+  {
+    id: 1,
+    description: 'Build and Deploy a website',
+    id_teacher: 'Viet Anh Nguyen',
+    thumbnail:
+      'https://d3mxt5v3yxgcsr.cloudfront.net/courses/7475/course_7475_image.jpg',
+    rate: 5,
+  },
+  {
+    id: 2,
+    description: 'Devops with AWS',
+    id_teacher: 'Microsoft',
+    thumbnail:
+      'https://cdn.mindmajix.com/courses/aws-devops-training-110620.png',
+    rate: 4.5,
+  },
+  {
+    id: 3,
+    description: 'Designing UI-UX',
+    id_teacher: 'Google',
+    thumbnail:
+      'https://product.hstatic.net/200000350979/product/11815017442_1943370500_cd6c686ef9444a1788fc4f63fce0cac8_master.jpg',
+    rate: 4.5,
+  },
+  {
+    id: 4,
+    description: 'Software Engineering',
+    id_teacher: 'Viet Hoang Nguyen',
+    thumbnail:
+      'https://m.media-amazon.com/images/M/MV5BNTFjZmE1ZmQtZTBiNi00M2U3LWFhZjktMDM2NThlYTA3OTJiXkEyXkFqcGdeQXVyODQyNDI4ODg@._V1_.jpg',
+    rate: 4,
+  },
+];
 
 const Home = ({route, navigation}) => {
   const fullName = 'Thanhf';
@@ -110,24 +146,33 @@ const Home = ({route, navigation}) => {
           title="What do you want to learn today ?"
           describe="Get started"
           svgType="homeCategory1"
-          reverseDirection={false}></CategoryItem>
+          reverseDirection={false}
+          onPress={() => {
+            console.log('heluu1');
+          }}></CategoryItem>
         <CategoryItem
           backgroundColor="#bfe4c6"
           title="Setup your learning plan!"
           describe="Calendar"
           svgType="homeCategory2"
-          reverseDirection={true}></CategoryItem>
+          reverseDirection={true}
+          onPress={() => {
+            console.log('heluu2');
+          }}></CategoryItem>
         <CategoryItem
           backgroundColor="#fbf6b5"
           title="Explore in our whole courses @@"
           describe="Let's go"
           svgType="homeCategory3"
-          reverseDirection={false}></CategoryItem>
+          reverseDirection={false}
+          onPress={() => {
+            console.log('heluu3');
+          }}></CategoryItem>
       </ScrollView>
     );
   };
 
-  const renderLearingPlan = () => {
+  const renderLearningPlan = () => {
     return (
       <>
         <View
@@ -254,6 +299,199 @@ const Home = ({route, navigation}) => {
     );
   };
 
+  const renderCoutinueWatchingCategory = () => {
+    return (
+      <>
+        <View
+          style={{
+            backgroundColor: 'white',
+            height: 56,
+          }}>
+          <Text
+            style={{
+              position: 'absolute',
+              left: 24,
+              bottom: 0,
+              fontFamily: 'Poppins-Medium',
+              fontSize: 16,
+              color: '#000',
+            }}>
+            Cotinue to watch
+          </Text>
+          <TouchableOpacity
+            style={{
+              position: 'absolute',
+              bottom: 4,
+              right: 24,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Text
+              style={{
+                fontFamily: 'Comportaa-Medium',
+                fontSize: 16,
+                color: '#3787ff',
+              }}>
+              see more
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        <View
+          style={{
+            backgroundColor: '#e4f1f8',
+            minHeight: 220,
+            paddingBottom: 8,
+          }}>
+          <ScrollView
+            horizontal={true}
+            style={{marginLeft: 10, marginVertical: 4}}>
+            {fakeCourses.map(course => {
+              return (
+                <View key={course.id}>
+                  <CourseItem
+                    source={course.thumbnail}
+                    title={course.description}
+                    owner={course.id_teacher}
+                    rating={course.rate}
+                  />
+                </View>
+              );
+            })}
+          </ScrollView>
+        </View>
+      </>
+    );
+  };
+  const renderPopularCourseCategory = () => {
+    return (
+      <>
+        <View
+          style={{
+            backgroundColor: 'white',
+            height: 56,
+          }}>
+          <Text
+            style={{
+              position: 'absolute',
+              left: 24,
+              bottom: 0,
+              fontFamily: 'Poppins-Medium',
+              fontSize: 16,
+              color: '#000',
+            }}>
+            Popular courses
+          </Text>
+          <TouchableOpacity
+            style={{
+              position: 'absolute',
+              bottom: 4,
+              right: 24,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Text
+              style={{
+                fontFamily: 'Comportaa-Medium',
+                fontSize: 16,
+                color: '#3787ff',
+              }}>
+              see more
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        <View
+          style={{
+            backgroundColor: '#e4f1f8',
+            minHeight: 220,
+            paddingBottom: 8,
+          }}>
+          <ScrollView
+            horizontal={true}
+            style={{marginLeft: 10, marginVertical: 4}}>
+            {fakeCourses.map(course => {
+              return (
+                <View key={course.id}>
+                  <CourseItem
+                    source={course.thumbnail}
+                    title={course.description}
+                    owner={course.id_teacher}
+                    rating={course.rate}
+                  />
+                </View>
+              );
+            })}
+          </ScrollView>
+        </View>
+      </>
+    );
+  };
+  const renderLatestCourseCategory = () => {
+    return (
+      <>
+        <View
+          style={{
+            backgroundColor: 'white',
+            height: 56,
+          }}>
+          <Text
+            style={{
+              position: 'absolute',
+              left: 24,
+              bottom: 0,
+              fontFamily: 'Poppins-Medium',
+              fontSize: 16,
+              color: '#000',
+            }}>
+            Latest Course
+          </Text>
+          <TouchableOpacity
+            style={{
+              position: 'absolute',
+              bottom: 4,
+              right: 24,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Text
+              style={{
+                fontFamily: 'Comportaa-Medium',
+                fontSize: 16,
+                color: '#3787ff',
+              }}>
+              see more
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        <View
+          style={{
+            backgroundColor: '#e4f1f8',
+            minHeight: 220,
+            paddingBottom: 8,
+          }}>
+          <ScrollView
+            horizontal={true}
+            style={{marginLeft: 10, marginVertical: 4}}>
+            {fakeCourses.map(course => {
+              return (
+                <View key={course.id}>
+                  <CourseItem
+                    source={course.thumbnail}
+                    title={course.description}
+                    owner={course.id_teacher}
+                    rating={course.rate}
+                  />
+                </View>
+              );
+            })}
+          </ScrollView>
+        </View>
+      </>
+    );
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -284,8 +522,28 @@ const Home = ({route, navigation}) => {
 
           <View>
             {/* Learning plan section */}
-            {renderLearingPlan()}
+            {renderLearningPlan()}
           </View>
+
+          <View>
+            {/* Cotinue watching section */}
+            {renderCoutinueWatchingCategory()}
+          </View>
+
+          <View>
+            {/* Popular Course section */}
+            {renderPopularCourseCategory()}
+          </View>
+
+          <View>
+            {/* Latest Added Course section */}
+            {renderLatestCourseCategory()}
+          </View>
+          <View
+            style={{
+              backgroundColor: '#e4f1f8',
+              height: 20,
+            }}></View>
         </ScrollView>
       </View>
     </SafeAreaView>

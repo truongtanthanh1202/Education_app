@@ -50,6 +50,7 @@ const CategoryItem = props => {
           {props.title}
         </Text>
         <TouchableOpacity
+          onPress={props.onPress}
           style={{
             maxWidth: 120,
             height: Platform.OS === 'ios' ? 32 : 40,
