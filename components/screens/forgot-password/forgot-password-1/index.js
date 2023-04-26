@@ -9,6 +9,7 @@ import {
   TextInput,
   StatusBar,
   Alert,
+  KeyboardAvoidingView,
 } from 'react-native';
 
 import {images} from '../../../../constants';
@@ -28,7 +29,7 @@ function Forgot1({navigation}) {
     },
   ]);
   return (
-    <SafeAreaView style={styles.container}>
+    <KeyboardAvoidingView style={styles.container}>
       <View style={styles.top}>
         <ForgotPasswordSVG
           width="50%"
@@ -95,7 +96,7 @@ function Forgot1({navigation}) {
           <Text style={styles.describe}> to your Email</Text>
         </View>
       </View>
-    </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 }
 

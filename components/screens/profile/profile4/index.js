@@ -60,7 +60,7 @@ function Profile4(props) {
               height: 50,
               alignItems: 'center',
             }}
-            placeholder={'new username'}
+            placeholder={'New username'}
             placeholderTextColor={'#757372'}></TextInput>
           <View
             style={{

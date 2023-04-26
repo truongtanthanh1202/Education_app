@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Text,
   View,
@@ -8,6 +8,8 @@ import {
   StyleSheet,
   StatusBar,
   Alert,
+  Keyboard,
+  KeyboardAvoidingView,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -21,6 +23,15 @@ import {
   ProfileDetails,
 } from '../../../atoms';
 const Profile2 = props => {
+  const [keyboardIsShown, setKeyboardIsShown] = useState(false);
+  useEffect(() => {
+    Keyboard.addListener('keyboardDidShow', () => {
+      setKeyboardIsShown(true);
+    });
+    Keyboard.addListener('keyboardDidHide', () => {
+      setKeyboardIsShown(false);
+    });
+  });
   function renderHeader() {
     return (
       <View
@@ -81,14 +92,15 @@ const Profile2 = props => {
         translucent={true}
       />
       <View style={styles.context}>
-        <View style={styles.top}>
-          {renderHeader()}
-
-          <ScrollView>
-            {/* Profile Card */}
-            {renderProfileCard()}
-          </ScrollView>
-        </View>
+        {keyboardIsShown == false && (
+          <View style={styles.top}>
+            {renderHeader()}
+            <ScrollView>
+              {/* Profile Card */}
+              {renderProfileCard()}
+            </ScrollView>
+          </View>
+        )}
 
         <View style={styles.mid}>
           <ScrollView style={{marginHorizontal: 20, marginTop: 14}}>

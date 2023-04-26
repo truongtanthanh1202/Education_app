@@ -316,7 +316,7 @@ const Home = ({route, navigation}) => {
               fontSize: 16,
               color: '#000',
             }}>
-            Cotinue to watch
+            Continue to watch
           </Text>
           <TouchableOpacity
             style={{

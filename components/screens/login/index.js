@@ -8,6 +8,8 @@ import {
   TextInput,
   StatusBar,
   Keyboard,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import Google from '../../../asset/icons/google';
 import Invisible from '../../../asset/icons/invisible';
@@ -59,7 +61,9 @@ function Login({navigation}) {
     navigation.navigate('Navbar');
   };
   return (
-    <SafeAreaView style={styles.container}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}>
       <StatusBar
         barStyle="dark-content"
         hidden={false}
@@ -205,7 +209,7 @@ function Login({navigation}) {
           </View>
         </View>
       )}
-    </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 }
 

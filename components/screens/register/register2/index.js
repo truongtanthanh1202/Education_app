@@ -70,7 +70,6 @@ function Register2({navigation}) {
         <Text style={styles.text1}> Create an Account</Text>
         {KeyboardIsShow == false && (
           <Text style={styles.text2}>
-            {' '}
             A handful of model sentence structures
           </Text>
         )}
