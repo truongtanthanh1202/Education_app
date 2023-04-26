@@ -15,11 +15,11 @@ const styles = StyleSheet.create({
   },
 
   mid: {
-    flex: 45,
+    flex: 55.5,
     backgroundColor: '#e4f1f9',
   },
   below: {
-    flex: 20,
+    flex: 10.5,
     backgroundColor: '#e4f1f9',
   },
   text1: {

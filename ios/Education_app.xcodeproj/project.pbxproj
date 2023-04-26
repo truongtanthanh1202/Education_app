@@ -11,12 +11,12 @@
 		0A5CE33A6FDD449CA5D8BF1C /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7341956D6A449FD8DE77806 /* Montserrat-SemiBoldItalic.ttf */; };
 		0F87331AA3694A97A635A387 /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D865BD8993A449E6818F5386 /* Comfortaa-Regular.ttf */; };
 		1062DD2129E93EE800B59136 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67205DFB7C844ED7B62DCD84 /* Poppins-Medium.ttf */; };
+		109B908629F8C7D6005971D7 /* Comfortaa-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDABAE7CBB84AED949AD2A5 /* Comfortaa-Medium.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1B8D59EE82DE4DB7A77B8D36 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AC7BC9043504EABA6DC1AD7 /* Montserrat-Light.ttf */; };
 		21555F1EEF8442A1A7E3FB8E /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F7B3D23179F486EA8AF7066 /* Montserrat-ExtraLightItalic.ttf */; };
-		275B770E3AFD4C6080485963 /* Comfortaa-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDABAE7CBB84AED949AD2A5 /* Comfortaa-Medium.ttf */; };
 		2CE6BAC21DF74DC397376512 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5AEF0DA62F14F05B135A07B /* Montserrat-Black.ttf */; };
 		41FC74D9BE7B41E0B727C341 /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0FC41F295714079896150BB /* Montserrat-Italic.ttf */; };
 		44D4F8EC899E4FFDB23AE0ED /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1A449DEAA3A4EB2BEF36779 /* Montserrat-BlackItalic.ttf */; };
@@ -394,6 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				109B908629F8C7D6005971D7 /* Comfortaa-Medium.ttf in Resources */,
 				1062DD2129E93EE800B59136 /* Poppins-Medium.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
@@ -409,7 +410,6 @@
 				9D489021E552487EAB6B15C4 /* Poppins-Thin.ttf in Resources */,
 				AE688EE670ED41F1BABE4F91 /* Comfortaa-Bold.ttf in Resources */,
 				B83619B58A1647DBACD7CFF0 /* Comfortaa-Light.ttf in Resources */,
-				275B770E3AFD4C6080485963 /* Comfortaa-Medium.ttf in Resources */,
 				0F87331AA3694A97A635A387 /* Comfortaa-Regular.ttf in Resources */,
 				AA4D03EF92E44AA88F735694 /* Comfortaa-SemiBold.ttf in Resources */,
 				2CE6BAC21DF74DC397376512 /* Montserrat-Black.ttf in Resources */,

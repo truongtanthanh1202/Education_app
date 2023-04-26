@@ -209,7 +209,6 @@ function Register2({navigation}) {
                 color: '#5297fe',
                 textDecorationLine: 'underline',
               }}>
-              {' '}
               Sign in
             </Text>
           </TouchableOpacity>

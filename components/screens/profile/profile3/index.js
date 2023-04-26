@@ -119,6 +119,10 @@ function Profile3(props) {
                 color: 'white',
                 textAlign: 'center',
                 fontFamily: 'Poppins-Medium',
+              }}
+              onPress={() => {
+                // AsyncStorage.clear();
+                // props.navigation.replace('Login');
               }}>
               Sign out
             </Text>
