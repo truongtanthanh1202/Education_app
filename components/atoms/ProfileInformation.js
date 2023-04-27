@@ -10,6 +10,7 @@ import {
   Alert,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {images, fontSizes, fontFamilys} from '../../constants';
 
 const ProfileInformation = ({icon, label, value, onPress}) => {
   return (
@@ -35,8 +36,9 @@ const ProfileInformation = ({icon, label, value, onPress}) => {
               style={{
                 color: 'white',
                 fontSize: 22,
-                fontWeight: 600,
+                fontWeight: 500,
                 marginBottom: 20,
+                fontFamily: fontFamilys.f1
               }}>
               {label}
             </Text>
@@ -99,16 +101,18 @@ const ProfileInformation = ({icon, label, value, onPress}) => {
 const styles = StyleSheet.create({
   text: {
     color: 'white',
-    fontSize: 16,
+    fontSize: fontSizes.h1,
     fontWeight: 500,
     marginBottom: 5,
+    fontFamily:fontFamilys.f1
   },
   infoText: {
     color: 'gray',
-    fontSize: 16,
-    fontWeight: 400,
+    fontSize: fontSizes.h1,
     marginBottom: 5,
     marginLeft: 10,
+    fontFamily:fontFamilys.f1
+
   },
 });
 export default ProfileInformation;

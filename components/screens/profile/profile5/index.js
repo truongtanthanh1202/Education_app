@@ -7,7 +7,7 @@ import {
   StatusBar,
   TextInput,
 } from 'react-native';
-import {colors, fontSizes} from '../../../../constants';
+import {colors, fontSizes, fontFamilys} from '../../../../constants';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -37,11 +37,11 @@ function Profile5(props) {
           <Text
             style={{
               fontSize: 20,
-              fontWeight: 600,
+              fontWeight: 700,
               marginBottom: 36,
               marginTop: 12,
               marginLeft: 12,
-              fontFamily: 'Poppins-Medium',
+              fontFamily: fontFamilys.f3,
               color: 'black',
             }}>
             Password change
@@ -97,10 +97,9 @@ function Profile5(props) {
             <Text
               style={{
                 fontSize: 14,
-                fontWeight: 500,
                 color: 'white',
                 textAlign: 'center',
-                fontFamily: 'Poppins-Medium',
+                fontFamily: fontFamilys.f3,
               }}>
               Reset
             </Text>

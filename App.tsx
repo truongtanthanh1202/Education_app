@@ -15,6 +15,7 @@ import {
   Forgot3,
   Forgot4,
 } from './components/screens/forgot-password';
+import {Search1, Search2} from './components/screens/search';
 import {
   Profile1,
   Profile2,
@@ -29,8 +30,8 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        {/* <Stack.Screen name="Splash1" component={Splash1} /> */}
-        {/* <Stack.Screen name="Splash2" component={Splash2} />
+        {/* <Stack.Screen name="Splash1" component={Splash1} />
+        <Stack.Screen name="Splash2" component={Splash2} />
         <Stack.Screen name="Splash3" component={Splash3} />
         <Stack.Screen name="Splash4" component={Splash4} />
         <Stack.Screen name="Login" component={Login} />

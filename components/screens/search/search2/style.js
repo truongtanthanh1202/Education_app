@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 12,
     fontWeight: 500,
-    fontFamily: 'Poppins',
+    fontFamily: 'Poppins-Regular',
     paddingLeft: 20,
     paddingRight: 20,
   },
@@ -33,16 +33,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   topSearch: {
-    flex: 22,
+    flex: 30,
     justifyContent: 'center',
   },
   mid: {
-    flex: 50,
+    flex: 55,
     paddingTop: 10,
   },
-  below: {
-    flex: 8,
-  },
+ 
   linearGradient: {
     flex: 1,
     paddingLeft: 15,

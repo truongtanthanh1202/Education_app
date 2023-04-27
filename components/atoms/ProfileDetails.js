@@ -10,6 +10,8 @@ import {
   Alert,
   TextInput,
 } from 'react-native';
+import {images, fontSizes, fontFamilys} from '../../constants';
+
 const ProfileDetails = ({icon, label, value, onPress}) => {
   return (
     <View>
@@ -20,6 +22,7 @@ const ProfileDetails = ({icon, label, value, onPress}) => {
             fontWeight: 500,
             marginBottom: 8,
             color: 'black',
+            fontFamily:fontFamilys.f3
           }}>
           {label}
         </Text>

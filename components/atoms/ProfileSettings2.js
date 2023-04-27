@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View, Image, TouchableOpacity} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {images, fontFamilys, fontSizes} from '../../constants';
 
 const ProfileSettings2 = ({icon, label, value, onPress}) => {
   return (
@@ -9,9 +10,8 @@ const ProfileSettings2 = ({icon, label, value, onPress}) => {
         <Text
           style={{
             fontSize: 14,
-            fontWeight: 600,
             marginBottom: 16,
-            fontFamily: 'Poppins-Medium',
+            fontFamily: fontFamilys.f3,
             color: 'black',
           }}>
           {label}
@@ -27,8 +27,8 @@ const ProfileSettings2 = ({icon, label, value, onPress}) => {
           style={{
             color: '#767473',
             fontSize: 16,
-            fontWeight: 400,
-            fontFamily: 'Poppins-Medium',
+            // fontWeight: 400,
+            fontFamily: fontFamilys.f2,
           }}>
           {value}
         </Text>

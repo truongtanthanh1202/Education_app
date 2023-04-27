@@ -1,5 +1,7 @@
 import React from 'react';
 import {Text, View, Image, TouchableOpacity} from 'react-native';
+import {images, fontFamilys, fontSizes} from '../../constants';
+
 const ProfileSettings = ({icon, label, value, onPress}) => {
   return (
     <View style={{margin: 8}}>
@@ -7,9 +9,8 @@ const ProfileSettings = ({icon, label, value, onPress}) => {
         <Text
           style={{
             fontSize: 14,
-            fontWeight: 600,
             marginBottom: 8,
-            fontFamily: 'Poppins-Medium',
+            fontFamily: fontFamilys.f3,
             color: 'black',
           }}>
           {label}
@@ -25,11 +26,9 @@ const ProfileSettings = ({icon, label, value, onPress}) => {
         <Text
           style={{
             color: '#767473',
-            fontSize: 16,
+            fontSize: fontSizes.h1,
             fontWeight: 400,
-
-            fontFamily: 'Poppins-Medium',
-          }}>
+            fontFamily: fontFamilys.f2,          }}>
           {value}
         </Text>
 
@@ -48,8 +47,7 @@ const ProfileSettings = ({icon, label, value, onPress}) => {
             style={{
               textAlign: 'center',
               fontSize: 12,
-              fontWeight: 500,
-              fontFamily: 'Poppins-Medium',
+              fontFamily: fontFamilys.f3,
               color: 'black',
             }}>
             manage

@@ -15,7 +15,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {SafeAreaView} from 'react-native-safe-area-context';
 import styles from './style';
-import {images} from '../../../../constants';
+import {images, fontFamilys, fontSizes} from '../../../../constants';
 import {
   ProgressBar,
   ProfileValue,
@@ -42,14 +42,16 @@ const Profile2 = props => {
         }}>
         <Text
           style={{
-            fontSize: 20,
+            fontSize: fontSizes.h2,
             fontWeight: 700,
             color: 'black',
+            fontFamily: fontFamilys.f3
           }}>
           Profile
         </Text>
         <TouchableOpacity>
-          <Ionicons name="settings-outline" size={24} />
+          <Ionicons name="settings-outline" color={'black'}
+           size={24} />
         </TouchableOpacity>
       </View>
     );
@@ -60,11 +62,11 @@ const Profile2 = props => {
         <Image source={images.avatar} style={styles.image}></Image>
         {/* Detail */}
         <View>
-          <Text style={styles.text1}>Rakibull Hassan</Text>
+          <Text style={styles.name}>Rakibull Hassan</Text>
           <ProgressBar
             progress="60%"
             containerStyle={{maginTop: 10}}></ProgressBar>
-          <Text style={{textAlign: 'center', marginTop: 2, color: 'black'}}>
+          <Text style={{textAlign: 'center', marginTop: 2, color: 'black', fontFamily: fontFamilys.f3}}>
             60% Complete your profile
           </Text>
         </View>
@@ -131,21 +133,9 @@ const Profile2 = props => {
               onPress={() => {
                 props.navigation.goBack();
               }}
-              style={{
-                backgroundColor: '#e4f1f8',
-                width: 140,
-                height: 50,
-                borderRadius: 28,
-                justifyContent: 'center',
-                margin: 16,
-              }}>
+              style={styles.button}>
               <Text
-                style={{
-                  fontSize: 22,
-                  fontWeight: 500,
-                  color: 'black',
-                  textAlign: 'center',
-                }}>
+                style={styles.textInButton}>
                 Cancel
               </Text>
             </TouchableOpacity>
@@ -157,22 +147,9 @@ const Profile2 = props => {
                   lastName: '',
                 });
               }}
-              style={{
-                backgroundColor: '#e4f1f8',
-                width: 140,
-                height: 50,
-                borderRadius: 28,
-                justifyContent: 'center',
-                marginLeft: 28,
-                marginTop: 16,
-              }}>
+              style={styles.button}>
               <Text
-                style={{
-                  fontSize: 22,
-                  fontWeight: 500,
-                  color: 'black',
-                  textAlign: 'center',
-                }}>
+                style={styles.textInButton}>
                 Save
               </Text>
             </TouchableOpacity>

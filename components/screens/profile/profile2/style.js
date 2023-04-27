@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import {images, fontFamilys, fontSizes} from '../../../../constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,12 +23,14 @@ const styles = StyleSheet.create({
     flex: 10.5,
     backgroundColor: '#e4f1f9',
   },
-  text1: {
+  name: {
     textAlign: 'center',
     color: 'black',
-    fontSize: 30,
+    fontSize: 24,
     fontWeight: 500,
     marginVertical: 5,
+    fontFamily: fontFamilys.f3,
+
   },
   image: {
     width: 150,
@@ -39,6 +42,20 @@ const styles = StyleSheet.create({
 
     borderColor: '#3787ff',
   },
+  textInButton:{
+    fontSize: 22,
+    fontWeight: 500,
+    color: 'black',
+    textAlign: 'center',
+    fontFamily:fontFamilys.f3
+  }, 
+  button:{backgroundColor: '#e4f1f8',
+  width: 140,
+  height: 48,
+  borderRadius: 28,
+  justifyContent: 'center',
+  marginLeft: 28,
+  marginTop: 16,}
 });
 
 export default styles;

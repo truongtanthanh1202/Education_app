@@ -33,6 +33,7 @@ const ProfileValue = ({icon, label, value, onPress}) => {
               fontSize: 16,
               fontWeight: 500,
               marginBottom: 8,
+              fontFamily: 'Poppins'
             }}>
             {label}
           </Text>
@@ -42,6 +43,8 @@ const ProfileValue = ({icon, label, value, onPress}) => {
             color: 'white',
             fontSize: 14,
             fontWeight: 500,
+            fontFamily: 'Poppins'
+
           }}>
           {value}
         </Text>

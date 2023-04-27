@@ -7,7 +7,7 @@ import {
   StatusBar,
   Switch,
 } from 'react-native';
-import {colors, fontSizes} from '../../../../constants';
+import {colors, fontSizes, fontFamilys} from '../../../../constants';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -43,11 +43,11 @@ function Profile3(props) {
 
           <Text
             style={{
-              fontSize: 20,
-              fontWeight: 600,
+              fontSize: fontSizes.h2,
+              fontWeight: 700,
               marginBottom: 36,
               textAlign: 'center',
-              fontFamily: 'Poppins-Medium',
+              fontFamily: fontFamilys.f3,
               color: 'black',
             }}>
             Settings
@@ -66,7 +66,7 @@ function Profile3(props) {
                   fontSize: 14,
                   fontWeight: 600,
                   marginBottom: 8,
-                  fontFamily: 'Poppins-Medium',
+                  fontFamily: fontFamilys.f3,
                   color: 'black',
                 }}>
                 Notification
@@ -81,9 +81,9 @@ function Profile3(props) {
                 <Text
                   style={{
                     color: '#767473',
-                    fontSize: 16,
+                    fontSize: fontSizes.h1,
                     fontWeight: 400,
-                    fontFamily: 'Poppins-Medium',
+                    fontFamily: fontFamilys.f2,
                   }}>
                   Personalized Notifications
                 </Text>

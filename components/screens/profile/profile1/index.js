@@ -13,7 +13,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {SafeAreaView} from 'react-native-safe-area-context';
 import styles from './style';
-import {images} from '../../../../constants';
+import {images, fontSizes, fontFamilys} from '../../../../constants';
 import {ProgressBar, ProfileValue, ProfileInformation} from '../../../atoms';
 const Profile1 = props => {
   function renderHeader() {
@@ -26,9 +26,11 @@ const Profile1 = props => {
         }}>
         <Text
           style={{
-            fontSize: 20,
+            fontSize: fontSizes.h2,
             fontWeight: 700,
             color: 'black',
+            fontFamily: fontFamilys.f3,
+
           }}>
           Profile
         </Text>
@@ -47,11 +49,12 @@ const Profile1 = props => {
         <Image source={images.avatar} style={styles.image}></Image>
         {/* Detail */}
         <View>
-          <Text style={styles.text1}>Rakibull Hassan</Text>
+          <Text style={styles.name}>Rakibull Hassan</Text>
           <ProgressBar
             progress="60%"
             containerStyle={{maginTop: 10}}></ProgressBar>
-          <Text style={{textAlign: 'center', marginTop: 2, color: 'black'}}>
+          <Text style={{textAlign: 'center', marginTop: 2, color: 'black',    fontFamily: fontFamilys.f3
+}}>
             60% Complete your profile
           </Text>
         </View>

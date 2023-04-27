@@ -11,20 +11,14 @@ const styles = StyleSheet.create({
   top: {
     flex: 25,
     justifyContent: 'center',
-    // backgroundColor: 'purple',
   },
   mid: {
-    flex: 65,
+    flex: 75,
     // backgroundColor: 'yellow',
     paddingLeft: 15,
     paddingTop: 10,
-    // flexDirection: 'row',
   },
-  below: {
-    flex: 10,
-    // justifyContent: 'center',
-    // backgroundColor: 'pink',
-  },
+
   icon: {
     marginLeft: 160,
 

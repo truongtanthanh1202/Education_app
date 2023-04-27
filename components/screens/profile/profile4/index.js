@@ -8,12 +8,11 @@ import {
   TextInput,
   Image,
 } from 'react-native';
-import {colors, fontSizes} from '../../../../constants';
+import {colors, fontSizes, fontFamilys} from '../../../../constants';
 import {images} from '../../../../constants';
 import UIButton3 from '../../../atoms/UIButton3';
 import styles from './style';
-import Google from '../../../../asset/icons/google';
-import Facebook from '../../../../asset/icons/facebook';
+
 function Profile4(props) {
   return (
     <SafeAreaView style={styles.container}>
@@ -28,9 +27,10 @@ function Profile4(props) {
           <Text
             style={{
               marginTop: 20,
-              fontSize: 20,
+              fontSize: fontSizes.h2,
               fontWeight: 700,
               color: 'black',
+              fontFamily:fontFamilys.f3
             }}>
             Profile settings
           </Text>
@@ -52,6 +52,7 @@ function Profile4(props) {
                 fontWeight: 500,
                 color: 'white',
                 textAlign: 'center',
+                fontFamily: fontFamilys.f2
               }}>
               Change profile picture
             </Text>
@@ -79,9 +80,10 @@ function Profile4(props) {
             <Text
               style={{
                 fontSize: 14,
-                fontWeight: 500,
                 color: 'white',
                 textAlign: 'center',
+                fontFamily: fontFamilys.f3
+
               }}>
               Cancel
             </Text>
@@ -94,9 +96,9 @@ function Profile4(props) {
             <Text
               style={{
                 fontSize: 14,
-                fontWeight: 500,
                 color: 'white',
                 textAlign: 'center',
+                fontFamily: fontFamilys.f3
               }}>
               Save
             </Text>

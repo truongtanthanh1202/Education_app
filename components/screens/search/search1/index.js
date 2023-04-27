@@ -8,6 +8,8 @@ import {
   FlatList,
   StatusBar,
   TouchableOpacity,
+  KeyboardAvoidingView,
+   Keyboard, navigation
 } from 'react-native';
 import Filter from '../../../../asset/icons/filter';
 import {images} from '../../../../constants';
@@ -53,12 +55,17 @@ function Search1(props) {
       quantity: '3k students',
       rate: '4.7',
     },
+    
+    
+   
+
   ]);
   const [searchText, setSearchText] = useState('');
   const filteredCourses = () =>
     courses.filter(eachCourse =>
       eachCourse.name.toLowerCase().includes(searchText.toLowerCase()),
     );
+    
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -76,7 +83,7 @@ function Search1(props) {
             }}
             style={{
               height: 65,
-              marginTop: 75,
+              marginTop: 24,
               marginHorizontal: 15,
               backgroundColor: 'white',
               borderRadius: 5,
@@ -88,7 +95,7 @@ function Search1(props) {
           <Image
             style={{
               position: 'absolute',
-              top: 80,
+              top: 30,
               right: 22,
               width: 50,
               height: 50,
@@ -146,7 +153,7 @@ function Search1(props) {
           </View>
         )}
       </View>
-      <View style={styles.below}></View>
+      {/* <View style={styles.below}></View> */}
     </SafeAreaView>
   );
 }

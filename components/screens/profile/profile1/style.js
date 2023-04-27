@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import {images, fontFamilys, fontSizes} from '../../../../constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,12 +19,14 @@ const styles = StyleSheet.create({
     flex: 65,
     backgroundColor: '#e4f1f9',
   },
-  text1: {
+  name: {
     textAlign: 'center',
     color: 'black',
-    fontSize: 30,
+    fontSize: 24,
     fontWeight: 500,
     marginVertical: 5,
+    fontFamily: fontFamilys.f3,
+
   },
   image: {
     width: 150,
