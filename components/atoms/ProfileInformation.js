@@ -37,8 +37,8 @@ const ProfileInformation = ({icon, label, value, onPress}) => {
                 color: 'white',
                 fontSize: 22,
                 fontWeight: 500,
-                marginBottom: 20,
-                fontFamily: fontFamilys.f1
+                marginBottom: 16,
+                fontFamily: fontFamilys.f1,
               }}>
               {label}
             </Text>
@@ -49,7 +49,7 @@ const ProfileInformation = ({icon, label, value, onPress}) => {
               <Ionicons
                 name="create-outline"
                 size={24}
-                marginLeft={100}
+                marginLeft={Platform.OS === 'ios' ? 90 : 108}
                 color={'white'}
               />
             </TouchableOpacity>
@@ -76,8 +76,8 @@ const ProfileInformation = ({icon, label, value, onPress}) => {
               height: 40,
               borderRadius: 10,
               backgroundColor: 'white',
-              justifyContent:'center'        
-             }}>
+              justifyContent: 'center',
+            }}>
             <Text style={styles.infoText}>quickraki@gmail.com</Text>
           </View>
         </View>
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.h1,
     fontWeight: 500,
     marginBottom: 5,
-    fontFamily:fontFamilys.f1
+    fontFamily: fontFamilys.f1,
   },
   infoText: {
     color: 'gray',
