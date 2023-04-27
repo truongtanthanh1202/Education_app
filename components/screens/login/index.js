@@ -149,7 +149,6 @@ function Login({navigation}) {
               marginLeft: 210,
               marginVertical: 10,
             }}>
-            {' '}
             Forgot Password?
           </Text>
         </TouchableOpacity>
@@ -192,7 +191,7 @@ function Login({navigation}) {
               justifyContent: 'center',
               padding: 20,
             }}>
-            <Text>Don't have an account? </Text>
+            <Text style={{color: 'black'}}>Don't have an account? </Text>
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate('Register1');
@@ -202,7 +201,6 @@ function Login({navigation}) {
                   color: '#5297fe',
                   textDecorationLine: 'underline',
                 }}>
-                {' '}
                 Sign up
               </Text>
             </TouchableOpacity>

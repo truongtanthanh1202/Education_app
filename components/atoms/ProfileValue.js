@@ -56,7 +56,7 @@ const ProfileValue = ({icon, label, value, onPress}) => {
           backgroundColor: '#e4f1f8',
           marginRight: 18,
         }}>
-        <Text>Upgrade</Text>
+        <Text style={{color: 'black'}}>Upgrade</Text>
         {/* <Image
           source={icon}
           resizeMode="contain"

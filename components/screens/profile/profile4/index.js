@@ -27,8 +27,10 @@ function Profile4(props) {
         <View style={styles.top}>
           <Text
             style={{
+              marginTop: 20,
               fontSize: 20,
               fontWeight: 700,
+              color: 'black',
             }}>
             Profile settings
           </Text>

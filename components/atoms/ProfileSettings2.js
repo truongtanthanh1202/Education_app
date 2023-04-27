@@ -12,6 +12,7 @@ const ProfileSettings2 = ({icon, label, value, onPress}) => {
             fontWeight: 600,
             marginBottom: 16,
             fontFamily: 'Poppins-Medium',
+            color: 'black',
           }}>
           {label}
         </Text>
@@ -37,7 +38,10 @@ const ProfileSettings2 = ({icon, label, value, onPress}) => {
             position: 'absolute',
             marginLeft: 320,
           }}>
-          <Ionicons name="chevron-forward-outline" size={24}></Ionicons>
+          <Ionicons
+            name="chevron-forward-outline"
+            color={'black'}
+            size={24}></Ionicons>
         </TouchableOpacity>
       </View>
     </View>

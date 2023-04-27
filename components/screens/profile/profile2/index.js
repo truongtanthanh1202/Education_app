@@ -44,6 +44,7 @@ const Profile2 = props => {
           style={{
             fontSize: 20,
             fontWeight: 700,
+            color: 'black',
           }}>
           Profile
         </Text>
@@ -63,7 +64,7 @@ const Profile2 = props => {
           <ProgressBar
             progress="60%"
             containerStyle={{maginTop: 10}}></ProgressBar>
-          <Text style={{textAlign: 'center', marginTop: 2}}>
+          <Text style={{textAlign: 'center', marginTop: 2, color: 'black'}}>
             60% Complete your profile
           </Text>
         </View>
@@ -104,7 +105,13 @@ const Profile2 = props => {
 
         <View style={styles.mid}>
           <ScrollView style={{marginHorizontal: 20, marginTop: 14}}>
-            <Text style={{fontSize: 20, fontWeight: 500, marginTop: 14}}>
+            <Text
+              style={{
+                fontSize: 20,
+                fontWeight: 500,
+                marginTop: 14,
+                color: 'black',
+              }}>
               Profile information
             </Text>
             {/* Profile Section 1 */}

@@ -104,6 +104,7 @@ function Search2(props) {
             fontFamily: 'Poppins',
             marginTop: 28,
             fontWeight: 500,
+            color: 'black',
           }}>
           Top searches
         </Text>
@@ -141,6 +142,7 @@ function Search2(props) {
             fontFamily: 'Poppins',
             marginTop: 20,
             marginBottom: 12,
+            color: 'black',
           }}>
           Categories
         </Text>

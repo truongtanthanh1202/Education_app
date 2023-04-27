@@ -11,12 +11,12 @@ import {
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const ProfileInformation = ({icon, label, onPress}) => {
+const ProfileInformation = ({icon, label, value, onPress}) => {
   return (
     <View
       style={{
         flexDirection: 'row',
-        height: 250,
+        height: 308,
         backgroundColor: '#3787ff',
         // alignItems: 'center',
         borderRadius: 20,
@@ -53,32 +53,46 @@ const ProfileInformation = ({icon, label, onPress}) => {
             </TouchableOpacity>
           }
         </View>
-
-        <Text style={styles.text}>Email Address</Text>
-        <Text style={styles.text}>Password</Text>
-        <Text style={styles.text}>First Name</Text>
-        <Text style={styles.text}>Last Name</Text>
+        <View style={{marginBottom: 10}}>
+          <Text style={styles.text}>Full name</Text>
+          <View
+            style={{
+              width: 315,
+              height: 40,
+              borderRadius: 10,
+              backgroundColor: 'white',
+              justifyContent: 'center',
+            }}>
+            <Text style={styles.infoText}>Rakibull Hassan</Text>
+          </View>
+        </View>
+        <View style={{marginBottom: 10}}>
+          <Text style={styles.text}>Email address</Text>
+          <View
+            style={{
+              width: 315,
+              height: 40,
+              borderRadius: 10,
+              backgroundColor: 'white',
+              justifyContent: 'center',
+            }}>
+            <Text style={styles.infoText}>quickraki@gmail.com</Text>
+          </View>
+        </View>
+        <View style={{marginBottom: 10}}>
+          <Text style={styles.text}>Password</Text>
+          <View
+            style={{
+              width: 315,
+              height: 40,
+              borderRadius: 10,
+              backgroundColor: 'white',
+              justifyContent: 'center',
+            }}>
+            <Text style={styles.infoText}>********</Text>
+          </View>
+        </View>
       </View>
-      {/* <TouchableOpacity
-        style={{
-          width: 80,
-          height: 30,
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderRadius: 20,
-          backgroundColor: '#e4f1f8',
-          marginRight: 18,
-        }}>
-        <Text>Upgrade</Text>
-      </TouchableOpacity> */}
-      {/* <Image
-          source={icon}
-          resizeMode="contain"
-          style={{
-            width: 28,
-            height: 28,
-            tintColor: 'white',
-          }}></Image> */}
     </View>
   );
 };
@@ -87,7 +101,14 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
     fontWeight: 500,
-    marginBottom: 20,
+    marginBottom: 5,
+  },
+  infoText: {
+    color: 'gray',
+    fontSize: 16,
+    fontWeight: 400,
+    marginBottom: 5,
+    marginLeft: 10,
   },
 });
 export default ProfileInformation;

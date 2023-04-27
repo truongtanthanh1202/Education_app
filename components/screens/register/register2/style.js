@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: Platform.OS === 'ios' ? 16 : 16,
+    marginTop: 14,
   },
   textInnerBtn: {
     color: 'white',

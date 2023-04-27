@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 28,
     fontFamily: 'Poppins-Medium',
+    color: 'black',
   },
   button3: {
     borderColor: 'white',

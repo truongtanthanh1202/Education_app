@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
   },
   top: {
     flex: 90,
+    marginTop: 20,
   },
 
   below: {

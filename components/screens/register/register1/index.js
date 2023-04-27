@@ -57,7 +57,6 @@ function Register1({navigation}) {
             fontFamily: 'Poppins-Medium',
             color: '#585d69',
           }}>
-          {' '}
           By signing up you are agreed with our
         </Text>
         <Text
@@ -67,7 +66,6 @@ function Register1({navigation}) {
             textAlign: 'center',
             color: '#585d69',
           }}>
-          {' '}
           friendly terms and condition
         </Text>
       </View>

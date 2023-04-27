@@ -10,6 +10,7 @@ const ProfileSettings = ({icon, label, value, onPress}) => {
             fontWeight: 600,
             marginBottom: 8,
             fontFamily: 'Poppins-Medium',
+            color: 'black',
           }}>
           {label}
         </Text>
@@ -49,6 +50,7 @@ const ProfileSettings = ({icon, label, value, onPress}) => {
               fontSize: 12,
               fontWeight: 500,
               fontFamily: 'Poppins-Medium',
+              color: 'black',
             }}>
             manage
           </Text>

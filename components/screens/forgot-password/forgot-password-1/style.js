@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
     ...TEXT,
     fontSize: 14,
     fontFamily: 'Poppins-Medium',
+    color: 'black',
   },
   inputText: {
     height: 52,

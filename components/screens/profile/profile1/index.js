@@ -28,6 +28,7 @@ const Profile1 = props => {
           style={{
             fontSize: 20,
             fontWeight: 700,
+            color: 'black',
           }}>
           Profile
         </Text>
@@ -35,7 +36,7 @@ const Profile1 = props => {
           onPress={() => {
             props.navigation.navigate('Profile3');
           }}>
-          <Ionicons name="settings-outline" size={24} />
+          <Ionicons name="settings-outline" color={'black'} size={24} />
         </TouchableOpacity>
       </View>
     );
@@ -50,7 +51,7 @@ const Profile1 = props => {
           <ProgressBar
             progress="60%"
             containerStyle={{maginTop: 10}}></ProgressBar>
-          <Text style={{textAlign: 'center', marginTop: 2}}>
+          <Text style={{textAlign: 'center', marginTop: 2, color: 'black'}}>
             60% Complete your profile
           </Text>
         </View>

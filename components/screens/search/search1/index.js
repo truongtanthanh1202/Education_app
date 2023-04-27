@@ -13,6 +13,7 @@ import Filter from '../../../../asset/icons/filter';
 import {images} from '../../../../constants';
 import CourseItem from '../CourseItem';
 import styles from './style';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 /**
  * ListView from a map of objects
@@ -59,7 +60,7 @@ function Search1(props) {
       eachCourse.name.toLowerCase().includes(searchText.toLowerCase()),
     );
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar
         barStyle="dark-content"
         hidden={false}
@@ -67,31 +68,33 @@ function Search1(props) {
         translucent={true}
       />
       <View style={styles.top}>
-        <TextInput
-          autoCorrect={false}
-          onChangeText={text => {
-            setSearchText(text);
-          }}
-          style={{
-            height: 65,
-            marginTop: 75,
-            marginHorizontal: 15,
-            backgroundColor: 'white',
-            borderRadius: 5,
-          }}
-          placeholder="Search for new Courses!"
-          paddingLeft={12}
-          placeholderTextColor="black"></TextInput>
+        <View>
+          <TextInput
+            autoCorrect={false}
+            onChangeText={text => {
+              setSearchText(text);
+            }}
+            style={{
+              height: 65,
+              marginTop: 75,
+              marginHorizontal: 15,
+              backgroundColor: 'white',
+              borderRadius: 5,
+            }}
+            placeholder="Search for new Courses!"
+            paddingLeft={12}
+            placeholderTextColor="black"></TextInput>
 
-        <Image
-          style={{
-            position: 'absolute',
-            top: 75,
-            right: 22,
-            width: 50,
-            height: 50,
-          }}
-          source={images.icon_search}></Image>
+          <Image
+            style={{
+              position: 'absolute',
+              top: 80,
+              right: 22,
+              width: 50,
+              height: 50,
+            }}
+            source={images.icon_search}></Image>
+        </View>
 
         <View
           style={{
@@ -103,6 +106,7 @@ function Search1(props) {
               marginLeft: 20,
               fontSize: 16,
               margin: 30,
+              color: 'black',
             }}>
             Your search result
           </Text>
@@ -135,6 +139,7 @@ function Search1(props) {
               style={{
                 textAlign: 'center',
                 fontSize: 16,
+                color: 'black',
               }}>
               Not Found!
             </Text>
@@ -142,7 +147,7 @@ function Search1(props) {
         )}
       </View>
       <View style={styles.below}></View>
-    </View>
+    </SafeAreaView>
   );
 }
 

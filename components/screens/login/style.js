@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     textAlign: 'center',
     fontSize: 16,
+    color: 'black',
     fontFamily: 'Poppins-Medium',
   },
   icon: {

@@ -19,6 +19,7 @@ const ProfileDetails = ({icon, label, value, onPress}) => {
             fontSize: 14,
             fontWeight: 500,
             marginBottom: 8,
+            color: 'black',
           }}>
           {label}
         </Text>

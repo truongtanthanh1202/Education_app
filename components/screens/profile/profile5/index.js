@@ -29,7 +29,10 @@ function Profile5(props) {
             onPress={() => {
               props.navigation.goBack();
             }}>
-            <Ionicons name="chevron-back-outline" size={24}></Ionicons>
+            <Ionicons
+              name="chevron-back-outline"
+              color={'black'}
+              size={24}></Ionicons>
           </TouchableOpacity>
           <Text
             style={{
@@ -39,6 +42,7 @@ function Profile5(props) {
               marginTop: 12,
               marginLeft: 12,
               fontFamily: 'Poppins-Medium',
+              color: 'black',
             }}>
             Password change
           </Text>

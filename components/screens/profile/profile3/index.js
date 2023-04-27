@@ -35,7 +35,10 @@ function Profile3(props) {
               position: 'absolute',
               marginLeft: 4,
             }}>
-            <Ionicons name="chevron-back-outline" size={24}></Ionicons>
+            <Ionicons
+              name="chevron-back-outline"
+              color={'black'}
+              size={24}></Ionicons>
           </TouchableOpacity>
 
           <Text
@@ -45,6 +48,7 @@ function Profile3(props) {
               marginBottom: 36,
               textAlign: 'center',
               fontFamily: 'Poppins-Medium',
+              color: 'black',
             }}>
             Settings
           </Text>
@@ -63,6 +67,7 @@ function Profile3(props) {
                   fontWeight: 600,
                   marginBottom: 8,
                   fontFamily: 'Poppins-Medium',
+                  color: 'black',
                 }}>
                 Notification
               </Text>
