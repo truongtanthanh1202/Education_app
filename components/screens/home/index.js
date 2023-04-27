@@ -8,7 +8,6 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import {ProgressBar, CircularProgress} from '../../atoms';
 import HomeMeeting from '../../../asset/img/home_meeting';
 import CategoryItem from './CategoryItem';
