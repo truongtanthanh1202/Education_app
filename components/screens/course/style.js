@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flex: 57,
-    backgroundColor: 'lightblue',
   },
   headerContainer: {
     paddingHorizontal: 20,
