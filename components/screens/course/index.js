@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   Text,
@@ -7,8 +7,9 @@ import {
   StatusBar,
   TextInput,
   TouchableOpacity,
-  ScrollView,
+  Keyboard,
   FlatList,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import CourseTab1 from '../../../asset/img/course_tab1';
@@ -223,8 +224,6 @@ const renderCourseNavigator = () => {
 };
 
 const Course = () => {
-  const [option, setOption] = useState('All');
-  const [active, setActive] = useState(true);
   const categories = [
     {
       isActive: active,
@@ -239,189 +238,218 @@ const Course = () => {
       name: 'New',
     },
   ];
-  return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar
-        barStyle="dark-content"
-        hidden={false}
-        backgroundColor="transparent"
-        translucent={true}
-        style={{height: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight}}
-      />
-      <View style={styles.fixedContainer}>
-        {/* Fixed container section */}
-        {renderHeader()}
-        {renderTopSearch()}
-        {renderCourseNavigator()}
-        <View
-          style={{
-            backgroundColor: 'white',
-            height: 50,
-            marginTop: 12,
-          }}>
-          <Text
-            style={{
-              position: 'absolute',
-              left: 24,
-              bottom: 4,
-              fontFamily: 'Poppins-Medium',
-              fontSize: 20,
-              color: '#000',
-            }}>
-            Choise your course
-          </Text>
-          <TouchableOpacity
-            style={{
-              position: 'absolute',
-              bottom: 12,
-              right: 24,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <Text
-              style={{
-                fontFamily: 'Comportaa-Medium',
-                fontSize: 16,
-                color: '#3787ff',
-              }}>
-              See all
-            </Text>
-          </TouchableOpacity>
-        </View>
+  const [option, setOption] = useState('All');
+  const [active, setActive] = useState(true);
+  const [hideFlatlist, setHideFlatlist] = useState(false);
+  useEffect(() => {
+    const showNavBar = Keyboard.addListener('keyboardDidShow', () => {
+      setHideFlatlist(true);
+    });
+    const hideNavBar = Keyboard.addListener('keyboardDidHide', () => {
+      setHideFlatlist(false);
+    });
 
-        <View
-          style={{
-            height: 56,
-            alignItems: 'center',
-            paddingHorizontal: 24,
-            flexDirection: 'row',
-          }}>
-          {categories.map((category, index) => {
-            return (
-              <TouchableOpacity
-                key={index}
-                activeOpacity={0.7}
-                onPress={() => {
-                  if (category.isActive == false) {
-                    setActive(!active);
-                  }
-                  setOption(category.name);
-                  // console.log(category.name, category.isActive);
-                }}
+    return () => {
+      showNavBar.remove();
+      hideNavBar.remove();
+    };
+  }, []);
+  return (
+    <>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <SafeAreaView style={styles.container}>
+          <StatusBar
+            barStyle="dark-content"
+            hidden={false}
+            backgroundColor="transparent"
+            translucent={true}
+            style={{
+              height: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight,
+            }}
+          />
+          <View style={styles.fixedContainer}>
+            {/* Fixed container section */}
+            {renderHeader()}
+            {renderTopSearch()}
+            {renderCourseNavigator()}
+            <View
+              style={{
+                backgroundColor: 'white',
+                height: 50,
+                marginTop: 12,
+              }}>
+              <Text
                 style={{
-                  minWidth: 68,
-                  paddingHorizontal: 4,
-                  paddingVertical: 2,
-                  backgroundColor:
-                    category.isActive === true ? '#3787ff' : '#fff',
+                  position: 'absolute',
+                  left: 24,
+                  bottom: 4,
+                  fontFamily: 'Poppins-Medium',
+                  fontSize: 20,
+                  color: '#000',
+                }}>
+                Choise your course
+              </Text>
+              <TouchableOpacity
+                style={{
+                  position: 'absolute',
+                  bottom: 12,
+                  right: 24,
                   justifyContent: 'center',
                   alignItems: 'center',
-                  borderRadius: 16,
-                  marginRight: 20,
-                  ...shadow,
                 }}>
                 <Text
                   style={{
-                    fontFamily: 'Poppins-Medium',
-                    color: category.isActive === true ? '#fff' : '#333',
-                    fontSize: 14,
+                    fontFamily: 'Comportaa-Medium',
+                    fontSize: 16,
+                    color: '#3787ff',
                   }}>
-                  {category.name}
+                  See all
                 </Text>
               </TouchableOpacity>
-            );
-          })}
-        </View>
-      </View>
-      <View style={styles.scrollContainer}>
-        <FlatList
-          data={filterCourse(option)}
-          renderItem={({item, index}) => (
-            <TouchableOpacity
-              activeOpacity={0.7}
+            </View>
+
+            <View
               style={{
-                padding: 10,
-                marginHorizontal: 20,
-                backgroundColor: 'white',
-                marginBottom: 16,
-                borderRadius: 12,
+                height: 56,
+                alignItems: 'center',
+                paddingHorizontal: 24,
                 flexDirection: 'row',
-                ...shadow,
               }}>
-              <View
-                style={{
-                  width: 70,
-                  height: 70,
-                  borderRadius: 6,
-                  overflow: 'hidden',
-                  elevation: 2,
-                  shadowColor: '#171717',
-                  shadowColor: '#171717',
-                  shadowOffset: {width: -2, height: 4},
-                  shadowOpacity: 0.2,
-                  shadowRadius: 2,
-                }}>
-                <Image
-                  source={{
-                    uri: item.thumbnail,
-                  }}
-                  resizeMode="cover"
-                  style={{width: 70, height: 70, borderRadius: 6}}
-                />
-              </View>
-              <View style={{marginLeft: 28}}>
-                <Text
-                  style={{
-                    fontFamily: 'Poppins-Medium',
-                    fontSize: 16,
-                    lineHeight: 18,
-                    color: '#222',
-                    maxHeight: 36,
-                  }}>
-                  {item.description}
-                </Text>
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <Ionicons name="person" color="#555" size={12} />
-                  <Text style={{marginLeft: 2, fontFamily: 'Poppins-Medium'}}>
-                    {item.id_teacher}
-                  </Text>
-                </View>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    marginTop: 4,
-                  }}>
-                  <Ionicons name="star" size={12} color="#ff9d42"></Ionicons>
-                  <Text
+              {categories.map((category, index) => {
+                return (
+                  <TouchableOpacity
+                    key={index}
+                    activeOpacity={0.7}
+                    onPress={() => {
+                      if (category.isActive == false) {
+                        setActive(!active);
+                      }
+                      setOption(category.name);
+                      // console.log(category.name, category.isActive);
+                    }}
                     style={{
-                      color: '#555',
-                      fontWeight: '500',
-                      fontSize: 14,
+                      minWidth: 68,
+                      paddingHorizontal: 4,
+                      paddingVertical: 2,
+                      backgroundColor:
+                        category.isActive === true ? '#3787ff' : '#fff',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      borderRadius: 16,
+                      marginRight: 20,
+                      ...shadow,
                     }}>
-                    {item.rate}
-                  </Text>
-                  <Text
+                    <Text
+                      style={{
+                        fontFamily: 'Poppins-Medium',
+                        color: category.isActive === true ? '#fff' : '#333',
+                        fontSize: 14,
+                      }}>
+                      {category.name}
+                    </Text>
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
+          </View>
+          <View style={styles.scrollContainer}>
+            {!hideFlatlist && (
+              <FlatList
+                data={filterCourse(option)}
+                renderItem={({item, index}) => (
+                  <TouchableOpacity
+                    activeOpacity={0.7}
                     style={{
-                      backgroundColor: '#3787ff',
-                      color: '#fff',
-                      paddingHorizontal: 8,
-                      paddingTop: 4,
-                      paddingBottom: 2,
-                      borderRadius: 10,
-                      fontFamily: 'Poppins-Regular',
-                      fontSize: 12,
-                      lineHeight: 14,
-                      marginLeft: 12,
+                      padding: 10,
+                      marginHorizontal: 20,
+                      backgroundColor: 'white',
+                      marginBottom: 16,
+                      borderRadius: 12,
+                      flexDirection: 'row',
+                      ...shadow,
                     }}>
-                    {item.total_hours} hours
-                  </Text>
-                </View>
-              </View>
-            </TouchableOpacity>
-          )}></FlatList>
-      </View>
-    </SafeAreaView>
+                    <View
+                      style={{
+                        width: 70,
+                        height: 70,
+                        borderRadius: 6,
+                        overflow: 'hidden',
+                        elevation: 2,
+                        shadowColor: '#171717',
+                        shadowColor: '#171717',
+                        shadowOffset: {width: -2, height: 4},
+                        shadowOpacity: 0.2,
+                        shadowRadius: 2,
+                      }}>
+                      <Image
+                        source={{
+                          uri: item.thumbnail,
+                        }}
+                        resizeMode="cover"
+                        style={{width: 70, height: 70, borderRadius: 6}}
+                      />
+                    </View>
+                    <View style={{marginLeft: 28}}>
+                      <Text
+                        style={{
+                          fontFamily: 'Poppins-Medium',
+                          fontSize: 16,
+                          lineHeight: 18,
+                          color: '#222',
+                          maxHeight: 36,
+                        }}>
+                        {item.description}
+                      </Text>
+                      <View
+                        style={{flexDirection: 'row', alignItems: 'center'}}>
+                        <Ionicons name="person" color="#555" size={12} />
+                        <Text
+                          style={{marginLeft: 2, fontFamily: 'Poppins-Medium'}}>
+                          {item.id_teacher}
+                        </Text>
+                      </View>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          alignItems: 'center',
+                          marginTop: 4,
+                        }}>
+                        <Ionicons
+                          name="star"
+                          size={12}
+                          color="#ff9d42"></Ionicons>
+                        <Text
+                          style={{
+                            color: '#555',
+                            fontWeight: '500',
+                            fontSize: 14,
+                          }}>
+                          {item.rate}
+                        </Text>
+                        <Text
+                          style={{
+                            backgroundColor: '#3787ff',
+                            color: '#fff',
+                            paddingHorizontal: 8,
+                            paddingTop: 4,
+                            paddingBottom: 2,
+                            borderRadius: 10,
+                            fontFamily: 'Poppins-Regular',
+                            fontSize: 12,
+                            lineHeight: 14,
+                            marginLeft: 12,
+                          }}>
+                          {item.total_hours} hours
+                        </Text>
+                      </View>
+                    </View>
+                  </TouchableOpacity>
+                )}></FlatList>
+            )}
+          </View>
+        </SafeAreaView>
+      </TouchableWithoutFeedback>
+    </>
   );
 };
 
