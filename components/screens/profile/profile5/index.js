@@ -37,7 +37,7 @@ function Profile5(props) {
           <Text
             style={{
               fontSize: 20,
-              fontWeight: 700,
+              fontWeight: 600,
               marginBottom: 36,
               marginTop: 12,
               marginLeft: 12,

@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
     flex: 55,
     paddingTop: 10,
   },
- 
   linearGradient: {
     flex: 1,
     paddingLeft: 15,

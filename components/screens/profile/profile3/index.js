@@ -44,7 +44,7 @@ function Profile3(props) {
           <Text
             style={{
               fontSize: fontSizes.h2,
-              fontWeight: 700,
+              fontWeight: 600,
               marginBottom: 36,
               textAlign: 'center',
               fontFamily: fontFamilys.f3,
@@ -64,7 +64,6 @@ function Profile3(props) {
               <Text
                 style={{
                   fontSize: 14,
-                  fontWeight: 600,
                   marginBottom: 8,
                   fontFamily: fontFamilys.f3,
                   color: 'black',

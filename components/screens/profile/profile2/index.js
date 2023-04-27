@@ -43,7 +43,7 @@ const Profile2 = props => {
         <Text
           style={{
             fontSize: fontSizes.h2,
-            fontWeight: 700,
+            fontWeight: 600,
             color: 'black',
             fontFamily: fontFamilys.f3
           }}>

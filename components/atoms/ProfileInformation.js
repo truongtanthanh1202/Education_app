@@ -17,7 +17,7 @@ const ProfileInformation = ({icon, label, value, onPress}) => {
     <View
       style={{
         flexDirection: 'row',
-        height: 308,
+        height: 304,
         backgroundColor: '#3787ff',
         // alignItems: 'center',
         borderRadius: 20,
@@ -76,8 +76,8 @@ const ProfileInformation = ({icon, label, value, onPress}) => {
               height: 40,
               borderRadius: 10,
               backgroundColor: 'white',
-              justifyContent: 'center',
-            }}>
+              justifyContent:'center'        
+             }}>
             <Text style={styles.infoText}>quickraki@gmail.com</Text>
           </View>
         </View>
@@ -111,8 +111,7 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.h1,
     marginBottom: 5,
     marginLeft: 10,
-    fontFamily:fontFamilys.f1
-
+    // fontFamily:fontFamilys.f1,
   },
 });
 export default ProfileInformation;
