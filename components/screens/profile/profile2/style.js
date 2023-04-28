@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
     fontWeight: 500,
     marginVertical: 5,
     fontFamily: fontFamilys.f3,
-
   },
   image: {
     width: 150,
@@ -42,20 +41,22 @@ const styles = StyleSheet.create({
 
     borderColor: '#3787ff',
   },
-  textInButton:{
+  textInButton: {
     fontSize: 22,
     fontWeight: 500,
     color: 'black',
     textAlign: 'center',
-    fontFamily:fontFamilys.f3
-  }, 
-  button:{backgroundColor: '#e4f1f8',
-  width: 140,
-  height: 48,
-  borderRadius: 28,
-  justifyContent: 'center',
-  marginLeft: 28,
-  marginTop: 16,}
+    fontFamily: fontFamilys.f3,
+  },
+  button: {
+    backgroundColor: '#e4f1f8',
+    width: 140,
+    height: 48,
+    borderRadius: 28,
+    justifyContent: 'center',
+    marginLeft: 28,
+    marginTop: 16,
+  },
 });
 
 export default styles;
