@@ -30,7 +30,6 @@ const Profile1 = props => {
             fontWeight: 600,
             color: 'black',
             fontFamily: fontFamilys.f3,
-
           }}>
           Profile
         </Text>
@@ -49,12 +48,17 @@ const Profile1 = props => {
         <Image source={images.avatar} style={styles.image}></Image>
         {/* Detail */}
         <View>
-          <Text style={styles.name}>Rakibull Hassan</Text>
+          <Text style={styles.name}>Thanh Truong</Text>
           <ProgressBar
             progress="60%"
             containerStyle={{maginTop: 10}}></ProgressBar>
-          <Text style={{textAlign: 'center', marginTop: 2, color: 'black',    fontFamily: fontFamilys.f3
-}}>
+          <Text
+            style={{
+              textAlign: 'center',
+              marginTop: 2,
+              color: 'black',
+              fontFamily: fontFamilys.f3,
+            }}>
             60% Complete your profile
           </Text>
         </View>

@@ -56,7 +56,7 @@ function Register3(props) {
               const data = res.data;
               console.log(JSON.stringify(data), 'Acount created successfully');
               props.navigation.navigate('Navbar', {
-                data: JSON.stringify(data),
+                data: data,
               });
               setAccountTypes(
                 accountTypes.map(eachAccountType => {

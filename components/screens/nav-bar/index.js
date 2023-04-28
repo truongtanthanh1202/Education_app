@@ -11,14 +11,10 @@ import {Profile1, Profile2, Profile3} from '../profile';
 const Tab = createBottomTabNavigator();
 
 const Navbar = ({route, navigation}) => {
-  const userData = route.params;
+  const userData = route.params.data;
   const testLog = () => {
-    console.log(userData.data);
-    console.log(
-      userData.data.email,
-      userData.data.password,
-      userData.data.title,
-    );
+    console.log(userData);
+    console.log(userData.email, userData.password, userData.title);
   };
   testLog();
 

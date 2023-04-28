@@ -58,7 +58,7 @@ function Login({route, navigation}) {
     const data = res.data;
     console.log(JSON.stringify(data), 'Acount has been created');
     navigation.navigate('Navbar', {
-      data: JSON.stringify(data),
+      data: data,
     });
   };
   return (
