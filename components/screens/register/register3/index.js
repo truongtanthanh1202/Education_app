@@ -7,11 +7,16 @@ import {
   TouchableOpacity,
   StatusBar,
 } from 'react-native';
+import axios from 'axios';
 
 import {images} from '../../../../constants';
 import styles from './style';
 
 function Register3(props) {
+  const {role} = props.route.params;
+  const {email} = props.route.params;
+  const {password} = props.route.params;
+
   const [accountTypes, setAccountTypes] = useState([
     {
       name: 'Forgot Password ',
@@ -39,8 +44,20 @@ function Register3(props) {
         </Text>
         {accountTypes.map(accountType => (
           <TouchableOpacity
-            onPress={() => {
-              props.navigation.navigate('Navbar');
+            onPress={async () => {
+              const userdata = {
+                email: email,
+                password: password,
+              };
+              const res = await axios.post(
+                `http://10.0.2.2:4848/me/logintest`,
+                userdata,
+              );
+              const data = res.data;
+              console.log(JSON.stringify(data), 'Acount created successfully');
+              props.navigation.navigate('Navbar', {
+                data: JSON.stringify(data),
+              });
               setAccountTypes(
                 accountTypes.map(eachAccountType => {
                   return {

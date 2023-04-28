@@ -25,7 +25,7 @@ const data = [
   {label: 'Teacher', value: 'teacher'},
 ];
 
-function Register2({navigation}) {
+function Register2({route, navigation}) {
   const [KeyboardIsShow, setKeyboardIsShow] = useState(false);
   useEffect(() => {
     Keyboard.addListener('keyboardDidShow', () => {
@@ -155,8 +155,6 @@ function Register2({navigation}) {
           <TouchableOpacity
             disabled={isValidationOK() == false}
             onPress={async () => {
-              navigation.navigate('Register3');
-              alert(`Role = ${value}, Email = ${email}, password= ${password}`);
               const userdata = {
                 title: value,
                 email: email,
@@ -168,10 +166,16 @@ function Register2({navigation}) {
                   userdata,
                 );
                 const data = res.data;
-                alert(JSON.stringify(data));
+                console.log(JSON.stringify(data));
               } catch (error) {
                 alert(error);
               }
+              navigation.navigate('Register3', {
+                role: value,
+                email: email,
+                password: password,
+              });
+
               setAccountTypes(
                 accountTypes.map(eachAccountType => {
                   return {

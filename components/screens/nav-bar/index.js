@@ -10,7 +10,18 @@ import {Profile1, Profile2, Profile3} from '../profile';
 
 const Tab = createBottomTabNavigator();
 
-const Navbar = () => {
+const Navbar = ({route, navigation}) => {
+  const userData = route.params;
+  const testLog = () => {
+    console.log(userData.data);
+    console.log(
+      userData.data.email,
+      userData.data.password,
+      userData.data.title,
+    );
+  };
+  testLog();
+
   const [bottomMarginStatus, setbottomMarginStatus] = useState(20);
   useEffect(() => {
     const showNavBar = Keyboard.addListener('keyboardDidShow', () => {

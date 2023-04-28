@@ -20,7 +20,7 @@ import {isValidEmail, isValidPassword} from '../../utilies/Validations';
 
 import axios from 'axios';
 
-function Login({navigation}) {
+function Login({route, navigation}) {
   const [KeyboardIsShow, setKeyboardIsShow] = useState(false);
   // Validate email/password
   const [textErrorEmail, setTextErrorEmail] = useState('');
@@ -50,15 +50,16 @@ function Login({navigation}) {
     },
   ]);
   const handlerToLogin = async () => {
-    alert(`Email = ${email}, Password = ${password}`);
     const userdata = {
       email: email,
       password: password,
     };
     const res = await axios.post(`http://10.0.2.2:4848/me/logintest`, userdata);
     const data = res.data;
-    alert(JSON.stringify(data));
-    navigation.navigate('Navbar');
+    console.log(JSON.stringify(data), 'Acount has been created');
+    navigation.navigate('Navbar', {
+      data: JSON.stringify(data),
+    });
   };
   return (
     <KeyboardAvoidingView
