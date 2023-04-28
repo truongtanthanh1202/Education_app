@@ -32,9 +32,28 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   profileSectionContainer: {
-    marginTop: 20,
-
+    marginTop: 12,
     borderColor: '#3787ff',
+  },
+  profileInforItem: {
+    marginTop: 12,
+  },
+  titleInputField: {
+    fontFamily: 'Poppins-Medium',
+    fontSize: 14,
+    color: 'white',
+    marginLeft: 4,
+    marginBottom: 2,
+  },
+  inputField: {
+    height: Platform.OS === 'ios' ? 48 : 48,
+    backgroundColor: 'white',
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    fontSize: 15,
+    fontFamily: 'Poppins-Medium',
+    justifyContent: 'center',
+    marginBottom: 4,
   },
 });
 

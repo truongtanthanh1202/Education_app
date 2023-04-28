@@ -5,9 +5,8 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-  StyleSheet,
+  TextInput,
   StatusBar,
-  Alert,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -16,6 +15,11 @@ import styles from './style';
 import {images, fontSizes, fontFamilys} from '../../../../constants';
 import {ProgressBar, ProfileValue, ProfileInformation} from '../../../atoms';
 const Profile1 = props => {
+  let firstName = 'Thanh';
+  let lastName = 'Truong';
+  let fullname = firstName + ' ' + lastName;
+  let email = 'truongtanthanh@gmail.com';
+  let password = '123456';
   function renderHeader() {
     return (
       <View
@@ -71,14 +75,80 @@ const Profile1 = props => {
         <ProfileValue
           label="Billed every year"
           value="12 month at $8.00/month"></ProfileValue>
-        <View style={{margin: 20}}></View>
+        <View style={{margin: 12}}></View>
 
-        <ProfileInformation
-          label="Profile information"
-          onPress={() => {
-            // console.log('Navigate to profile2');
-            props.navigation.navigate('Profile2');
-          }}></ProfileInformation>
+        {/* profile infor (full name, email, password) section*/}
+        <View
+          style={{
+            minHeight: 200,
+            backgroundColor: '#3787ff',
+            borderRadius: 20,
+          }}>
+          {/* Label and Value */}
+          <View
+            style={{
+              flex: 1,
+              paddingHorizontal: 20,
+              marginVertical: 20,
+            }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: '100%',
+                marginBottom: 8,
+              }}>
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: 20,
+                  fontFamily: 'Montserrat-Medium',
+                }}>
+                Profile Information
+              </Text>
+
+              <TouchableOpacity
+                onPress={() => {
+                  props.navigation.navigate('Profile2');
+                }}>
+                <Ionicons
+                  name="create-outline"
+                  size={24}
+                  marginLeft={100}
+                  color={'white'}
+                />
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.profileInforItem}>
+              <Text style={styles.titleInputField}>Your full name</Text>
+              <TextInput
+                style={styles.inputField}
+                value={fullname}
+                editable={false}
+                placeholderTextColor="black"></TextInput>
+            </View>
+
+            <View style={styles.profileInforItem}>
+              <Text style={styles.titleInputField}>Email address</Text>
+              <TextInput
+                style={styles.inputField}
+                value={email}
+                editable={false}
+                placeholderTextColor="black"></TextInput>
+            </View>
+
+            <View style={styles.profileInforItem}>
+              <Text style={styles.titleInputField}>Password</Text>
+              <TextInput
+                style={styles.inputField}
+                secureTextEntry={true}
+                value={password}
+                editable={false}
+                placeholderTextColor="black"></TextInput>
+            </View>
+          </View>
+        </View>
       </View>
     );
   }

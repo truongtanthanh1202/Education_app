@@ -11,7 +11,17 @@ import {Profile1, Profile2, Profile3} from '../profile';
 const Tab = createBottomTabNavigator();
 
 const Navbar = ({route, navigation}) => {
-  const userData = route.params.data;
+  // const userData = route.params.data;
+  let userData = {
+    //fake data for testing, please comment this before push to github
+    _id: '64390ef135031c27678132c2',
+    createdAt: '2023-04-14T08:29:37.561Z',
+    deleted: false,
+    email: 'ttt@gmail.com',
+    password: '123456',
+    title: 'teacher',
+    updatedAt: '2023-04-14T08:29:37.562Z',
+  };
   const testLog = () => {
     console.log(userData);
     console.log(userData.email, userData.password, userData.title);
