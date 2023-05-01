@@ -7,19 +7,54 @@ import {
   ScrollView,
   TextInput,
   StatusBar,
+  FlatList,
+  RefreshControl,
+  ActivityIndicator,
+  Platform,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import axios from 'axios';
 
 import {SafeAreaView} from 'react-native-safe-area-context';
 import styles from './style';
 import {images, fontSizes, fontFamilys} from '../../../../constants';
 import {ProgressBar, ProfileValue, ProfileInformation} from '../../../atoms';
 const Profile1 = props => {
-  let firstName = 'Thanh';
-  let lastName = 'Truong';
-  let fullname = firstName + ' ' + lastName;
-  let email = 'truongtanthanh@gmail.com';
-  let password = '123456';
+  const initialEmail = props.route.params.email;
+  const initialPassword = props.route.params.password;
+
+  const [refreshing, setRefreshing] = useState(true);
+  const [dataSource, setDataSource] = useState([]);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    //Service to get the data from the server to render
+    const userdata = {
+      email: initialEmail,
+      password: initialPassword,
+    };
+    const res = await axios.post(`http://10.0.2.2:4848/me/logintest`, userdata);
+    const data = res.data;
+
+    let temp = [
+      {name: 'Email', value: data.email},
+      {name: 'First name', value: data.firstName},
+      {name: 'Last name', value: data.lastName},
+      {name: 'Password', value: data.password},
+    ];
+    setRefreshing(false);
+    setDataSource(temp);
+  };
+  const onRefresh = () => {
+    //Clear old data of the list
+    setDataSource([]);
+    //Call the Service to get the latest data
+    getData();
+  };
+
   function renderHeader() {
     return (
       <View
@@ -80,7 +115,7 @@ const Profile1 = props => {
         {/* profile infor (full name, email, password) section*/}
         <View
           style={{
-            minHeight: 200,
+            minHeight: Platform.OS === 'ios' ? 312 : 340,
             backgroundColor: '#3787ff',
             borderRadius: 20,
           }}>
@@ -120,33 +155,28 @@ const Profile1 = props => {
               </TouchableOpacity>
             </View>
 
-            <View style={styles.profileInforItem}>
-              <Text style={styles.titleInputField}>Your full name</Text>
-              <TextInput
-                style={styles.inputField}
-                value={fullname}
-                editable={false}
-                placeholderTextColor="black"></TextInput>
-            </View>
-
-            <View style={styles.profileInforItem}>
-              <Text style={styles.titleInputField}>Email address</Text>
-              <TextInput
-                style={styles.inputField}
-                value={email}
-                editable={false}
-                placeholderTextColor="black"></TextInput>
-            </View>
-
-            <View style={styles.profileInforItem}>
-              <Text style={styles.titleInputField}>Password</Text>
-              <TextInput
-                style={styles.inputField}
-                secureTextEntry={true}
-                value={password}
-                editable={false}
-                placeholderTextColor="black"></TextInput>
-            </View>
+            {refreshing ? <ActivityIndicator /> : null}
+            <FlatList
+              data={dataSource}
+              renderItem={({item, index}) => (
+                <View style={styles.profileInforItem}>
+                  <Text style={styles.titleInputField}>{item.name}</Text>
+                  <TextInput
+                    style={styles.inputField}
+                    value={item.value}
+                    secureTextEntry={item.name === 'Password' ? true : false}
+                    editable={false}
+                    placeholderTextColor="black"></TextInput>
+                </View>
+              )}
+              refreshControl={
+                <RefreshControl
+                  //refresh control used for the Pull to Refresh
+                  refreshing={refreshing}
+                  onRefresh={onRefresh}
+                />
+              }
+            />
           </View>
         </View>
       </View>
@@ -172,10 +202,10 @@ const Profile1 = props => {
         </View>
 
         <View style={styles.below}>
-          <ScrollView style={{marginHorizontal: 20, marginTop: 14}}>
+          <View style={{marginHorizontal: 20, marginTop: 14}}>
             {/* Profile Section 1 */}
             {renderProfileSection1()}
-          </ScrollView>
+          </View>
         </View>
       </View>
     </SafeAreaView>

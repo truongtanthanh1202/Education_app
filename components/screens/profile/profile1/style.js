@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
   },
   profileSectionContainer: {
     marginTop: 12,
-    borderColor: '#3787ff',
   },
   profileInforItem: {
     marginTop: 12,
