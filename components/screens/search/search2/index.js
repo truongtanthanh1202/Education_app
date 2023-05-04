@@ -49,7 +49,7 @@ function Search2(props) {
   const getData = async () => {
     //Service to get the data from the server to render
     const userdata = {
-      keyword: 'n',
+      keyword: '',
     };
     const res = await axios.post(
       `http://localhost:4848/search/search_keyword`,
