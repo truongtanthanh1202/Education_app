@@ -23,6 +23,8 @@ import {
   ProfileDetails,
 } from '../../../atoms';
 const Profile2 = props => {
+  let {email, firstName, lastName, password} = props.route.params;
+
   const [keyboardIsShown, setKeyboardIsShown] = useState(false);
   useEffect(() => {
     Keyboard.addListener('keyboardDidShow', () => {
@@ -71,7 +73,9 @@ const Profile2 = props => {
         <Image source={images.avatar} style={styles.image}></Image>
         {/* Detail */}
         <View>
-          <Text style={styles.name}>Rakibull Hassan</Text>
+          <Text style={styles.name}>
+            {firstName} {lastName}
+          </Text>
           <ProgressBar
             progress="60%"
             containerStyle={{maginTop: 10}}></ProgressBar>
@@ -91,12 +95,10 @@ const Profile2 = props => {
   function renderProfileSection1() {
     return (
       <View style={styles.profileSectionContainer}>
-        <ProfileDetails
-          label="Email Address"
-          value="quickraki@gmail.com"></ProfileDetails>
-        <ProfileDetails label="Password" value="12345678"></ProfileDetails>
-        <ProfileDetails label="First Name" value="Rakibull"></ProfileDetails>
-        <ProfileDetails label="Last Name" value="Hassan"></ProfileDetails>
+        <ProfileDetails label="Email Address" value={email}></ProfileDetails>
+        <ProfileDetails label="Password" value={password}></ProfileDetails>
+        <ProfileDetails label="First Name" value={firstName}></ProfileDetails>
+        <ProfileDetails label="Last Name" value={lastName}></ProfileDetails>
         <View style={{margin: 20}}></View>
       </View>
     );
@@ -153,11 +155,8 @@ const Profile2 = props => {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
-                props.navigation.goBack('Profile1', {
-                  newPassWord: '',
-                  firstNamr: '',
-                  lastName: '',
-                });
+                // need to call api save profile to server
+                props.navigation.goBack();
               }}
               style={styles.button}>
               <Text style={styles.textInButton}>Save</Text>

@@ -22,7 +22,7 @@ const ProfileDetails = ({icon, label, value, onPress}) => {
             fontWeight: 500,
             marginBottom: 8,
             color: 'black',
-            fontFamily:fontFamilys.f3
+            fontFamily: fontFamilys.f3,
           }}>
           {label}
         </Text>
@@ -35,9 +35,13 @@ const ProfileDetails = ({icon, label, value, onPress}) => {
           alignItems: 'center',
           borderRadius: 24,
           marginBottom: 14,
+          fontFamily: 'Poppins-Medium',
+          fontSize: 14,
         }}
+        secureTextEntry={label === 'Password' ? true : false}
+        editable={label === 'Password' ? false : true}
         paddingLeft={20}
-        placeholder={value}
+        value={value}
         placeholderTextColor={'black'}
         color>
         {/* <Text

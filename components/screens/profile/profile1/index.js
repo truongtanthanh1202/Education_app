@@ -146,7 +146,12 @@ const Profile1 = props => {
 
               <TouchableOpacity
                 onPress={() => {
-                  props.navigation.navigate('Profile2');
+                  props.navigation.navigate('Profile2', {
+                    email: dataSource[0].value,
+                    firstName: dataSource[1].value,
+                    lastName: dataSource[2].value,
+                    password: dataSource[3].value,
+                  });
                 }}>
                 <Ionicons
                   name="create-outline"
