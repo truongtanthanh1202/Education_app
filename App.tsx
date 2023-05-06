@@ -43,8 +43,6 @@ const App = () => {
         <Stack.Screen name="Forgot3" component={Forgot3} />
         <Stack.Screen name="Forgot4" component={Forgot4} />
         <Stack.Screen name="Navbar" component={Navbar} />
-        <Stack.Screen name="Search1" component={Search1} />
-
         <Stack.Screen name="Profile1" component={Profile1} />
         <Stack.Screen name="Profile2" component={Profile2} />
         <Stack.Screen name="Profile3" component={Profile3} />

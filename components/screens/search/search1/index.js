@@ -13,6 +13,8 @@ import {
   navigation,
   ImageBackground,
 } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import Filter from '../../../../asset/icons/filter';
 import {images} from '../../../../constants';
 import styles from './style';
@@ -138,7 +140,7 @@ function Search1(props) {
                     color: 'black',
                     fontSize: 22,
                     fontWeight: 'bold',
-                    marginBottom: 10,
+                    marginBottom: 8,
                   }}>
                   {item.description}
                 </Text>
@@ -146,34 +148,48 @@ function Search1(props) {
                   style={{
                     color: '#757372',
                     fontSize: 14,
-                    marginBottom: 10,
+                    marginBottom: 8,
                   }}>
-                  {item.id_teacher}
+                  {item.nameOfteacher}
                 </Text>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                  }}>
+                <View style={{flexDirection: 'row'}}>
+                  <Ionicons
+                    name="person-outline"
+                    size={14}
+                    color={'gray'}
+                    marginTop={1}></Ionicons>
                   <Text
                     style={{
                       color: '#757372',
                       fontSize: 14,
+                      marginBottom: 8,
+                      marginLeft: 4,
+                    }}>
+                    {item.amountOfstudents} students
+                  </Text>
+                </View>
+
+                <View style={{flexDirection: 'row'}}>
+                  <Ionicons
+                    name="star"
+                    size={12}
+                    color="#3787ff"
+                    marginTop={1}></Ionicons>
+                  <Text
+                    style={{
+                      color: '#757372',
+                      fontSize: 14,
+                      marginLeft: 4,
                       marginBottom: 10,
                     }}>
                     {item.rating}
                   </Text>
-                  <View
-                    style={{
-                      width: 50,
-                    }}></View>
-                  <Text
-                    style={{
-                      color: '#757372',
-                      fontSize: 14,
-                    }}>
-                    {item.rating}
-                  </Text>
                 </View>
+
+                <View
+                  style={{
+                    width: 50,
+                  }}></View>
               </View>
             </TouchableOpacity>
           )}

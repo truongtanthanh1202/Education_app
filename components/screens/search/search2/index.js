@@ -197,7 +197,7 @@ function Search2(props) {
                   <Text
                     style={{
                       color: 'white',
-                      fontSize: 22,
+                      fontSize: 20,
                       fontWeight: 500,
                       position: 'absolute',
                       top: 120,
