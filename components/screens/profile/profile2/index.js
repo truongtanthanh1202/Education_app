@@ -40,18 +40,27 @@ const Profile2 = props => {
           // marginTop: 50,
           justifyContent: 'space-between',
         }}>
-        <Text
-          style={{
-            fontSize: fontSizes.h2,
-            fontWeight: 600,
-            color: 'black',
-            fontFamily: fontFamilys.f3
-          }}>
-          Profile
-        </Text>
+        <View style={{flexDirection: 'row'}}>
+          <TouchableOpacity
+            onPress={() => {
+              props.navigation.goBack();
+            }}
+            style={{
+              paddingRight: 6,
+            }}>
+            <Ionicons name="chevron-back-outline" size={28} color="#333" />
+          </TouchableOpacity>
+          <Text
+            style={{
+              fontSize: fontSizes.h2,
+              color: 'black',
+              fontFamily: 'Poppins-Medium',
+            }}>
+            Profile
+          </Text>
+        </View>
         <TouchableOpacity>
-          <Ionicons name="settings-outline" color={'black'}
-           size={24} />
+          <Ionicons name="settings-outline" color={'black'} size={24} />
         </TouchableOpacity>
       </View>
     );
@@ -66,7 +75,13 @@ const Profile2 = props => {
           <ProgressBar
             progress="60%"
             containerStyle={{maginTop: 10}}></ProgressBar>
-          <Text style={{textAlign: 'center', marginTop: 2, color: 'black', fontFamily: fontFamilys.f3}}>
+          <Text
+            style={{
+              textAlign: 'center',
+              marginTop: 2,
+              color: 'black',
+              fontFamily: fontFamilys.f3,
+            }}>
             60% Complete your profile
           </Text>
         </View>
@@ -110,7 +125,7 @@ const Profile2 = props => {
             <Text
               style={{
                 fontSize: 20,
-                fontWeight: 500,
+                fontFamily: 'Poppins-Medium',
                 marginTop: 14,
                 color: 'black',
               }}>
@@ -134,10 +149,7 @@ const Profile2 = props => {
                 props.navigation.goBack();
               }}
               style={styles.button}>
-              <Text
-                style={styles.textInButton}>
-                Cancel
-              </Text>
+              <Text style={styles.textInButton}>Cancel</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
@@ -148,10 +160,7 @@ const Profile2 = props => {
                 });
               }}
               style={styles.button}>
-              <Text
-                style={styles.textInButton}>
-                Save
-              </Text>
+              <Text style={styles.textInButton}>Save</Text>
             </TouchableOpacity>
           </View>
         </View>

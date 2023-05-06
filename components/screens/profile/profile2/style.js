@@ -27,9 +27,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'black',
     fontSize: 24,
-    fontWeight: 500,
     marginVertical: 5,
-    fontFamily: fontFamilys.f3,
+    fontFamily: 'Poppins-Medium',
   },
   image: {
     width: 150,
