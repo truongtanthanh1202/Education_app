@@ -23,6 +23,8 @@ import {
   Profile5,
 } from './components/screens/profile';
 import {Search1, Search2} from './components/screens/search';
+import MyCourse from './components/screens/course/my_course';
+import Course from './components/screens/course';
 
 const Stack = createNativeStackNavigator();
 
@@ -44,7 +46,8 @@ const App = () => {
         <Stack.Screen name="Forgot4" component={Forgot4} />
         <Stack.Screen name="Navbar" component={Navbar} />
         <Stack.Screen name="Search1" component={Search1} />
-
+        <Stack.Screen name="Course" component={Course} />
+        <Stack.Screen name="MyCourse" component={MyCourse} />
         <Stack.Screen name="Profile1" component={Profile1} />
         <Stack.Screen name="Profile2" component={Profile2} />
         <Stack.Screen name="Profile3" component={Profile3} />

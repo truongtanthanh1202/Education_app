@@ -136,94 +136,9 @@ const renderTopSearch = () => {
   );
 };
 
-const renderCourseNavigator = () => {
-  return (
-    <View
-      style={{
-        marginTop: 32,
-        flexDirection: 'row',
-        paddingHorizontal: 20,
-      }}>
-      <TouchableOpacity
-        style={{
-          height: 72,
-          flex: 50,
-          marginRight: 8,
-          backgroundColor: '#3787ff',
-          borderRadius: 16,
-        }}>
-        <CourseTab1
-          height={82}
-          width={100}
-          style={{position: 'absolute', bottom: 0, left: 8}}
-        />
-        <View
-          style={{
-            height: 24,
-            backgroundColor: 'white',
-            position: 'absolute',
-            right: 0,
-            bottom: 8,
-            paddingLeft: 8,
-            paddingRight: 6,
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderTopLeftRadius: 10,
-            borderBottomLeftRadius: 10,
-          }}>
-          <Text
-            style={{
-              fontFamily: 'Poppins-Medium',
-              fontSize: 14,
-              color: '#3787ff',
-            }}>
-            My course
-          </Text>
-        </View>
-      </TouchableOpacity>
+const Course = props => {
+  const initialEmail = props.route.params.email;
 
-      <TouchableOpacity
-        style={{
-          height: 72,
-          flex: 50,
-          marginLeft: 8,
-          backgroundColor: '#3787ff',
-          borderRadius: 16,
-        }}>
-        <CourseTab2
-          height={82}
-          width={100}
-          style={{position: 'absolute', bottom: 0}}
-        />
-        <View
-          style={{
-            height: 24,
-            backgroundColor: 'white',
-            position: 'absolute',
-            right: 0,
-            bottom: 8,
-            paddingLeft: 8,
-            paddingRight: 6,
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderTopLeftRadius: 10,
-            borderBottomLeftRadius: 10,
-          }}>
-          <Text
-            style={{
-              fontFamily: 'Poppins-Medium',
-              fontSize: 14,
-              color: '#3787ff',
-            }}>
-            Schedule
-          </Text>
-        </View>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
-const Course = () => {
   const categories = [
     {
       isActive: active,
@@ -254,6 +169,12 @@ const Course = () => {
       hideNavBar.remove();
     };
   }, []);
+  const handlerToMyCourse = () => {
+    props.navigation.navigate('MyCourse');
+  };
+  const handlerToSchedule = () => {
+    console.log('schedule');
+  };
   return (
     <>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -271,7 +192,92 @@ const Course = () => {
             {/* Fixed container section */}
             {renderHeader()}
             {renderTopSearch()}
-            {renderCourseNavigator()}
+            {
+              <View
+                style={{
+                  marginTop: 32,
+                  flexDirection: 'row',
+                  paddingHorizontal: 20,
+                }}>
+                <TouchableOpacity
+                  onPress={handlerToMyCourse}
+                  style={{
+                    height: 72,
+                    flex: 50,
+                    marginRight: 8,
+                    backgroundColor: '#3787ff',
+                    borderRadius: 16,
+                  }}>
+                  <CourseTab1
+                    height={82}
+                    width={100}
+                    style={{position: 'absolute', bottom: 0, left: 8}}
+                  />
+                  <View
+                    style={{
+                      height: 24,
+                      backgroundColor: 'white',
+                      position: 'absolute',
+                      right: 0,
+                      bottom: 8,
+                      paddingLeft: 8,
+                      paddingRight: 6,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      borderTopLeftRadius: 10,
+                      borderBottomLeftRadius: 10,
+                    }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                        color: '#3787ff',
+                      }}>
+                      My course
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  onPress={handlerToSchedule}
+                  style={{
+                    height: 72,
+                    flex: 50,
+                    marginLeft: 8,
+                    backgroundColor: '#3787ff',
+                    borderRadius: 16,
+                  }}>
+                  <CourseTab2
+                    height={82}
+                    width={100}
+                    style={{position: 'absolute', bottom: 0}}
+                  />
+                  <View
+                    style={{
+                      height: 24,
+                      backgroundColor: 'white',
+                      position: 'absolute',
+                      right: 0,
+                      bottom: 8,
+                      paddingLeft: 8,
+                      paddingRight: 6,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      borderTopLeftRadius: 10,
+                      borderBottomLeftRadius: 10,
+                    }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                        color: '#3787ff',
+                      }}>
+                      Schedule
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            }
             <View
               style={{
                 backgroundColor: 'white',
