@@ -15,6 +15,8 @@ import {
 import styles from './style';
 import {fontFamilys, images} from '../../../../constants';
 import LinearGradient from 'react-native-linear-gradient';
+import axios from 'axios';
+
 function Search2(props) {
   const [KeyboardIsShow, setKeyboardIsShow] = useState(false);
   useEffect(() => {
@@ -24,46 +26,45 @@ function Search2(props) {
     Keyboard.addListener('keyboardDidHide', () => {
       setKeyboardIsShow(false);
     });
-  });
-  const [products, setProducts] = useState([
-    {
-      name: 'Interior design',
-      url: 'https://cdn.mos.cms.futurecdn.net/y2Rdj6nWE3qA2vu56EqRra-1200-80.jpg',
-    },
-    {
-      name: 'Traditional art',
-      url: 'https://www.re-thinkingthefuture.com/wp-content/uploads/2019/07/A258-50-Brilliant-House-Interior-Design-Projects-for-your-inspiration.jpg',
-    },
-    {
-      name: '3D Animation',
-      url: 'https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/812DiPC+UCS._AC_UF894,1000_QL80_.jpg',
-    },
-    {
-      name: 'Marketing',
-      url: 'https://www.insegment.com/blog/wp-content/uploads/2016/04/The-Role-of-Marketing-1.jpg',
-    },
-    {
-      name: 'Photography',
-      url: 'https://cdn.ceoworld.biz/wp-content/uploads/2021/03/wealthy-photographer.jpg',
-    },
-    {
-      name: 'Calligraphy',
-      url: 'https://images.squarespace-cdn.com/content/v1/57919d3ab3db2b28ff821d48/1479442745914-16R12UIXAJVLZS4MOC45/Botts+Logo+Scan-transparent-1.png',
-    },
-    {
-      name: 'UX design',
-      url: 'https://www.acquisition-international.com/wp-content/uploads/2021/09/UI-UX-Design.jpg',
-    },
-    {
-      name: 'Web develop',
-      url: 'https://static.stringee.com/blog/images/web-developer-2.jpeg',
-    },
-  ]);
+    getData();
+  }, []);
+
+  let [listData, setListData] = useState(true);
+  let [listFilter, setListFilter] = useState(true);
+
+  // const [products, setProducts] = useState([
+  //   {
+  //     _id: '645122329451dd9e7c3ce72b',
+  //     description: 'NodeJS',
+  //     id_teacher: '645121377e97678961980776',
+  //     lesson: [
+  //       {
+  //         id_lesson: '4567899',
+  //         _id: '645122329451dd9e7c3ce72c',
+  //       },
+  //     ],
+  //     thumbnail:
+
   const [searchText, setSearchText] = useState('');
-  const filteredCourses = () =>
-    courses.filter(eachCourse =>
-      eachCourse.name.toLowerCase().includes(searchText.toLowerCase()),
+  const getData = async () => {
+    //Service to get the data from the server to render
+    const userdata = {
+      keyword: '',
+    };
+    const res = await axios.post(
+      `http://localhost:4848/search/search_keyword`,
+      userdata,
     );
+
+    setListData(res.data);
+    setListFilter(res.data);
+  };
+
+  const filteredCourses = () =>
+    // listData.filter(eachCourse =>
+    //   eachCourse.description.toLowerCase().includes(searchText.toLowerCase()),
+    // );
+    console.log('render view');
   return (
     <KeyboardAvoidingView style={styles.container}>
       <View style={styles.top}>
@@ -79,6 +80,12 @@ function Search2(props) {
               autoCorrect={false}
               onChangeText={text => {
                 setSearchText(text);
+                let list = listData.filter(eachCourse =>
+                  eachCourse.description
+                    .toLowerCase()
+                    .includes(text.toLowerCase()),
+                );
+                setListFilter(list);
               }}
               style={{
                 height: 60,
@@ -156,7 +163,7 @@ function Search2(props) {
         </Text>
         <View>
           <FlatList
-            data={products}
+            data={listFilter}
             numColumns={2}
             renderItem={({item, index}) => (
               <View
@@ -180,12 +187,13 @@ function Search2(props) {
                       overflow: 'hidden',
                     }}
                     source={{
-                      uri: item.url,
+                      uri: item.thumbnail,
                     }}>
                     <LinearGradient
                       colors={['#00000000', '#000000']}
                       style={{height: '100%', width: '100%'}}></LinearGradient>
                   </ImageBackground>
+
                   <Text
                     style={{
                       color: 'white',
@@ -194,7 +202,7 @@ function Search2(props) {
                       position: 'absolute',
                       top: 120,
                     }}>
-                    {item.name}
+                    {item.description}
                   </Text>
                 </View>
               </View>
