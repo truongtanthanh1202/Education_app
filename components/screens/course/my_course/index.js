@@ -83,6 +83,8 @@ const renderLearingTracking = () => {
 };
 
 const MyCourse = props => {
+  const {role, email} = props.route.params;
+  console.log(role, email);
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
