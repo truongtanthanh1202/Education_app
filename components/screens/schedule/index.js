@@ -1,26 +1,192 @@
 import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
-  TouchableOpacity,
   View,
   StatusBar,
   Text,
+  Modal,
+  TextInput,
+  TouchableOpacity,
 } from 'react-native';
 import {Dropdown} from 'react-native-element-dropdown';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SettingButtonText from '../../atoms/SettingButtonBoolean';
 
+import TimeTable from '@mikezzb/react-native-timetable';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import DropDownPicker from 'react-native-dropdown-picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import styles from './style';
 
-const shadow =
-  Platform.OS === 'ios'
-    ? {
-        shadowColor: '#171717',
-        shadowOffset: {width: -2, height: 4},
-        shadowOpacity: 0.2,
-        shadowRadius: 3,
-      }
-    : {elevation: 4, shadowColor: '#171717'};
+const events = [
+  {
+    courseId: 'AIST3020',
+    title: 'Intro to Computer Systems',
+    section: '- - LEC',
+    day: 2,
+    startTime: '11:30',
+    endTime: '12:15',
+    location: 'Online Teaching',
+    color: 'rgba(253,149,141,1)',
+  },
+  {
+    courseId: 'AIST3020',
+    title: 'Intro to Computer Systems',
+    section: '- - LEC',
+    day: 3,
+    startTime: '16:30',
+    endTime: '18:15',
+    location: 'Online Teaching',
+    color: 'rgba(253,149,141,1)',
+  },
+  {
+    courseId: 'AIST3020',
+    title: 'Intro to Computer Systems',
+    section: '-L01 - LAB',
+    day: 2,
+    startTime: '16:30',
+    endTime: '17:15',
+    location: 'Online Teaching',
+    color: 'rgba(253,149,141,1)',
+  },
+  {
+    courseId: 'CSCI2100',
+    title: 'Data Structures',
+    section: 'A - LEC',
+    day: 1,
+    startTime: '16:30',
+    endTime: '17:15',
+    location: 'Online Teaching',
+    color: 'rgba(241,153,40,1)',
+  },
+  {
+    courseId: 'CSCI2100',
+    title: 'Data Structures',
+    section: 'A - LEC',
+    day: 3,
+    startTime: '14:30',
+    endTime: '16:15',
+    location: 'Online Teaching',
+    color: 'rgba(241,153,40,1)',
+  },
+  {
+    courseId: 'CSCI2100',
+    title: 'Data Structures',
+    section: 'AT02 - TUT',
+    day: 4,
+    startTime: '17:30',
+    endTime: '18:15',
+    location: 'Online Teaching',
+    color: 'rgba(241,153,40,1)',
+  },
+  {
+    courseId: 'ELTU2014',
+    title: 'English for ERG Stds I',
+    section: 'BEC1 - CLW',
+    day: 2,
+    startTime: '10:30',
+    endTime: '11:15',
+    location: 'Online Teaching',
+    color: 'rgba(3,218,197,1)',
+  },
+  {
+    courseId: 'ELTU2014',
+    title: 'English for ERG Stds I',
+    section: 'BEC1 - CLW',
+    day: 4,
+    startTime: '8:30',
+    endTime: '10:15',
+    location: 'Online Teaching',
+    color: 'rgba(3,218,197,1)',
+  },
+  {
+    courseId: 'ENGG2780',
+    title: 'Statistics for Engineers',
+    section: 'B - LEC',
+    day: 1,
+    startTime: '12:30',
+    endTime: '14:15',
+    location: 'Online Teaching',
+    color: 'rgba(0,142,204,1)',
+  },
+  {
+    courseId: 'ENGG2780',
+    title: 'Statistics for Engineers',
+    section: 'BT01 - TUT',
+    day: 3,
+    startTime: '12:30',
+    endTime: '14:15',
+    location: 'Online Teaching',
+    color: 'rgba(0,142,204,1)',
+  },
+  {
+    courseId: 'GESC1000',
+    title: 'College Assembly',
+    section: '-A01 - ASB',
+    day: 5,
+    startTime: '11:30',
+    endTime: '13:15',
+    location: 'Online Teaching',
+    color: 'rgba(187,134,252,1)',
+  },
+  {
+    courseId: 'UGEB1492',
+    title: 'Data Expl - Stat in Daily Life',
+    section: '- - LEC',
+    day: 4,
+    startTime: '14:30',
+    endTime: '17:15',
+    location: 'Lady Shaw Bldg LT5',
+    color: 'rgba(102,204,255,1)',
+  },
+  {
+    courseId: 'UGEC1685',
+    title: 'Drugs and Culture',
+    section: '- - LEC',
+    day: 4,
+    startTime: '11:30',
+    endTime: '13:15',
+    location: 'Lee Shau Kee Building LT5',
+    color: 'rgba(255,111,199,1)',
+  },
+  {
+    courseId: 'Eat!',
+    title: 'No work on SUNDAY!',
+    section: '',
+    day: 7,
+    startTime: '12:30',
+    endTime: '13:15',
+    location: 'Home',
+    color: 'rgba(50,144,144,1)',
+  },
+  {
+    courseId: 'Manga!',
+    title: '',
+    section: '',
+    day: 6,
+    startTime: '16:30',
+    endTime: '19:15',
+    location: 'Home',
+    color: 'rgba(211,124,177,1)',
+  },
+];
+
+export const WEEKDAYS = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
+];
+
+function getTimetableFromDate(date) {
+  return `${date.getHours()}:${
+    date.getMinutes() < 10 ? (date.getMinutes() === 0 ? '00' : '0') : ''
+  }${date.getMinutes()}`;
+}
 
 const Schedule = props => {
   const data = [
@@ -30,6 +196,47 @@ const Schedule = props => {
   const [language, setLanguage] = React.useState('English');
   const [notifications, setNotifications] = React.useState(true);
   const {role, email} = props.route.params;
+
+  const [modalVisible, setModalVisible] = React.useState(false);
+  const [eventGroups, setEventGroups] = React.useState([]);
+  const [open, setOpen] = React.useState(false);
+  const [value, setValue] = React.useState(false);
+  const [items, setItems] = React.useState(
+    WEEKDAYS.map((value, index) => {
+      return {
+        label: value,
+        value: index + 1,
+      };
+    }),
+  );
+
+  const [timePickerStart, setTimePickerStart] = React.useState(false);
+  const [timePickerEnd, setTimePickerEnd] = React.useState(false);
+
+  const [timeStart, setTimeStart] = React.useState(new Date(Date.now()));
+  const [timeEnd, setTimeEnd] = React.useState(new Date(Date.now()));
+
+  function onTimeSelectedStart(_event, value) {
+    setTimeStart(value);
+    setTimePickerStart(false);
+  }
+
+  function onTimeSelectedEnd(_event, value) {
+    setTimeEnd(value);
+    setTimePickerEnd(false);
+  }
+
+  React.useEffect(() => {
+    const f = async () => {
+      try {
+        const value = await AsyncStorage.getItem(`schedule/${email}`);
+        if (value != null) setEventGroups(JSON.parse(value));
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    f();
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -123,9 +330,230 @@ const Schedule = props => {
             Today Class Schedule
           </Text>
         </View>
-        <View></View>
-        <View>
+        {/* Calendar view section begin*/}
+        <View
+          style={{
+            flex: 60,
+            backgroundColor: '#fff',
+            borderRadius: 10,
+            overflow: 'hidden',
+          }}>
+          <TimeTable
+            headerStyle={{backgroundColor: '#3787ff'}}
+            configs={{
+              startHour: 0,
+              endHour: 24,
+            }}
+            events={events}
+            eventOnPress={event =>
+              alert(
+                'Class:' +
+                  event.courseId +
+                  '\n' +
+                  'Description:' +
+                  event.title +
+                  '\n' +
+                  'Start Time: ' +
+                  event.startTime +
+                  '\n' +
+                  'End Time: ' +
+                  event.endTime +
+                  '\n' +
+                  'Location:' +
+                  event.location +
+                  '\n',
+              )
+            }
+          />
+        </View>
+
+        <Modal
+          animationType={'slide'}
+          transparent={false}
+          visible={modalVisible}
+          onRequestClose={() => {
+            setModalVisible(!modalVisible);
+            console.log('Modal has been closed.');
+          }}>
+          {/*All views of Modal*/}
+          {/*Animation can be slide, slide, none*/}
+          <View style={styles.modal}>
+            <TextInput
+              style={styles.inputField}
+              placeholder="Course id"
+              placeholderTextColor="#a1b4d4"
+            />
+            <TextInput
+              style={styles.inputField}
+              placeholder="Description"
+              placeholderTextColor="#a1b4d4"
+            />
+            <DropDownPicker
+              zIndex={3000}
+              open={open}
+              value={value}
+              items={items}
+              setOpen={setOpen}
+              setValue={setValue}
+              setItems={setItems}
+              placeholder="Choose a date"
+            />
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                zIndex: -1,
+                width: '100%',
+              }}>
+              <TouchableOpacity
+                style={{
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  paddingVertical: 12,
+                  paddingHorizontal: 28,
+                  borderRadius: 4,
+                  elevation: 3,
+                  backgroundColor: '#e4f1f9',
+                }}
+                onPress={() => {
+                  setTimePickerStart(!timePickerStart);
+                }}>
+                <Text style={{color: 'black', fontFamily: 'Poppins-Medium'}}>
+                  {' '}
+                  Start time{' '}
+                </Text>
+              </TouchableOpacity>
+              <View
+                style={{
+                  backgroundColor: '#e4f1f9',
+                  textAlign: 'center',
+                  justifyContent: 'center',
+                  borderRadius: 20,
+                  paddingTop: 10,
+                  paddingBottom: 10,
+                  paddingLeft: 15,
+                  paddingRight: 15,
+                }}>
+                <Text style={{color: 'black', fontSize: 16}}>
+                  {getTimetableFromDate(timeStart)}
+                </Text>
+              </View>
+              {timePickerStart && (
+                <DateTimePicker
+                  value={timeStart}
+                  mode="time"
+                  display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                  is24Hour={false}
+                  onChange={onTimeSelectedStart}
+                />
+              )}
+            </View>
+
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                zIndex: -1,
+                width: '100%',
+              }}>
+              <TouchableOpacity
+                style={{
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  paddingVertical: 12,
+                  paddingHorizontal: 32,
+                  borderRadius: 4,
+                  elevation: 3,
+                  backgroundColor: '#e4f1f9',
+                }}
+                onPress={() => {
+                  setTimePickerEnd(!timePickerEnd);
+                }}>
+                <Text style={{color: 'black', fontFamily: 'Poppins-Medium'}}>
+                  {' '}
+                  End time{' '}
+                </Text>
+              </TouchableOpacity>
+              <View
+                style={{
+                  backgroundColor: '#e4f1f9',
+                  textAlign: 'center',
+                  justifyContent: 'center',
+                  borderRadius: 20,
+                  paddingTop: 10,
+                  paddingBottom: 10,
+                  paddingLeft: 15,
+                  paddingRight: 15,
+                }}>
+                <Text style={{color: 'black', fontSize: 16}}>
+                  {getTimetableFromDate(timeEnd)}
+                </Text>
+              </View>
+              {timePickerEnd && (
+                <DateTimePicker
+                  value={timeEnd}
+                  mode="time"
+                  display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                  is24Hour={false}
+                  onChange={onTimeSelectedEnd}
+                />
+              )}
+            </View>
+
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                zIndex: -1,
+                width: '100%',
+                gap: 12,
+                marginTop: 24,
+              }}>
+              <TouchableOpacity
+                style={{
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  paddingVertical: 12,
+                  paddingHorizontal: 32,
+                  borderRadius: 4,
+                  elevation: 3,
+                  backgroundColor: '#e4f1f9',
+                }}
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                }}>
+                <Text style={{color: 'black', fontFamily: 'Poppins-Medium'}}>
+                  {' '}
+                  Exit{' '}
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  paddingVertical: 12,
+                  paddingHorizontal: 28,
+                  borderRadius: 4,
+                  elevation: 3,
+                  backgroundColor: '#e4f1f9',
+                }}
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                }}>
+                <Text style={{color: 'black', fontFamily: 'Poppins-Medium'}}>
+                  {' '}
+                  Submit{' '}
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+        {/* Calendar view section end*/}
+
+        <View style={{marginVertical: 20}}>
           <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={() => setModalVisible(!modalVisible)}
             style={{
               backgroundColor: '#3787ff',
               justifyContent: 'center',
