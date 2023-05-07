@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-const ProgressBar = ({containerStyle, progress}) => {
+const ProgressBar = ({containerStyle, progress, progressStyle}) => {
   return (
     <View
       style={{
@@ -19,6 +19,7 @@ const ProgressBar = ({containerStyle, progress}) => {
           width: progress,
           borderRadius: 10,
           backgroundColor: '#3787ff',
+          ...progressStyle,
         }}></View>
     </View>
   );

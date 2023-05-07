@@ -37,7 +37,8 @@ const Profile1 = props => {
       password: initialPassword,
     };
     const res = await axios.post(`http://10.0.2.2:4848/me/logintest`, userdata);
-    const data = res.data;
+    const data = res.data.user;
+    // console.log(data);
 
     let temp = [
       {name: 'Email', value: data.email},
@@ -45,6 +46,7 @@ const Profile1 = props => {
       {name: 'Last name', value: data.lastName},
       {name: 'Password', value: data.password},
     ];
+    // console.log(temp);
     setRefreshing(false);
     setDataSource(temp);
   };
@@ -144,7 +146,12 @@ const Profile1 = props => {
 
               <TouchableOpacity
                 onPress={() => {
-                  props.navigation.navigate('Profile2');
+                  props.navigation.navigate('Profile2', {
+                    email: dataSource[0].value,
+                    firstName: dataSource[1].value,
+                    lastName: dataSource[2].value,
+                    password: dataSource[3].value,
+                  });
                 }}>
                 <Ionicons
                   name="create-outline"

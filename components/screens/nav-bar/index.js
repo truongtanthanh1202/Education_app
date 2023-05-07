@@ -101,7 +101,13 @@ const Navbar = ({route, navigation}) => {
       })}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Search" component={Search2} />
-      <Tab.Screen name="Course" component={Course} />
+      <Tab.Screen
+        name="Course"
+        component={Course}
+        initialParams={{
+          email: userData.email,
+        }}
+      />
       <Tab.Screen
         name="Profile"
         component={Profile1}
