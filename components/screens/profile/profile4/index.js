@@ -26,15 +26,15 @@ function Profile4(props) {
         <View style={styles.top}>
           <Text
             style={{
-              marginTop: 20,
+              marginTop: 30,
               fontSize: fontSizes.h2,
               fontWeight: 700,
               color: 'black',
-              fontFamily:fontFamilys.f3
+              fontFamily: fontFamilys.f3,
             }}>
             Profile settings
           </Text>
-          <Image source={images.avatar} style={styles.image}></Image>
+          <Image source={images.account} style={styles.image}></Image>
           <TouchableOpacity
             style={{
               backgroundColor: '#3787ff',
@@ -52,7 +52,7 @@ function Profile4(props) {
                 fontWeight: 500,
                 color: 'white',
                 textAlign: 'center',
-                fontFamily: fontFamilys.f2
+                fontFamily: fontFamilys.f2,
               }}>
               Change profile picture
             </Text>
@@ -82,8 +82,7 @@ function Profile4(props) {
                 fontSize: 14,
                 color: 'white',
                 textAlign: 'center',
-                fontFamily: fontFamilys.f3
-
+                fontFamily: fontFamilys.f3,
               }}>
               Cancel
             </Text>
@@ -98,7 +97,7 @@ function Profile4(props) {
                 fontSize: 14,
                 color: 'white',
                 textAlign: 'center',
-                fontFamily: fontFamilys.f3
+                fontFamily: fontFamilys.f3,
               }}>
               Save
             </Text>

@@ -70,7 +70,7 @@ const Profile2 = props => {
   function renderProfileCard() {
     return (
       <View>
-        <Image source={images.avatar} style={styles.image}></Image>
+        <Image source={images.account} style={styles.image}></Image>
         {/* Detail */}
         <View>
           <Text style={styles.name}>

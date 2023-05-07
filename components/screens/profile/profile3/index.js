@@ -34,6 +34,7 @@ function Profile3(props) {
             style={{
               position: 'absolute',
               marginLeft: 4,
+              marginTop: 5,
             }}>
             <Ionicons
               name="chevron-back-outline"
