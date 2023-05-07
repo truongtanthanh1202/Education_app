@@ -52,7 +52,7 @@ function Search2(props) {
       keyword: '',
     };
     const res = await axios.post(
-      `http://localhost:4848/search/search_keyword`,
+      `http://10.0.2.2:4848/search/search_keyword`,
       userdata,
     );
 
