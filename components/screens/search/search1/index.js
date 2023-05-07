@@ -27,25 +27,25 @@ import axios from 'axios';
  */
 function Search1(props) {
   useEffect(() => {
-    getData();
+    // getData();
   }, []);
   let [listData, setListData] = useState(true);
   let [listFilter, setListFilter] = useState(true);
 
   const [searchText, setSearchText] = useState('');
-  const getData = async () => {
-    //Service to get the data from the server to render
-    const userdata = {
-      keyword: '',
-    };
-    const res = await axios.post(
-      `http://10.0.2.2:4848/search/search_keyword`,
-      userdata,
-    );
+  // const getData = async () => {
+  //   //Service to get the data from the server to render
+  //   const userdata = {
+  //     keyword: '',
+  //   };
+  //   const res = await axios.post(
+  //     `http://10.0.2.2:4848/search/search_keyword`,
+  //     userdata,
+  //   );
 
-    setListData(res.data);
-    setListFilter(res.data);
-  };
+  //   setListData(res.data);
+  //   setListFilter(res.data);
+  // };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -59,14 +59,13 @@ function Search1(props) {
         <View>
           <TextInput
             autoCorrect={false}
-            onChangeText={text => {
-              setSearchText(text);
-              let list = listData.filter(eachCourse =>
-                eachCourse.description
-                  .toLowerCase()
-                  .includes(text.toLowerCase()),
+            onChangeText={async text => {
+              const res = await axios.post(
+                `http://10.0.2.2:4848/search/search_keyword`,
+                {keyword: text},
               );
-              setListFilter(list);
+              setListData(res.data);
+              setListFilter(res.data);
             }}
             style={{
               height: 65,
@@ -104,7 +103,7 @@ function Search1(props) {
             }}>
             Your search result
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity style={{marginLeft: 20}}>
             <Filter width="28" height="28" style={styles.icon}></Filter>
           </TouchableOpacity>
         </View>
@@ -131,7 +130,6 @@ function Search1(props) {
                 }}></Image>
               <View
                 style={{
-                  //   backgroundColor: 'pink',
                   flex: 1,
                   marginRight: 10,
                 }}>
@@ -140,7 +138,7 @@ function Search1(props) {
                     color: 'black',
                     fontSize: 22,
                     fontWeight: 'bold',
-                    marginBottom: 8,
+                    marginBottom: 4,
                   }}>
                   {item.description}
                 </Text>
@@ -148,39 +146,46 @@ function Search1(props) {
                   style={{
                     color: '#757372',
                     fontSize: 14,
-                    marginBottom: 8,
+                    marginBottom: 4,
                   }}>
                   {item.nameOfteacher}
                 </Text>
-                <View style={{flexDirection: 'row'}}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    marginBottom: 4,
+                  }}>
                   <Ionicons
                     name="person-outline"
                     size={14}
                     color={'gray'}
-                    marginTop={1}></Ionicons>
+                    marginTop={3}></Ionicons>
                   <Text
                     style={{
                       color: '#757372',
                       fontSize: 14,
-                      marginBottom: 8,
                       marginLeft: 4,
                     }}>
                     {item.amountOfstudents} students
                   </Text>
                 </View>
 
-                <View style={{flexDirection: 'row'}}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    marginBottom: 4,
+                  }}>
                   <Ionicons
                     name="star"
                     size={12}
                     color="#3787ff"
-                    marginTop={1}></Ionicons>
+                    marginTop={3}></Ionicons>
                   <Text
                     style={{
                       color: '#757372',
                       fontSize: 14,
                       marginLeft: 4,
-                      marginBottom: 10,
+                      marginBottom: 8,
                     }}>
                     {item.rating}
                   </Text>

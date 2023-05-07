@@ -26,7 +26,7 @@ function Search2(props) {
     Keyboard.addListener('keyboardDidHide', () => {
       setKeyboardIsShow(false);
     });
-    getData();
+    // getData();
   }, []);
 
   let [listData, setListData] = useState(true);
@@ -46,19 +46,19 @@ function Search2(props) {
   //     thumbnail:
 
   const [searchText, setSearchText] = useState('');
-  const getData = async () => {
-    //Service to get the data from the server to render
-    const userdata = {
-      keyword: '',
-    };
-    const res = await axios.post(
-      `http://10.0.2.2:4848/search/search_keyword`,
-      userdata,
-    );
+  // const getData = async () => {
+  //   //Service to get the data from the server to render
+  //   const userdata = {
+  //     keyword: '',
+  //   };
+  //   const res = await axios.post(
+  //     `http://10.0.2.2:4848/search/search_keyword`,
+  //     userdata,
+  //   );
 
-    setListData(res.data);
-    setListFilter(res.data);
-  };
+  //   setListData(res.data);
+  //   setListFilter(res.data);
+  // };
 
   const filteredCourses = () =>
     // listData.filter(eachCourse =>
@@ -78,14 +78,13 @@ function Search2(props) {
           <View>
             <TextInput
               autoCorrect={false}
-              onChangeText={text => {
-                setSearchText(text);
-                let list = listData.filter(eachCourse =>
-                  eachCourse.description
-                    .toLowerCase()
-                    .includes(text.toLowerCase()),
+              onChangeText={async text => {
+                const res = await axios.post(
+                  `http://10.0.2.2:4848/search/search_keyword`,
+                  {keyword: text},
                 );
-                setListFilter(list);
+                setListData(res.data);
+                setListFilter(res.data);
               }}
               style={{
                 height: 60,

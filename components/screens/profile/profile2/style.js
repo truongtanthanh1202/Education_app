@@ -31,9 +31,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Medium',
   },
   image: {
-    width: 150,
-    height: 150,
+    width: 120,
+    height: 120,
     alignSelf: 'center',
+    marginTop: 18,
   },
   profileSectionContainer: {
     marginTop: 20,
