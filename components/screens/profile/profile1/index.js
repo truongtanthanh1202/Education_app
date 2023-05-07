@@ -42,8 +42,8 @@ const Profile1 = props => {
 
     let temp = [
       {name: 'Email', value: data.email},
-      {name: 'First name', value: data.firstName},
-      {name: 'Last name', value: data.lastName},
+      {name: 'First name', value: data.firstname},
+      {name: 'Last name', value: data.lastname},
       {name: 'Password', value: data.password},
     ];
     // console.log(temp);

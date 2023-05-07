@@ -42,10 +42,9 @@ const styles = StyleSheet.create({
   },
   textInButton: {
     fontSize: 22,
-    fontWeight: 500,
     color: 'black',
     textAlign: 'center',
-    fontFamily: fontFamilys.f3,
+    fontFamily: 'Poppins-Medium',
   },
   button: {
     backgroundColor: '#e4f1f8',

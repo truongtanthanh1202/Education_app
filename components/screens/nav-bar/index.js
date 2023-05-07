@@ -105,6 +105,7 @@ const Navbar = ({route, navigation}) => {
         name="Course"
         component={Course}
         initialParams={{
+          role: userData.title,
           email: userData.email,
         }}
       />
