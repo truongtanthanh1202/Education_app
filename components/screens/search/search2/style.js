@@ -37,8 +37,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   mid: {
-    flex: 55,
+    flex: 45,
     paddingTop: 10,
+  },
+  bottom: {
+    flex: 10,
+    // backgroundColor: '#e4f1f9',
   },
   linearGradient: {
     flex: 1,

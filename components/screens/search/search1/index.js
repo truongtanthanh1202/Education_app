@@ -26,26 +26,34 @@ import axios from 'axios';
  * FlatList
  */
 function Search1(props) {
+  const [KeyboardIsShow, setKeyboardIsShow] = useState(false);
   useEffect(() => {
-    // getData();
+    Keyboard.addListener('keyboardDidShow', () => {
+      setKeyboardIsShow(true);
+    });
+    Keyboard.addListener('keyboardDidHide', () => {
+      setKeyboardIsShow(false);
+    });
+    getData();
   }, []);
+
   let [listData, setListData] = useState(true);
   let [listFilter, setListFilter] = useState(true);
 
   const [searchText, setSearchText] = useState('');
-  // const getData = async () => {
-  //   //Service to get the data from the server to render
-  //   const userdata = {
-  //     keyword: '',
-  //   };
-  //   const res = await axios.post(
-  //     `http://10.0.2.2:4848/search/search_keyword`,
-  //     userdata,
-  //   );
+  const getData = async () => {
+    //Service to get the data from the server to render
+    const userdata = {
+      keyword: '',
+    };
+    const res = await axios.post(
+      `http://10.0.2.2:4848/search/search_keyword`,
+      userdata,
+    );
 
-  //   setListData(res.data);
-  //   setListFilter(res.data);
-  // };
+    setListData(res.data);
+    setListFilter(res.data);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -200,7 +208,7 @@ function Search1(props) {
           )}
         />
       </View>
-
+      {KeyboardIsShow == false && <View style={styles.bottom}></View>}
       {/* <View style={styles.below}></View> */}
     </SafeAreaView>
   );

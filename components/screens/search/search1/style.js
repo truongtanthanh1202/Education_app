@@ -13,12 +13,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   mid: {
-    flex: 75,
+    flex: 65,
     // backgroundColor: 'yellow',
     paddingLeft: 15,
     paddingTop: 10,
   },
-
+  bottom: {
+    flex: 10,
+    // backgroundColor: '#e4f1f9',
+  },
   icon: {
     marginLeft: 160,
 
