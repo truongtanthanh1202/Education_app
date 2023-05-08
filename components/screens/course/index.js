@@ -30,7 +30,8 @@ const shadow =
 const fakeCourses = [
   {
     id: 1,
-    description: 'Build and Deploy a website',
+    courseName: 'Build and Deploy a website',
+    courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
     id_teacher: 'Viet Anh Nguyen',
     thumbnail:
       'https://d3mxt5v3yxgcsr.cloudfront.net/courses/7475/course_7475_image.jpg',
@@ -39,7 +40,8 @@ const fakeCourses = [
   },
   {
     id: 2,
-    description: 'Devops with AWS',
+    courseName: 'Devops with AWS',
+    courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
     id_teacher: 'Microsoft',
     thumbnail:
       'https://cdn.mindmajix.com/courses/aws-devops-training-110620.png',
@@ -48,7 +50,8 @@ const fakeCourses = [
   },
   {
     id: 3,
-    description: 'Designing UI-UX',
+    courseName: 'Designing UI-UX',
+    courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
     id_teacher: 'Google',
     thumbnail:
       'https://product.hstatic.net/200000350979/product/11815017442_1943370500_cd6c686ef9444a1788fc4f63fce0cac8_master.jpg',
@@ -57,7 +60,8 @@ const fakeCourses = [
   },
   {
     id: 4,
-    description: 'Software Engineering',
+    courseName: 'Software Engineering',
+    courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
     id_teacher: 'Viet Hoang Nguyen',
     thumbnail:
       'https://m.media-amazon.com/images/M/MV5BNTFjZmE1ZmQtZTBiNi00M2U3LWFhZjktMDM2NThlYTA3OTJiXkEyXkFqcGdeQXVyODQyNDI4ODg@._V1_.jpg',
@@ -371,6 +375,16 @@ const Course = props => {
                 data={filterCourse(option)}
                 renderItem={({item, index}) => (
                   <TouchableOpacity
+                    onPress={() => {
+                      props.navigation.navigate('CourseDetails', {
+                        courseName: item.courseName,
+                        courseDescription: item.courseDescription,
+                        id_teacher: item.id_teacher,
+                        thumbnail: item.thumbnail,
+                        rate: item.rate,
+                        total_hours: item.total_hours,
+                      });
+                    }}
                     activeOpacity={0.7}
                     style={{
                       padding: 10,
@@ -411,7 +425,7 @@ const Course = props => {
                           color: '#222',
                           maxHeight: 36,
                         }}>
-                        {item.description}
+                        {item.courseName}
                       </Text>
                       <View
                         style={{flexDirection: 'row', alignItems: 'center'}}>

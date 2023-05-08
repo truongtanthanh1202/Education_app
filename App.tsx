@@ -26,6 +26,7 @@ import {Search1, Search2} from './components/screens/search';
 import MyCourse from './components/screens/course/my_course';
 import Schedule from './components/screens/schedule';
 import Course from './components/screens/course';
+import CourseDetails from './components/screens/course/course_details';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,7 +34,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Splash1" component={Splash1} />
+        {/* <Stack.Screen name="Splash1" component={Splash1} />
         <Stack.Screen name="Splash2" component={Splash2} />
         <Stack.Screen name="Splash3" component={Splash3} />
         <Stack.Screen name="Splash4" component={Splash4} />
@@ -44,11 +45,12 @@ const App = () => {
         <Stack.Screen name="Forgot1" component={Forgot1} />
         <Stack.Screen name="Forgot2" component={Forgot2} />
         <Stack.Screen name="Forgot3" component={Forgot3} />
-        <Stack.Screen name="Forgot4" component={Forgot4} />
+        <Stack.Screen name="Forgot4" component={Forgot4} /> */}
         <Stack.Screen name="Navbar" component={Navbar} />
         <Stack.Screen name="Search2" component={Search2} />
         <Stack.Screen name="Course" component={Course} />
         <Stack.Screen name="MyCourse" component={MyCourse} />
+        <Stack.Screen name="CourseDetails" component={CourseDetails} />
         <Stack.Screen name="Schedule" component={Schedule} />
         <Stack.Screen name="Profile1" component={Profile1} />
         <Stack.Screen name="Profile2" component={Profile2} />
