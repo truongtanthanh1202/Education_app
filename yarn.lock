@@ -1715,6 +1715,14 @@
   resolved "https://registry.npmjs.org/@react-navigation/elements/-/elements-1.3.17.tgz"
   integrity sha512-sui8AzHm6TxeEvWT/NEXlz3egYvCUog4tlXA4Xlb2Vxvy3purVXDq/XsM56lJl344U5Aj/jDzkVanOTMWyk4UA==
 
+"@react-navigation/material-top-tabs@^6.6.2":
+  version "6.6.2"
+  resolved "https://registry.npmjs.org/@react-navigation/material-top-tabs/-/material-top-tabs-6.6.2.tgz"
+  integrity sha512-qq0iyMzWApeSvhxovurhk5hluAH2VYbSObTZIKt4KbVXZ0KP8ir1tRQ+IAwkMea+hCnd26glpXRVQI+YqXH0Gw==
+  dependencies:
+    color "^4.2.3"
+    warn-once "^0.1.0"
+
 "@react-navigation/native-stack@^6.9.12":
   version "6.9.12"
   resolved "https://registry.npmjs.org/@react-navigation/native-stack/-/native-stack-6.9.12.tgz"
@@ -2995,15 +3003,6 @@ depd@2.0.0:
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
 deprecated-react-native-prop-types@^2.2.0:
-  version "2.3.0"
-  resolved "https://registry.npmjs.org/deprecated-react-native-prop-types/-/deprecated-react-native-prop-types-2.3.0.tgz"
-  integrity sha512-pWD0voFtNYxrVqvBMYf5gq3NA2GCpfodS1yNynTPc93AYA/KEMGeWDqqeUB6R2Z9ZofVhks2aeJXiuQqKNpesA==
-  dependencies:
-    "@react-native/normalize-color" "*"
-    invariant "*"
-    prop-types "*"
-
-deprecated-react-native-prop-types@^2.3.0:
   version "2.3.0"
   resolved "https://registry.npmjs.org/deprecated-react-native-prop-types/-/deprecated-react-native-prop-types-2.3.0.tgz"
   integrity sha512-pWD0voFtNYxrVqvBMYf5gq3NA2GCpfodS1yNynTPc93AYA/KEMGeWDqqeUB6R2Z9ZofVhks2aeJXiuQqKNpesA==
@@ -6119,7 +6118,7 @@ prompts@^2.0.1, prompts@^2.4.0:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@*, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@*, prop-types@^15.5.6, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -6248,12 +6247,17 @@ react-native-linear-gradient@^2.6.2:
   resolved "https://registry.npmjs.org/react-native-linear-gradient/-/react-native-linear-gradient-2.6.2.tgz"
   integrity sha512-Z8Xxvupsex+9BBFoSYS87bilNPWcRfRsGC0cpJk72Nxb5p2nEkGSBv73xZbEHnW2mUFvP+huYxrVvjZkr/gRjQ==
 
-react-native-pager-view@*:
+react-native-media-controls@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/react-native-media-controls/-/react-native-media-controls-2.3.0.tgz"
+  integrity sha512-N10i12ZO+GIXjmdA9hQk/HuBm5u9xWPIOydG/2SvLEZcnY3xg3D8d2IJXRolzSm2jBRgEGSO4rMgRBU6MpdNMg==
+
+react-native-pager-view@*, react-native-pager-view@^6.2.0, "react-native-pager-view@>= 4.0.0":
   version "6.2.0"
   resolved "https://registry.npmjs.org/react-native-pager-view/-/react-native-pager-view-6.2.0.tgz"
   integrity sha512-pf9OnL/Tkr+5s4Gjmsn7xh91PtJLDa6qxYa/bmtUhd/+s4cQdWQ8DIFoOFghwZIHHHwVdWtoXkp6HtpjN+r20g==
 
-react-native-reanimated@>=2.15.0:
+react-native-reanimated@^3.1.0, react-native-reanimated@>=2.15.0:
   version "3.1.0"
   resolved "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-3.1.0.tgz"
   integrity sha512-8YJR7yHnrqK6yKWzkGLVEawi1WZqJ9bGIehKEnE8zG58yLrSwUZe1T220XTbftpkA3r37Sy0kJJ/HOOiaIU+HQ==
@@ -6281,6 +6285,13 @@ react-native-select-dropdown@^3.3.2:
   resolved "https://registry.npmjs.org/react-native-select-dropdown/-/react-native-select-dropdown-3.3.2.tgz"
   integrity sha512-2rsPgAzeZ4Pdsf/kCuwYyzmLd5OO+cT3yZ0gAvVZ9C+5xkchiY7iE9u5M5F0DCgMqmwJjBBsiBEvULJ/Eaxpng==
 
+react-native-slider@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.npmjs.org/react-native-slider/-/react-native-slider-0.11.0.tgz"
+  integrity sha512-jV9K87eu9uWr0uJIyrSpBLnCKvVlOySC2wynq9TFCdV9oGgjt7Niq8Q1A8R8v+5GHsuBw/s8vEj1AAkkUi+u+w==
+  dependencies:
+    prop-types "^15.5.6"
+
 react-native-svg@^13.8.0:
   version "13.8.0"
   resolved "https://registry.npmjs.org/react-native-svg/-/react-native-svg-13.8.0.tgz"
@@ -6289,7 +6300,14 @@ react-native-svg@^13.8.0:
     css-select "^5.1.0"
     css-tree "^1.1.3"
 
-react-native-vector-icons@^9.2.0, "react-native-vector-icons@>= 2.1.0":
+"react-native-tab-view@>= 3.0.0":
+  version "3.5.1"
+  resolved "https://registry.npmjs.org/react-native-tab-view/-/react-native-tab-view-3.5.1.tgz"
+  integrity sha512-qdrS5t+AEhfuKQyuCXkwHu4IVppkuTvzWWlkSZKrPaSkjjIa32xrsGxt1UW9YDdro2w4AMw5hKn1hFmg/5mvzA==
+  dependencies:
+    use-latest-callback "^0.1.5"
+
+react-native-vector-icons@^9.2.0:
   version "9.2.0"
   resolved "https://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-9.2.0.tgz"
   integrity sha512-wKYLaFuQST/chH3AJRjmOLoLy3JEs1JR6zMNgTaemFpNoXs0ztRnTxcxFD9xhX7cJe1/zoN5BpQYe7kL0m5yyA==
@@ -6297,14 +6315,7 @@ react-native-vector-icons@^9.2.0, "react-native-vector-icons@>= 2.1.0":
     prop-types "^15.7.2"
     yargs "^16.1.1"
 
-react-native-video-player@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.npmjs.org/react-native-video-player/-/react-native-video-player-0.14.0.tgz"
-  integrity sha512-lgdqq9h3Mi2poRII3sCE9RgrZIA140bWd83NEzyZp3andKaUiXKYSFcWu+BoySn2Y24dCrDFnhVEkvPq6sTndg==
-  dependencies:
-    deprecated-react-native-prop-types "^2.3.0"
-
-react-native-video@^2.0.0, react-native-video@^5.2.1:
+react-native-video@^5.2.1:
   version "5.2.1"
   resolved "https://registry.npmjs.org/react-native-video/-/react-native-video-5.2.1.tgz"
   integrity sha512-aJlr9MeTuQ0LpZ4n+EC9RvhoKeiPbLtI2Rxy8u7zo/wzGevbRpWHSBj9xZ5YDBXnAVXzuqyNIkGhdw7bfdIBZw==
@@ -6314,7 +6325,7 @@ react-native-video@^2.0.0, react-native-video@^5.2.1:
     prop-types "^15.7.2"
     shaka-player "^2.5.9"
 
-react-native@*, "react-native@^0.0.0-0 || 0.60 - 0.72 || 1000.0.0", react-native@0.71.4:
+react-native@*, "react-native@^0.0.0-0 || 0.60 - 0.72 || 1000.0.0", react-native@>=0.60, react-native@0.71.4:
   version "0.71.4"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.71.4.tgz"
   integrity sha512-3hSYqvWrOdKhpV3HpEKp1/CkWx8Sr/N/miCrmUIAsVTSJUR7JW0VvIsrV9urDhUj/s6v2WF4n7qIEEJsmTCrPw==
@@ -6376,7 +6387,7 @@ react-test-renderer@18.2.0:
     react-shallow-renderer "^16.15.0"
     scheduler "^0.23.0"
 
-react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@^18.2.0, react@>=16.8.0, react@>=17.0.0, react@18.2.0:
+react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@^18.2.0, react@>=16, react@>=16.8.0, react@>=17.0.0, react@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==

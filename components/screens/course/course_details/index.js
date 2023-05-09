@@ -14,211 +14,8 @@ import {Tabs} from 'react-native-collapsible-tab-view';
 import VideoFrame from '../../../atoms/VideoFrame';
 import styles from './style';
 
-const renderHeader = props => {
-  const data = [
-    {label: 'English', value: 'English'},
-    {label: 'Vietnamese', value: 'Vietnamese'},
-  ];
-  const [language, setLanguage] = React.useState('English');
-  return (
-    <View style={styles.headerContainer}>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}>
-        <TouchableOpacity
-          style={{flex: 35}}
-          onPress={() => {
-            props.navigation.goBack();
-          }}>
-          <Ionicons name="chevron-back-outline" size={28} color="#333" />
-        </TouchableOpacity>
-        <Dropdown
-          style={{
-            flex: 40,
-            backgroundColor: '#3787ff',
-            height: 26,
-            borderRadius: 12,
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingHorizontal: 4,
-          }}
-          placeholderStyle={{
-            fontSize: 14,
-            color: 'white',
-            fontFamily: 'Poppins-Medium',
-            textAlign: 'center',
-          }}
-          selectedTextStyle={{
-            fontSize: 14,
-            color: 'white',
-            fontFamily: 'Poppins-Medium',
-            textAlign: 'center',
-          }}
-          iconStyle={{width: 20, height: 20, tintColor: 'white'}}
-          labelField="label"
-          valueField="value"
-          value={language}
-          data={data}
-          placeholder="English"
-          renderLeftIcon={() => (
-            <View style={{paddingRight: 4}}>
-              <Ionicons name="globe-outline" size={18} color="white" />
-            </View>
-          )}
-          onChange={item => {
-            setLanguage(item.value);
-          }}
-        />
-        <View style={{flex: 35, height: 28}}>
-          <TouchableOpacity
-            style={{position: 'absolute', right: 0}}
-            onPress={() => {}}>
-            <Ionicons name="bookmark-outline" size={28} color="#555" />
-          </TouchableOpacity>
-        </View>
-      </View>
-    </View>
-  );
-};
-const renderIntroduction = ({
-  courseName,
-  courseDescription,
-  id_teacher,
-  thumbnail,
-  rate,
-  total_hours,
-}) => {
-  return (
-    <View
-      style={{
-        flexDirection: 'column',
-        paddingHorizontal: 16,
-        paddingVertical: 16,
-        gap: 8,
-      }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          marginTop: 8,
-          alignItems: 'center',
-          gap: 8,
-        }}>
-        <Image
-          source={require('../../../../asset/img/img_avatar.jpeg')}
-          resizeMode="cover"
-          style={{
-            width: Platform.OS === 'ios' ? 40 : 48,
-            height: Platform.OS === 'ios' ? 40 : 48,
-            borderRadius: 32,
-          }}></Image>
-        <Text
-          style={{
-            fontFamily: 'Comfortaa-Bold',
-            fontSize: 16,
-            color: '#333',
-            marginTop: 16,
-          }}>
-          {' '}
-          {id_teacher}{' '}
-        </Text>
-      </View>
-
-      <Text
-        style={{
-          fontFamily: 'Poppins-Medium',
-          fontSize: 22,
-          color: 'black',
-        }}>
-        {courseName}
-      </Text>
-
-      <View
-        style={{
-          flexDirection: 'row',
-          marginTop: 0,
-          alignItems: 'center',
-          gap: 72,
-        }}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Ionicons name="time-outline" size={24} />
-          <Text
-            style={{
-              fontFamily: 'Poppins-Regular',
-              color: '#333',
-              marginTop: 2,
-            }}>
-            {' '}
-            {total_hours} hour
-          </Text>
-        </View>
-
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Ionicons name="videocam-outline" size={24} />
-          <Text
-            style={{
-              fontFamily: 'Poppins-Regular',
-              color: '#333',
-              marginTop: 2,
-            }}>
-            {' '}
-            12 Lessons
-          </Text>
-        </View>
-      </View>
-
-      <View
-        style={{
-          flexDirection: 'row',
-          marginTop: 8,
-          alignItems: 'center',
-          gap: 68,
-        }}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Ionicons name="star-outline" size={24} />
-          <Text
-            style={{
-              fontFamily: 'Poppins-Regular',
-              color: '#333',
-              marginTop: 2,
-            }}>
-            {' '}
-            {rate} (753){' '}
-          </Text>
-        </View>
-
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Ionicons name="person-outline" size={24} />
-          <Text
-            style={{
-              fontFamily: 'Poppins-Regular',
-              color: '#333',
-              marginTop: 2,
-            }}>
-            {' '}
-            2K students{' '}
-          </Text>
-        </View>
-      </View>
-
-      <Text
-        style={{
-          fontFamily: 'Poppins-Relugar',
-          fontSize: 14,
-          color: '#555',
-          marginTop: 12,
-        }}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-        cursus vitae leo quis faucibus. Aliquam sit amet magna rhoncus,
-        tincidunt lorem quis, ultricies nibh.
-      </Text>
-    </View>
-  );
-};
-
-const Overview = () => (
+const avatar = require('../../../../asset/img/img_avatar.jpeg');
+const Overview = props => (
   <View style={{flex: 1, marginHorizontal: 20, gap: 24, marginBottom: 48}}>
     <View style={{flexDirection: 'column', gap: 24, marginTop: 24}}>
       <Text style={[styles.screenTitle, {fontSize: 16, fontWeight: 'bold'}]}>
@@ -541,9 +338,10 @@ const Lessons = ({navigation}) => (
           <View style={{flexDirection: 'row', gap: 8, marginRight: 12}}>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('Lesson', {
-                  lessonIndex: index + 1,
-                });
+                // props.navigation.navigate('Lesson', {
+                //   lessonIndex: index + 1,
+                // });
+                console.log(`lessonIndex:` + (index + 1));
               }}>
               <Image
                 source={{uri: lesson.thumbnail}}
@@ -585,29 +383,6 @@ const Lessons = ({navigation}) => (
   </View>
 );
 
-const renderBody = props => {
-  const HEADER_HEIGHT = 350;
-  return (
-    <Tabs.Container
-      headerHeight={HEADER_HEIGHT}
-      // lazy
-      headerContainerStyle={{backgroundColor: '#e4f1f9'}}
-      renderHeader={realHeader}>
-      <Tabs.Tab name={'Overview'}>
-        <Tabs.ScrollView>
-          <Overview />
-        </Tabs.ScrollView>
-      </Tabs.Tab>
-
-      <Tabs.Tab name={'Lessons'}>
-        <Tabs.ScrollView>
-          <Lessons navigation={navigation} />
-        </Tabs.ScrollView>
-      </Tabs.Tab>
-    </Tabs.Container>
-  );
-};
-
 const CourseDetails = props => {
   const {
     courseName,
@@ -617,6 +392,233 @@ const CourseDetails = props => {
     rate,
     total_hours,
   } = props.route.params;
+  const renderHeader = () => {
+    const data = [
+      {label: 'English', value: 'English'},
+      {label: 'Vietnamese', value: 'Vietnamese'},
+    ];
+    const [language, setLanguage] = React.useState('English');
+    return (
+      <View style={styles.headerContainer}>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <TouchableOpacity
+            style={{flex: 35}}
+            onPress={() => {
+              props.navigation.goBack();
+            }}>
+            <Ionicons name="chevron-back-outline" size={28} color="#333" />
+          </TouchableOpacity>
+          <Dropdown
+            style={{
+              flex: 40,
+              backgroundColor: '#3787ff',
+              height: 26,
+              borderRadius: 12,
+              justifyContent: 'center',
+              alignItems: 'center',
+              paddingHorizontal: 4,
+            }}
+            placeholderStyle={{
+              fontSize: 14,
+              color: 'white',
+              fontFamily: 'Poppins-Medium',
+              textAlign: 'center',
+            }}
+            selectedTextStyle={{
+              fontSize: 14,
+              color: 'white',
+              fontFamily: 'Poppins-Medium',
+              textAlign: 'center',
+            }}
+            iconStyle={{width: 20, height: 20, tintColor: 'white'}}
+            labelField="label"
+            valueField="value"
+            value={language}
+            data={data}
+            placeholder="English"
+            renderLeftIcon={() => (
+              <View style={{paddingRight: 4}}>
+                <Ionicons name="globe-outline" size={18} color="white" />
+              </View>
+            )}
+            onChange={item => {
+              setLanguage(item.value);
+            }}
+          />
+          <View style={{flex: 35, height: 28}}>
+            <TouchableOpacity
+              style={{position: 'absolute', right: 0}}
+              onPress={() => {}}>
+              <Ionicons name="bookmark-outline" size={28} color="#555" />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    );
+  };
+  const renderIntroduction = () => {
+    return (
+      <View
+        style={{
+          flexDirection: 'column',
+          paddingHorizontal: 16,
+          paddingVertical: 16,
+          gap: 8,
+        }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            marginTop: 8,
+            alignItems: 'center',
+            gap: 8,
+          }}>
+          <Image
+            source={require('../../../../asset/img/img_avatar.jpeg')}
+            resizeMode="cover"
+            style={{
+              width: Platform.OS === 'ios' ? 40 : 48,
+              height: Platform.OS === 'ios' ? 40 : 48,
+              borderRadius: 32,
+            }}></Image>
+          <Text
+            style={{
+              fontFamily: 'Comfortaa-Bold',
+              fontSize: 16,
+              color: '#333',
+              marginTop: 16,
+            }}>
+            {' '}
+            {id_teacher}{' '}
+          </Text>
+        </View>
+
+        <Text
+          style={{
+            fontFamily: 'Poppins-Medium',
+            fontSize: 22,
+            color: 'black',
+          }}>
+          {courseName}
+        </Text>
+
+        <View
+          style={{
+            flexDirection: 'row',
+            marginTop: 0,
+            alignItems: 'center',
+            gap: 72,
+          }}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Ionicons name="time-outline" size={24} />
+            <Text
+              style={{
+                fontFamily: 'Poppins-Regular',
+                color: '#333',
+                marginTop: 2,
+              }}>
+              {' '}
+              {total_hours} hour
+            </Text>
+          </View>
+
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Ionicons name="videocam-outline" size={24} />
+            <Text
+              style={{
+                fontFamily: 'Poppins-Regular',
+                color: '#333',
+                marginTop: 2,
+              }}>
+              {' '}
+              12 Lessons
+            </Text>
+          </View>
+        </View>
+
+        <View
+          style={{
+            flexDirection: 'row',
+            marginTop: 8,
+            alignItems: 'center',
+            gap: 68,
+          }}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Ionicons name="star-outline" size={24} />
+            <Text
+              style={{
+                fontFamily: 'Poppins-Regular',
+                color: '#333',
+                marginTop: 2,
+              }}>
+              {' '}
+              {rate} (753){' '}
+            </Text>
+          </View>
+
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Ionicons name="person-outline" size={24} />
+            <Text
+              style={{
+                fontFamily: 'Poppins-Regular',
+                color: '#333',
+                marginTop: 2,
+              }}>
+              {' '}
+              2K students{' '}
+            </Text>
+          </View>
+        </View>
+
+        <Text
+          style={{
+            fontFamily: 'Poppins-Relugar',
+            fontSize: 14,
+            color: '#555',
+            marginTop: 12,
+          }}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+          cursus vitae leo quis faucibus. Aliquam sit amet magna rhoncus,
+          tincidunt lorem quis, ultricies nibh.
+        </Text>
+      </View>
+    );
+  };
+  const tabViewHeader = () => {
+    return (
+      <>
+        {renderHeader()}
+        <VideoFrame thumbnail={thumbnail} />
+        {renderIntroduction()}
+      </>
+    );
+  };
+  const renderBody = props => {
+    const HEADER_HEIGHT = 400;
+    return (
+      <Tabs.Container
+        headerHeight={HEADER_HEIGHT}
+        // lazy
+        headerContainerStyle={{backgroundColor: '#e4f1f9'}}
+        renderHeader={tabViewHeader}>
+        <Tabs.Tab name={'Overview'}>
+          <Tabs.ScrollView>
+            <Overview />
+          </Tabs.ScrollView>
+        </Tabs.Tab>
+
+        <Tabs.Tab name={'Lessons'}>
+          <Tabs.ScrollView>
+            <Lessons />
+          </Tabs.ScrollView>
+        </Tabs.Tab>
+      </Tabs.Container>
+    );
+  };
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -628,19 +630,7 @@ const CourseDetails = props => {
           height: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight,
         }}
       />
-      <ScrollView>
-        {renderHeader(props)}
-        <VideoFrame thumbnail={thumbnail} />
-        {renderIntroduction({
-          courseName,
-          courseDescription,
-          id_teacher,
-          thumbnail,
-          rate,
-          total_hours,
-        })}
-        {renderBody()}
-      </ScrollView>
+      {renderBody()}
     </SafeAreaView>
   );
 };
