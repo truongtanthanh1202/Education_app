@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   StatusBar,
   TouchableOpacity,
+  Dimensions,
   ScrollView,
   Image,
 } from 'react-native';
@@ -71,28 +72,64 @@ const Lesson = ({route, navigation}) => {
 
   const LessonVideos = props => {
     return (
-      <View style={{flex: 1, backgroundColor: '#e4f1f9', gap: 16}}>
+      <View style={{flex: 1, backgroundColor: '#e4f1f9'}}>
         <VideoFrame
           thumbnail={
             'https://hasura.io/blog/content/images/2019/02/nextjs-serverless-now-hasura-graphql.png'
           }
         />
-        <View style={{marginHorizontal: 20, flex: 1}}>
-          <Text style={{}}>Div Blocks, typography</Text>
+        <View style={{flex: 1}}>
+          <Text
+            style={{
+              fontFamily: 'Comfortaa-Medium',
+              color: '#333',
+              fontSize: 16,
+              marginLeft: 16,
+              marginBottom: 8,
+            }}>
+            Document for this lesson
+          </Text>
+          <Pdf
+            trustAllCerts={false}
+            source={{
+              uri: 'http://samples.leanpub.com/thereactnativebook-sample.pdf',
+              cache: true,
+            }}
+            page={6}
+            style={{
+              flex: 1,
+              backgroundColor: '#e4f1f9',
+              width: Dimensions.get('window').width,
+            }}
+          />
         </View>
       </View>
     );
   };
 
   const LessonTheory = props => {
-    const source = {
-      uri: 'http://samples.leanpub.com/thereactnativebook-sample.pdf',
-      cache: true,
-    };
     return (
       <View
-        style={{flex: 1, backgroundColor: 'lightblue', paddingHorizontal: 20}}>
-        <Text>This is course pdf</Text>
+        style={{
+          flex: 1,
+          backgroundColor: '#e4f1f9',
+          paddingHorizontal: 12,
+        }}>
+        <Pdf
+          trustAllCerts={false}
+          source={{
+            uri: 'http://samples.leanpub.com/thereactnativebook-sample.pdf',
+            cache: true,
+          }}
+          spacing={16}
+          minScale={0.5}
+          maxScale={3}
+          style={{
+            flex: 1,
+            backgroundColor: '#e4f1f9',
+            width: Dimensions.get('window').width - 12 * 2,
+          }}
+        />
       </View>
     );
   };
