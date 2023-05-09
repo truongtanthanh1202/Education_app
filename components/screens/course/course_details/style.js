@@ -6,8 +6,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#e4f1f9',
   },
   headerContainer: {
-    paddingHorizontal: 20,
     paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight,
+    paddingHorizontal: 20,
     marginBottom: 14,
   },
 });

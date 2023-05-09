@@ -47,7 +47,7 @@ const VideoFrame = props => {
   const onSeeking = currentTime => setCurrentTime(currentTime);
 
   return (
-    <View style={{flex: 1, maxHeight: 200}}>
+    <View style={{flex: 1, maxHeight: 240}}>
       <Video
         onEnd={onEnd}
         onLoad={onLoad}
@@ -61,7 +61,7 @@ const VideoFrame = props => {
           uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
         }}
         repeat={false}
-        style={{height: 200, width: '100%'}}
+        style={{height: 240, width: '100%'}}
         volume={1}
       />
       <MediaControls
