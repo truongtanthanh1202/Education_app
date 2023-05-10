@@ -19,7 +19,7 @@ const Navbar = ({route, navigation}) => {
     deleted: false,
     email: 'ttt@gmail.com',
     password: '123456',
-    title: 'teacher',
+    title: 'student',
     updatedAt: '2023-04-14T08:29:37.562Z',
   };
 

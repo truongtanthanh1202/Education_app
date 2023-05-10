@@ -26,6 +26,7 @@ import {Search1, Search2} from './components/screens/search';
 import MyCourse from './components/screens/course/my_course';
 import Schedule from './components/screens/schedule';
 import Course from './components/screens/course';
+import CourseEnroll from './components/screens/course_enroll';
 import CourseDetails from './components/screens/course/course_details';
 import Lesson from './components/screens/course/lessons';
 
@@ -50,6 +51,7 @@ const App = () => {
         <Stack.Screen name="Navbar" component={Navbar} />
         <Stack.Screen name="Search2" component={Search2} />
         <Stack.Screen name="Course" component={Course} />
+        <Stack.Screen name="CourseEnroll" component={CourseEnroll} />
         <Stack.Screen name="MyCourse" component={MyCourse} />
         <Stack.Screen name="CourseDetails" component={CourseDetails} />
         <Stack.Screen name="Lesson" component={Lesson} />

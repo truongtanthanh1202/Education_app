@@ -18,17 +18,38 @@ const targetTimeLearning = 60;
 
 const dataSource = [
   {
-    title: 'Build and Deploy a website',
+    id: 1,
+    courseName: 'Build and Deploy a website',
+    courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make`,
+    id_teacher: 'Viet Anh Nguyen',
+    thumbnail:
+      'https://d3mxt5v3yxgcsr.cloudfront.net/courses/7475/course_7475_image.jpg',
+    rate: 5,
+    total_hours: 16,
     totalLessons: 24,
     completedLessons: 24,
   },
   {
-    title: 'Product design v1.0',
+    id: 2,
+    courseName: 'Devops with AWS',
+    courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to`,
+    id_teacher: 'Microsoft',
+    thumbnail:
+      'https://cdn.mindmajix.com/courses/aws-devops-training-110620.png',
+    rate: 4.5,
+    total_hours: 14,
     totalLessons: 24,
     completedLessons: 14,
   },
   {
-    title: 'Java Development',
+    id: 3,
+    courseName: 'Software Engineering',
+    courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever`,
+    id_teacher: 'Viet Hoang Nguyen',
+    thumbnail:
+      'https://m.media-amazon.com/images/M/MV5BNTFjZmE1ZmQtZTBiNi00M2U3LWFhZjktMDM2NThlYTA3OTJiXkEyXkFqcGdeQXVyODQyNDI4ODg@._V1_.jpg',
+    rate: 4,
+    total_hours: 12,
     totalLessons: 18,
     completedLessons: 12,
   },
@@ -129,10 +150,22 @@ const MyCourse = props => {
           numColumns={2}
           renderItem={({item, index}) => (
             <TouchableOpacity
+              onPress={() => {
+                props.navigation.navigate('CourseDetails', {
+                  courseName: item.courseName,
+                  courseDescription: item.courseDescription,
+                  id_teacher: item.id_teacher,
+                  thumbnail: item.thumbnail,
+                  rate: item.rate,
+                  total_hours: item.total_hours,
+                  totalLessons: item.totalLessons,
+                  completedLessons: item.completedLessons,
+                });
+              }}
               activeOpacity={0.7}
               key={index}
               style={styles.coursesListItem}>
-              <Text style={styles.coursesListItemTitle}>{item.title}</Text>
+              <Text style={styles.coursesListItemTitle}>{item.courseName}</Text>
               <ProgressBar
                 progress={
                   `${(item.completedLessons * 100) / item.totalLessons}` + '%'

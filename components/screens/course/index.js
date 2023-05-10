@@ -376,7 +376,7 @@ const Course = props => {
                 renderItem={({item, index}) => (
                   <TouchableOpacity
                     onPress={() => {
-                      props.navigation.navigate('CourseDetails', {
+                      props.navigation.navigate('CourseEnroll', {
                         courseName: item.courseName,
                         courseDescription: item.courseDescription,
                         id_teacher: item.id_teacher,

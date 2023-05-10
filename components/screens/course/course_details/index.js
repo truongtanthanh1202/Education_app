@@ -25,6 +25,8 @@ const CourseDetails = props => {
     thumbnail,
     rate,
     total_hours,
+    totalLessons,
+    completedLessons,
   } = props.route.params;
   const Overview = () => {
     return (
@@ -609,9 +611,7 @@ const CourseDetails = props => {
             color: '#555',
             marginTop: 12,
           }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-          cursus vitae leo quis faucibus. Aliquam sit amet magna rhoncus,
-          tincidunt lorem quis, ultricies nibh.
+          {courseDescription}
         </Text>
       </View>
     );
