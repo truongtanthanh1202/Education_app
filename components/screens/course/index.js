@@ -143,6 +143,8 @@ const renderTopSearch = () => {
 const Course = props => {
   const userRole = props.route.params.role;
   const initialEmail = props.route.params.email;
+  const fisrtname = props.route.params.fisrtname;
+  const lastname = props.route.params.lastname;
 
   const categories = [
     {
@@ -178,6 +180,8 @@ const Course = props => {
     props.navigation.navigate('MyCourse', {
       role: userRole,
       email: initialEmail,
+      fisrtname: fisrtname,
+      lastname: lastname,
     });
   };
   const handlerToSchedule = () => {

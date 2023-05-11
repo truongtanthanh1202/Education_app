@@ -18,8 +18,10 @@ const Navbar = ({route, navigation}) => {
     createdAt: '2023-04-14T08:29:37.561Z',
     deleted: false,
     email: 'ttt@gmail.com',
+    fisrtname: 'Truong Tan',
+    lastname: 'Thanh',
     password: '123456',
-    title: 'student',
+    title: 'teacher', //teacher || student
     updatedAt: '2023-04-14T08:29:37.562Z',
   };
 
@@ -107,6 +109,8 @@ const Navbar = ({route, navigation}) => {
         initialParams={{
           role: userData.title,
           email: userData.email,
+          fisrtname: userData.fisrtname,
+          lastname: userData.lastname,
         }}
       />
       <Tab.Screen

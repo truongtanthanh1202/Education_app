@@ -104,8 +104,16 @@ const renderLearingTracking = () => {
 };
 
 const MyCourse = props => {
-  const {role, email} = props.route.params;
-  console.log(role, email);
+  const {role, email, fisrtname, lastname} = props.route.params;
+  console.log(fisrtname, lastname, role, email);
+  const handleToCreateCourse = () => {
+    props.navigation.navigate('CreateCourse', {
+      role: role,
+      email: email,
+      fisrtname: fisrtname,
+      lastname: lastname,
+    });
+  };
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -129,16 +137,43 @@ const MyCourse = props => {
             }}>
             <Ionicons name="chevron-back-outline" size={28} color="#333" />
           </TouchableOpacity>
-          <Text
+          <View
             style={{
-              textAlign: 'center',
               flex: 90,
-              fontFamily: 'Poppins-Medium',
-              fontSize: 22,
-              color: '#333',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: 'transparent',
             }}>
-            My courses
-          </Text>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontFamily: 'Poppins-Medium',
+                fontSize: 22,
+                color: '#333',
+              }}>
+              {role === 'teacher' && '      '}My courses
+            </Text>
+          </View>
+          {role === 'teacher' && (
+            <TouchableOpacity
+              onPress={handleToCreateCourse}
+              activeOpacity={0.6}
+              style={{
+                backgroundColor: '#3787ff',
+                paddingHorizontal: 12,
+                paddingVertical: 6,
+                borderRadius: 12,
+              }}>
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Medium',
+                  fontSize: 16,
+                  color: '#fff',
+                }}>
+                + Create
+              </Text>
+            </TouchableOpacity>
+          )}
         </View>
       </View>
       <View style={{paddingHorizontal: 20, marginBottom: 20}}>
