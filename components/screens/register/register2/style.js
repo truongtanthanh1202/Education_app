@@ -13,15 +13,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#e4f1f9',
   },
   top: {
-    flex: 35,
+    flex: 30,
     justifyContent: 'center',
+    // backgroundColor: 'pink',
+    // marginTop: 10,
   },
   mid: {
-    flex: 45,
+    flex: 55,
+    marginTop: 10,
   },
   below: {
-    flex: 20,
+    flex: 15,
     alignItems: 'center',
+    // backgroundColor: 'yellow',
   },
   dropdown: {
     height: Platform.OS === 'ios' ? 52 : 58,
@@ -51,7 +55,7 @@ const styles = StyleSheet.create({
     borderWidth: 1.3,
     alignSelf: 'center',
     justifyContent: 'center',
-    margin: 8,
+    margin: 5,
     fontSize: 16,
     fontFamily: 'Poppins-Medium',
     paddingLeft: 52,
@@ -61,7 +65,7 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 26,
     fontFamily: 'Poppins-Medium',
-    marginBottom: 12,
+    marginBottom: 4,
   },
   text2: {
     ...TEXT,
@@ -86,7 +90,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: Platform.OS === 'ios' ? 16 : 16,
-    marginTop: 14,
+    // marginTop: 18,
   },
   textInnerBtn: {
     color: 'white',

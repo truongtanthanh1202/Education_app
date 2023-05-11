@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   TextInput,
+  StatusBar,
   TouchableWithoutFeedback,
   Keyboard,
   Platform,
@@ -15,8 +16,16 @@ import {images, colors} from '../../../../constants';
 import User from '../../../../asset/icons/user';
 import Invisible from '../../../../asset/icons/invisible';
 import Email from '../../../../asset/icons/email';
-import {isValidEmail, isValidPassword} from '../../../utilies/Validations';
+import Info from '../../../../asset/icons/info';
+
+import {
+  isValidEmail,
+  isValidFirstName,
+  isValidLastName,
+  isValidPassword,
+} from '../../../utilies/Validations';
 import styles from './style';
+
 import {Dropdown} from 'react-native-element-dropdown';
 import axios from 'axios';
 
@@ -38,13 +47,21 @@ function Register2({route, navigation}) {
   //states for validating
   const [errorEmail, setErrorEmail] = useState('');
   const [errorPassword, setErrorPassword] = useState('');
+  const [errorFirstname, setErrorFirstname] = useState('');
+  const [errorLastname, setErrorLastname] = useState('');
+
   // state to store email, password
   const [value, setValue] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+
   const isValidationOK = () =>
     email.length >= 0 &&
     password.length >= 0 &&
+    firstname.length >= 0 &&
+    lastname.length >= 0 &&
     value !== null &&
     isValidEmail(email) == true &&
     isValidPassword(password) == true;
@@ -57,24 +74,33 @@ function Register2({route, navigation}) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.top}>
-        <Image
-          source={images.account}
-          style={{
-            width: 100,
-            height: 100,
-            margin: 20,
-            alignSelf: 'center',
-          }}
-        />
-        <Text style={styles.text1}> Create an Account</Text>
-        {KeyboardIsShow == false && (
+      <StatusBar
+        barStyle="dark-content"
+        hidden={false}
+        backgroundColor="transparent"
+        translucent={true}
+      />
+      {KeyboardIsShow == false && (
+        <View style={styles.top}>
+          <Image
+            source={images.account}
+            style={{
+              width: 100,
+              height: 100,
+              margin: 16,
+              alignSelf: 'center',
+              marginTop: 50,
+            }}
+          />
+
+          <Text style={styles.text1}> Create an Account</Text>
+
           <Text style={styles.text2}>
             A handful of model sentence structures
           </Text>
-        )}
-      </View>
-
+        </View>
+      )}
+      {KeyboardIsShow == true && <View style={{height: 40}}></View>}
       <View
         style={styles.mid}
         onAccessibilityTap={() => {
@@ -97,10 +123,57 @@ function Register2({route, navigation}) {
           }}
         />
 
-        <View style={{height: 12}} />
+        {/* <View style={{height: 4}} /> */}
+        <View>
+          <Info width="24" height="24" style={styles.icon} />
+          <TextInput
+            onChangeText={text => {
+              setErrorFirstname(
+                isValidFirstName(text) == true
+                  ? ''
+                  : 'Firstname must be at least 2 characters',
+              );
+              setFirstname(text);
+            }}
+            style={styles.inputText}
+            placeholder="First Name"
+            placeholderTextColor="black"></TextInput>
+          <Text
+            style={{
+              color: 'red',
+              fontSize: 12,
+              marginLeft: Platform.OS === 'ios' ? 32 : 56,
+            }}>
+            {errorFirstname}
+          </Text>
+        </View>
+        <View>
+          <Info width="24" height="24" style={styles.icon} />
+
+          <TextInput
+            onChangeText={text => {
+              setErrorLastname(
+                isValidLastName(text) == true
+                  ? ''
+                  : 'Lastname must be at least 2 characters',
+              );
+              setLastname(text);
+            }}
+            style={styles.inputText}
+            placeholder="Last Name"
+            placeholderTextColor="black"></TextInput>
+          <Text
+            style={{
+              color: 'red',
+              fontSize: 12,
+              marginLeft: Platform.OS === 'ios' ? 32 : 56,
+            }}>
+            {errorLastname}
+          </Text>
+        </View>
+
         <View>
           <Email width="24" height="24" style={styles.icon} />
-
           <TextInput
             onChangeText={text => {
               setErrorEmail(
@@ -112,6 +185,7 @@ function Register2({route, navigation}) {
             placeholder="Email id"
             placeholderTextColor="black"
           />
+
           <Text
             style={{
               color: 'red',
@@ -139,7 +213,6 @@ function Register2({route, navigation}) {
             placeholderTextColor="black"
           />
         </View>
-
         <Text
           style={{
             color: 'red',
@@ -157,6 +230,8 @@ function Register2({route, navigation}) {
             onPress={async () => {
               const userdata = {
                 title: value,
+                firstname: firstname,
+                lastname: lastname,
                 email: email,
                 password: password,
               };
@@ -166,15 +241,20 @@ function Register2({route, navigation}) {
                   userdata,
                 );
                 const data = res.data;
-                console.log(JSON.stringify(data));
+                // console.log(data, 123);
+                console.log(JSON.stringify(data.message));
+                if (data.message === '200') {
+                  navigation.navigate('Register3', {
+                    role: value,
+                    firstname: firstname,
+                    lastname: lastname,
+                    email: email,
+                    password: password,
+                  });
+                }
               } catch (error) {
                 alert(error);
               }
-              navigation.navigate('Register3', {
-                role: value,
-                email: email,
-                password: password,
-              });
 
               setAccountTypes(
                 accountTypes.map(eachAccountType => {
