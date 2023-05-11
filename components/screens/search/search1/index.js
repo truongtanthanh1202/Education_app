@@ -122,7 +122,7 @@ function Search1(props) {
           renderItem={({item}) => (
             <TouchableOpacity
               onPress={() => {
-                alert(`You press course's name: ${item.description}`);
+                alert(`You press course's name: ${item.name}`);
               }}
               style={{flexDirection: 'row', flex: 1, margin: 5}}>
               <Image

@@ -190,7 +190,7 @@ function Search2(props) {
                       position: 'absolute',
                       top: 120,
                     }}>
-                    {item.description}
+                    {item.name}
                   </Text>
                 </View>
               </View>

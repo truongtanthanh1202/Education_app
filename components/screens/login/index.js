@@ -56,10 +56,13 @@ function Login({route, navigation}) {
     };
     const res = await axios.post(`http://10.0.2.2:4848/me/logintest`, userdata);
     const data = res.data;
+    // console.log(data);
     console.log(JSON.stringify(data), 'Acount has been created');
-    navigation.navigate('Navbar', {
-      data: data,
-    });
+    if (data.message === '200') {
+      navigation.navigate('Navbar', {
+        data: data,
+      });
+    }
   };
   return (
     <KeyboardAvoidingView
