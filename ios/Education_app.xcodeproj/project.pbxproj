@@ -38,12 +38,14 @@
 		AE688EE670ED41F1BABE4F91 /* Comfortaa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDC879DF759247ED8B88072D /* Comfortaa-Bold.ttf */; };
 		B29C2C49F3C24A11BC309A7D /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D797F2091CA24BF89AACB666 /* Montserrat-MediumItalic.ttf */; };
 		B63EF23E9C1843BD88F4E8BC /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADADA22DC5C944BA90CB0436 /* Montserrat-ExtraLight.ttf */; };
+		B736794FEFE6937A2D8A799F /* libPods-Education_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC1CAE6D5840B36C7154ACE /* libPods-Education_app.a */; };
 		B741A9E16B214BCC90CDE290 /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7878D25E833243FB91B084A8 /* Poppins-ExtraBoldItalic.ttf */; };
 		B83619B58A1647DBACD7CFF0 /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D124E970F4E47FFA70F49C1 /* Comfortaa-Light.ttf */; };
 		C0DDB996865741A2B86FD818 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F5DD5C4B78642F19A23EAF3 /* Poppins-Bold.ttf */; };
 		C1EF1DD436CE4FCDAEE7DEC6 /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C82E1A4A786344E2BB4B8D76 /* Poppins-LightItalic.ttf */; };
 		CB19BCD3962E444BBEC79166 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32AF9458C1EF4804BCDDD184 /* Montserrat-ThinItalic.ttf */; };
 		DB33D7BE75974A3389129BAC /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AC07DC3B04C4BFF8736FACE /* Montserrat-ExtraBoldItalic.ttf */; };
+		DC111D3B96AEA3A1300D86C2 /* libPods-Education_app-Education_appTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B71D5F52EE8BF4769621D818 /* libPods-Education_app-Education_appTests.a */; };
 		F1DAB8FC69E3415AAD1BBD70 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15B3E3E4AAC34DEA9366FFB3 /* Poppins-Regular.ttf */; };
 		F2FEA90BD62B48FCA73ACC24 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09CD48C953034D898FA0F787 /* Montserrat-ExtraBold.ttf */; };
 /* End PBXBuildFile section */
@@ -140,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC111D3B96AEA3A1300D86C2 /* libPods-Education_app-Education_appTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B736794FEFE6937A2D8A799F /* libPods-Education_app.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
