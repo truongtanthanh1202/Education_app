@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import VideoFrame from '../../atoms/VideoFrame';
+import axios from 'axios';
 
 const CreateCourse = props => {
   const {role, email, fisrtname, lastname} = props.route.params;
@@ -19,12 +20,30 @@ const CreateCourse = props => {
   const [courseDescription, setCourseDescription] = useState('none');
   const [thumbnailUrl, setThumbnailUrl] = useState('none');
   const [videoUrl, setVideoUrl] = useState('none');
+  const [documentUrl, setDocumentUrl] = useState('none');
+
+  const [viewType, setViewType] = useState('');
+  const [viewUrl, setViewUrl] = useState('');
   function goBack() {
     props.navigation.goBack();
   }
-  function createCourseToServer() {
+  const createCourseToServer = async () => {
     console.log(courseName, courseDescription, thumbnailUrl, videoUrl);
-  }
+    const userdata = {
+      email: email,
+      description: courseDescription,
+      name: courseName,
+      video: videoUrl,
+      thumbnail: thumbnailUrl,
+      document: documentUrl,
+    };
+    const res = await axios.post(
+      `http://10.0.2.2:4848/${role}/createCourse`,
+      userdata,
+    );
+    const status = res.data.message;
+    console.log(status);
+  };
   function renderHeader() {
     return (
       <View style={styles.header}>
@@ -36,6 +55,23 @@ const CreateCourse = props => {
           <TouchableOpacity onPress={goBack}>
             <Ionicons name="chevron-back-outline" size={28} color="#333" />
           </TouchableOpacity>
+          <View
+            style={{
+              flex: 90,
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: 'transparent',
+            }}>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontFamily: 'Poppins-Medium',
+                fontSize: 20,
+                color: '#333',
+              }}>
+              Create new Course
+            </Text>
+          </View>
         </View>
       </View>
     );
@@ -53,6 +89,16 @@ const CreateCourse = props => {
       return (
         <View style={{height: 240}}>
           <VideoFrame thumbnail={url} />
+        </View>
+      );
+    } else if (type === '') {
+      return (
+        <View
+          style={{height: 240, justifyContent: 'center', alignItems: 'center'}}>
+          <Text
+            style={{fontFamily: 'Poppins-Medium', fontSize: 16, color: '#555'}}>
+            Frame for demo Video and Thumbnail
+          </Text>
         </View>
       );
     }
@@ -95,23 +141,82 @@ const CreateCourse = props => {
 
         <View style={styles.profileInforItem}>
           <Text style={styles.titleInputField}>Thumbnail url</Text>
-          <TextInput
-            style={styles.inputField}
-            placeholder="enter image url"
-            placeholderTextColor="#555"
-            onChangeText={text => {
-              setThumbnailUrl(text);
-            }}></TextInput>
+          <View style={{flexDirection: 'row'}}>
+            <TextInput
+              style={styles.inputField}
+              placeholder="enter image url"
+              placeholderTextColor="#555"
+              onChangeText={text => {
+                setThumbnailUrl(text);
+              }}></TextInput>
+            <TouchableOpacity
+              onPress={() => {
+                setViewType('image');
+                setViewUrl(thumbnailUrl);
+              }}
+              style={{
+                backgroundColor: '#3787ff',
+                justifyContent: 'center',
+                alignItems: 'center',
+                paddingHorizontal: 6,
+                borderRadius: 12,
+                marginLeft: 8,
+              }}>
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Medium',
+                  fontSize: 16,
+                  color: '#fff',
+                }}>
+                check
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
 
         <View style={styles.profileInforItem}>
           <Text style={styles.titleInputField}>Video Intro url</Text>
+          <View style={{flexDirection: 'row'}}>
+            <TextInput
+              style={styles.inputField}
+              placeholder="enter video url"
+              placeholderTextColor="#555"
+              onChangeText={text => {
+                setVideoUrl(text);
+              }}></TextInput>
+            <TouchableOpacity
+              onPress={() => {
+                setViewType('video');
+                setViewUrl(videoUrl);
+              }}
+              style={{
+                backgroundColor: '#3787ff',
+                justifyContent: 'center',
+                alignItems: 'center',
+                paddingHorizontal: 6,
+                borderRadius: 12,
+                marginLeft: 8,
+              }}>
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Medium',
+                  fontSize: 16,
+                  color: '#fff',
+                }}>
+                check
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={styles.profileInforItem}>
+          <Text style={styles.titleInputField}>Course's document url</Text>
           <TextInput
             style={styles.inputField}
-            placeholder="enter video url"
+            placeholder="enter document url"
             placeholderTextColor="#555"
             onChangeText={text => {
-              setVideoUrl(text);
+              setDocumentUrl(text);
             }}></TextInput>
         </View>
       </>
@@ -125,6 +230,7 @@ const CreateCourse = props => {
           flex: 1,
         }}>
         {/* Body */}
+        {/* https://www.kindpng.com/picc/m/107-1071309_video-frame-png-frame-design-for-video-transparent.png */}
         <View
           style={{
             height: 240,
@@ -133,10 +239,7 @@ const CreateCourse = props => {
             borderColor: '#3787ff',
             borderWidth: 2,
           }}>
-          {renderDemoView(
-            'image',
-            'https://www.kindpng.com/picc/m/107-1071309_video-frame-png-frame-design-for-video-transparent.png',
-          )}
+          {renderDemoView(viewType, viewUrl)}
         </View>
         {renderCourseInfoField()}
 
@@ -185,6 +288,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   inputField: {
+    flex: 1,
     height: Platform.OS === 'ios' ? 48 : 48,
     backgroundColor: 'white',
     borderRadius: 12,

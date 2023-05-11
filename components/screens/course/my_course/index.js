@@ -12,6 +12,7 @@ import {
 import styles from './style';
 import {ProgressBar} from '../../../atoms';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import axios from 'axios';
 
 const realtimeLearning = 28;
 const targetTimeLearning = 60;
@@ -114,6 +115,19 @@ const MyCourse = props => {
       lastname: lastname,
     });
   };
+
+  // const getData = async () => {
+  //   const userdata = {
+  //     email: email,
+  //   };
+  //   const res = await axios.post(
+  //     `http://10.0.2.2:4848/${role}/MyCourses`,
+  //     userdata,
+  //   );
+  //   const resData = res.data;
+  //   console.log(resData);
+  // };
+  // getData();
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -187,6 +201,8 @@ const MyCourse = props => {
             <TouchableOpacity
               onPress={() => {
                 props.navigation.navigate('CourseDetails', {
+                  role: role,
+                  email: email,
                   courseName: item.courseName,
                   courseDescription: item.courseDescription,
                   id_teacher: item.id_teacher,

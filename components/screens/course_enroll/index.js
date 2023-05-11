@@ -15,6 +15,7 @@ import HomeCategory1 from '../../../asset/img/home_category1';
 import HomeCategory2 from '../../../asset/img/home_category2';
 import HomeCategory3 from '../../../asset/img/home_category3';
 import LessonCard from './lesson_card';
+import axios from 'axios';
 
 import styles from './style';
 
@@ -213,9 +214,19 @@ const CourseEnroll = props => {
     );
   };
   const renderBottomContent = () => {
-    function handerRegisterThisCoure() {
+    const handerRegisterThisCoure = async () => {
       console.log('Register this course to server');
-    }
+      // const userdata = {
+      //   email: 'ttt2003@gmail.com',
+      //   id_course: '645d1b1570c46dbb80dd34b7',
+      // };
+      // const res = await axios.post(
+      //   `http://10.0.2.2:4848/student/purchaseCourse`,
+      //   userdata,
+      // );
+      // const resData = res.data;
+      // console.log(resData);
+    };
     const shadow =
       Platform.OS === 'ios'
         ? {
