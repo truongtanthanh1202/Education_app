@@ -14,11 +14,14 @@ import {Dropdown} from 'react-native-element-dropdown';
 import {Tabs} from 'react-native-collapsible-tab-view';
 import VideoFrame from '../../../atoms/VideoFrame';
 import styles from './style';
+import axios from 'axios';
 
 const avatar = require('../../../../asset/img/img_avatar.jpeg');
 
 const CourseDetails = props => {
   const {
+    role,
+    email,
     courseName,
     courseDescription,
     id_teacher,
@@ -360,6 +363,19 @@ const CourseDetails = props => {
   ];
 
   const Lessons = () => {
+    // const getLessons = async () => {
+    //   const userdata = {
+    //     email: 'thaoteacher93@gmail.com',
+    //     id_course: '64567ca3f0d7ad445ff61cd1',
+    //   };
+    //   const res = await axios.post(
+    //     `http://10.0.2.2:4848/${role}/MyLessons`,
+    //     userdata,
+    //   );
+    //   const resData = res.data;
+    //   console.log(resData);
+    // };
+    // getLessons();
     return (
       <View
         style={{
@@ -369,6 +385,56 @@ const CourseDetails = props => {
           marginBottom: 48,
           paddingTop: 32,
         }}>
+        {role === 'teacher' && (
+          <TouchableOpacity
+            onPress={() => {
+              props.navigation.navigate('CreateLesson');
+            }}
+            activeOpacity={0.7}
+            style={{
+              borderColor: '#3787ff',
+              borderWidth: 1,
+              borderRadius: 6,
+              padding: 12,
+              flexDirection: 'row',
+            }}>
+            <View
+              style={{
+                backgroundColor: 'transparent',
+                paddingHorizontal: 30,
+                paddingVertical: 8,
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderColor: '#777',
+                borderWidth: 1,
+                borderRadius: 6,
+              }}>
+              <Text
+                style={{
+                  fontSize: 50,
+                  color: '#777',
+                }}>
+                +
+              </Text>
+            </View>
+            <View
+              style={{
+                backgroundColor: 'transparent',
+                marginHorizontal: 28,
+                justifyContent: 'center',
+              }}>
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Medium',
+                  fontSize: 18,
+                  lineHeight: 28,
+                  color: '#555',
+                }}>
+                {`Create a lesson for \nthis course`}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        )}
         {mockLessons.map((lesson, index) => {
           return (
             <View style={{flexDirection: 'column', gap: 12}} key={index}>

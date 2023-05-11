@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import VideoFrame from '../../atoms/VideoFrame';
+import axios from 'axios';
 
 const CreateCourse = props => {
   const {role, email, fisrtname, lastname} = props.route.params;
@@ -19,12 +20,27 @@ const CreateCourse = props => {
   const [courseDescription, setCourseDescription] = useState('none');
   const [thumbnailUrl, setThumbnailUrl] = useState('none');
   const [videoUrl, setVideoUrl] = useState('none');
+  const [documentUrl, setDocumentUrl] = useState('none');
   function goBack() {
     props.navigation.goBack();
   }
-  function createCourseToServer() {
+  const createCourseToServer = async () => {
     console.log(courseName, courseDescription, thumbnailUrl, videoUrl);
-  }
+    const userdata = {
+      email: email,
+      description: courseDescription,
+      name: courseName,
+      video: videoUrl,
+      thumbnail: thumbnailUrl,
+      document: documentUrl,
+    };
+    const res = await axios.post(
+      `http://10.0.2.2:4848/${role}/createCourse`,
+      userdata,
+    );
+    const status = res.data.message;
+    console.log(status);
+  };
   function renderHeader() {
     return (
       <View style={styles.header}>
@@ -114,6 +130,17 @@ const CreateCourse = props => {
               setVideoUrl(text);
             }}></TextInput>
         </View>
+
+        <View style={styles.profileInforItem}>
+          <Text style={styles.titleInputField}>Course's document url</Text>
+          <TextInput
+            style={styles.inputField}
+            placeholder="enter document url"
+            placeholderTextColor="#555"
+            onChangeText={text => {
+              setDocumentUrl(text);
+            }}></TextInput>
+        </View>
       </>
     );
   }
@@ -134,7 +161,7 @@ const CreateCourse = props => {
             borderWidth: 2,
           }}>
           {renderDemoView(
-            'image',
+            'video',
             'https://www.kindpng.com/picc/m/107-1071309_video-frame-png-frame-design-for-video-transparent.png',
           )}
         </View>
