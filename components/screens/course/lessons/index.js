@@ -18,33 +18,6 @@ import Pdf from 'react-native-pdf';
 
 const Tab = createMaterialTopTabNavigator();
 
-const allLessons = [
-  {
-    title: 'Block model',
-    duration: '15:40',
-    thumbnail:
-      'https://cdn.shopify.com/s/files/1/0519/4383/3779/products/63695-rear_1024x1024.jpg?v=1626989681',
-  },
-  {
-    title: 'Containers',
-    duration: '15:55',
-    thumbnail:
-      'https://cdn.shopify.com/s/files/1/0519/4383/3779/products/63695-rear_1024x1024.jpg?v=1626989681',
-  },
-  {
-    title: 'Div Blocks, typography',
-    duration: '25:15',
-    thumbnail:
-      'https://cdn.shopify.com/s/files/1/0519/4383/3779/products/63695-rear_1024x1024.jpg?v=1626989681',
-  },
-  {
-    title: 'Spacing, indents',
-    duration: '24:15',
-    thumbnail:
-      'https://cdn.shopify.com/s/files/1/0519/4383/3779/products/63695-rear_1024x1024.jpg?v=1626989681',
-  },
-];
-
 const Lesson = ({route, navigation}) => {
   const {lessonIndex} = route.params;
   const gobackHandler = () => {
