@@ -11,14 +11,14 @@ import {Profile1, Profile2, Profile3} from '../profile';
 const Tab = createBottomTabNavigator();
 
 const Navbar = ({route, navigation}) => {
-  // let userData = route.params.data;
+  // let userData = route.params.data.user;
   let userData = {
     //fake data for testing, please comment this before push to github
-    email: 'ttt@gmail.com',
+    email: 'ttt2003@gmail.com',
     fisrtname: 'Truong Tan',
     lastname: 'Thanh',
     password: '123456',
-    title: 'teacher', //teacher || student
+    title: 'student', //teacher || student
   };
 
   const [bottomMarginStatus, setbottomMarginStatus] = useState(20);
@@ -98,7 +98,7 @@ const Navbar = ({route, navigation}) => {
         },
       })}>
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Search" component={Search2} />
+      <Tab.Screen name="Search" component={Search1} />
       <Tab.Screen
         name="Course"
         component={Course}

@@ -30,7 +30,7 @@ const shadow =
 
 const fakeCourses = [
   {
-    id: 1,
+    id: '645d1b1570c46dbb80dd34b7',
     courseName: 'Build and Deploy a website',
     courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
     id_teacher: 'Viet Anh Nguyen',
@@ -40,7 +40,7 @@ const fakeCourses = [
     total_hours: 16,
   },
   {
-    id: 2,
+    id: '645e7244c35b210a886bef34',
     courseName: 'Devops with AWS',
     courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
     id_teacher: 'Microsoft',
@@ -50,7 +50,7 @@ const fakeCourses = [
     total_hours: 14,
   },
   {
-    id: 3,
+    id: '645e71ecc35b210a886bef2c',
     courseName: 'Designing UI-UX',
     courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
     id_teacher: 'Google',
@@ -60,7 +60,7 @@ const fakeCourses = [
     total_hours: 13,
   },
   {
-    id: 4,
+    id: 'none',
     courseName: 'Software Engineering',
     courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
     id_teacher: 'Viet Hoang Nguyen',
@@ -382,6 +382,9 @@ const Course = props => {
                   <TouchableOpacity
                     onPress={() => {
                       props.navigation.navigate('CourseEnroll', {
+                        id_coure: item.id,
+                        email: initialEmail,
+                        role: userRole,
                         courseName: item.courseName,
                         courseDescription: item.courseDescription,
                         id_teacher: item.id_teacher,

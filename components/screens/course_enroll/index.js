@@ -21,6 +21,9 @@ import styles from './style';
 
 const CourseEnroll = props => {
   const {
+    id_courses,
+    email,
+    role,
     courseName,
     courseDescription,
     id_teacher,
@@ -215,17 +218,20 @@ const CourseEnroll = props => {
   };
   const renderBottomContent = () => {
     const handerRegisterThisCoure = async () => {
-      console.log('Register this course to server');
-      // const userdata = {
-      //   email: 'ttt2003@gmail.com',
-      //   id_course: '645d1b1570c46dbb80dd34b7',
-      // };
-      // const res = await axios.post(
-      //   `http://10.0.2.2:4848/student/purchaseCourse`,
-      //   userdata,
-      // );
-      // const resData = res.data;
-      // console.log(resData);
+      const userdata = {
+        email: email,
+        id_course: id_courses,
+      };
+      const res = await axios.post(
+        `http://10.0.2.2:4848/student/purchaseCourse`,
+        userdata,
+      );
+      const resData = res.data;
+      if (resData === '200') {
+        alert('Register this course successfully');
+      } else {
+        alert('something was wrong');
+      }
     };
     const shadow =
       Platform.OS === 'ios'
@@ -266,6 +272,7 @@ const CourseEnroll = props => {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={handerRegisterThisCoure}
+          disabled={role === 'teacher' ? true : false}
           activeOpacity={0.7}
           style={{
             height: 48,
@@ -275,10 +282,11 @@ const CourseEnroll = props => {
             borderRadius: 24,
             justifyContent: 'center',
             alignItems: 'center',
+            opacity: role === 'teacher' ? 0.7 : 1,
           }}>
           <Text
             style={{fontFamily: 'Poppins-Medium', color: '#fff', fontSize: 16}}>
-            Enroll now
+            {role === 'teacher' ? 'You are Teacher' : 'Enroll now'}
           </Text>
         </TouchableOpacity>
       </View>
