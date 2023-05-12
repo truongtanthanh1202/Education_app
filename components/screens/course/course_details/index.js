@@ -388,7 +388,7 @@ const CourseDetails = props => {
         {role === 'teacher' && (
           <TouchableOpacity
             onPress={() => {
-              props.navigation.navigate('CreateLesson');
+              props.navigation.navigate('CreateLesson', {});
             }}
             activeOpacity={0.7}
             style={{
@@ -430,7 +430,7 @@ const CourseDetails = props => {
                   lineHeight: 28,
                   color: '#555',
                 }}>
-                {`Create a lesson for \nthis course`}
+                {`Create new lesson for \nthis course`}
               </Text>
             </View>
           </TouchableOpacity>
