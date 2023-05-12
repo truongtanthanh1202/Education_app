@@ -89,7 +89,9 @@ const Profile1 = props => {
         <Image source={images.account} style={styles.image}></Image>
         {/* Detail */}
         <View>
-          <Text style={styles.name}>Thanh Truong</Text>
+          <Text style={styles.name}>
+            {dataSource[1].value + ' ' + dataSource[2].value ?? `Thanh Truong`}
+          </Text>
           <ProgressBar
             progress="60%"
             containerStyle={{maginTop: 10}}></ProgressBar>

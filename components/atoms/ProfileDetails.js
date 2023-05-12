@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import {images, fontSizes, fontFamilys} from '../../constants';
 
-const ProfileDetails = ({icon, label, value, onPress}) => {
+const ProfileDetails = ({icon, label, value, onChangeText}) => {
   return (
     <View>
       {label && (
@@ -39,7 +39,9 @@ const ProfileDetails = ({icon, label, value, onPress}) => {
           fontSize: 14,
         }}
         secureTextEntry={label === 'Password' ? true : false}
-        editable={label === 'Password' ? false : true}
+        editable={
+          label === 'Password' || label === 'Email Address' ? false : true
+        }
         paddingLeft={20}
         value={value}
         placeholderTextColor={'black'}

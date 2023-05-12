@@ -115,19 +115,22 @@ const MyCourse = props => {
       lastname: lastname,
     });
   };
-
-  // const getData = async () => {
-  //   const userdata = {
-  //     email: email,
-  //   };
-  //   const res = await axios.post(
-  //     `http://10.0.2.2:4848/${role}/MyCourses`,
-  //     userdata,
-  //   );
-  //   const resData = res.data;
-  //   console.log(resData);
-  // };
-  // getData();
+  const [dataSource, setDataSource] = useState([]);
+  const getData = async () => {
+    const userdata = {
+      email: email,
+    };
+    const res = await axios.post(
+      `http://10.0.2.2:4848/${role}/MyCourses`,
+      userdata,
+    );
+    const resData = res.data;
+    setDataSource(resData);
+    // console.log(resData);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -203,20 +206,20 @@ const MyCourse = props => {
                 props.navigation.navigate('CourseDetails', {
                   role: role,
                   email: email,
-                  courseName: item.courseName,
-                  courseDescription: item.courseDescription,
-                  id_teacher: item.id_teacher,
+                  courseName: item.name,
+                  courseDescription: item.description,
+                  id_teacher: item.nameOfteacher,
                   thumbnail: item.thumbnail,
-                  rate: item.rate,
-                  total_hours: item.total_hours,
-                  totalLessons: item.totalLessons,
-                  completedLessons: item.completedLessons,
+                  rate: item.rating,
+                  total_hours: item.total_hours ?? 24,
+                  totalLessons: item.lessons.length,
+                  completedLessons: item.completedLessons ?? 12,
                 });
               }}
               activeOpacity={0.7}
               key={index}
               style={styles.coursesListItem}>
-              <Text style={styles.coursesListItemTitle}>{item.courseName}</Text>
+              <Text style={styles.coursesListItemTitle}>{item.name}</Text>
               <ProgressBar
                 progress={
                   `${(item.completedLessons * 100) / item.totalLessons}` + '%'
@@ -258,7 +261,7 @@ const MyCourse = props => {
                       color: '#fff',
                       fontSize: 16,
                     }}>
-                    {item.completedLessons}
+                    {item.completedLessons ?? 10}
                   </Text>
                   <Text
                     style={{
@@ -266,7 +269,7 @@ const MyCourse = props => {
                       color: '#fff',
                       fontSize: 14,
                     }}>
-                    /{item.totalLessons}
+                    /{item.totalLessons ?? 10}
                   </Text>
                 </View>
                 <TouchableOpacity style={styles.coursesListButtonPlay}>

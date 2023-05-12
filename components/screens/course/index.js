@@ -14,6 +14,7 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import CourseTab1 from '../../../asset/img/course_tab1';
 import CourseTab2 from '../../../asset/img/course_tab2';
+import axios from 'axios';
 
 import styles from './style';
 

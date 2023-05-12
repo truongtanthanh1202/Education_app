@@ -44,20 +44,26 @@ const CreateCourse = props => {
   }
   const createCourseToServer = async () => {
     console.log(courseName, courseDescription, thumbnailUrl, videoUrl);
-    // const userdata = {
-    //   email: email,
-    //   description: courseDescription,
-    //   name: courseName,
-    //   video: videoUrl,
-    //   thumbnail: thumbnailUrl,
-    //   document: documentUrl,
-    // };
-    // const res = await axios.post(
-    //   `http://10.0.2.2:4848/${role}/createCourse`,
-    //   userdata,
-    // );
-    // const status = res.data.message;
-    // console.log(status);
+    const userdata = {
+      email: email,
+      description: courseDescription,
+      name: courseName,
+      video: videoUrl,
+      thumbnail: thumbnailUrl,
+      document: documentUrl,
+    };
+    const res = await axios.post(
+      `http://10.0.2.2:4848/${role}/createCourse`,
+      userdata,
+    );
+    const status = res.data.message;
+    console.log(status);
+    if (status == '200') {
+      alert('Create course successfully');
+      props.navigation.goBack();
+    } else {
+      alert('Something went wrong, please try again');
+    }
   };
   function renderHeader() {
     return (
