@@ -17,44 +17,44 @@ import axios from 'axios';
 const realtimeLearning = 28;
 const targetTimeLearning = 60;
 
-const dataSource = [
-  {
-    id: 1,
-    courseName: 'Build and Deploy a website',
-    courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make`,
-    id_teacher: 'Viet Anh Nguyen',
-    thumbnail:
-      'https://d3mxt5v3yxgcsr.cloudfront.net/courses/7475/course_7475_image.jpg',
-    rate: 5,
-    total_hours: 16,
-    totalLessons: 24,
-    completedLessons: 24,
-  },
-  {
-    id: 2,
-    courseName: 'Devops with AWS',
-    courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to`,
-    id_teacher: 'Microsoft',
-    thumbnail:
-      'https://cdn.mindmajix.com/courses/aws-devops-training-110620.png',
-    rate: 4.5,
-    total_hours: 14,
-    totalLessons: 24,
-    completedLessons: 14,
-  },
-  {
-    id: 3,
-    courseName: 'Software Engineering',
-    courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever`,
-    id_teacher: 'Viet Hoang Nguyen',
-    thumbnail:
-      'https://m.media-amazon.com/images/M/MV5BNTFjZmE1ZmQtZTBiNi00M2U3LWFhZjktMDM2NThlYTA3OTJiXkEyXkFqcGdeQXVyODQyNDI4ODg@._V1_.jpg',
-    rate: 4,
-    total_hours: 12,
-    totalLessons: 18,
-    completedLessons: 12,
-  },
-];
+// const dataSource = [
+//   {
+//     id: 1,
+//     courseName: 'Build and Deploy a website',
+//     courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make`,
+//     id_teacher: 'Viet Anh Nguyen',
+//     thumbnail:
+//       'https://d3mxt5v3yxgcsr.cloudfront.net/courses/7475/course_7475_image.jpg',
+//     rate: 5,
+//     total_hours: 16,
+//     totalLessons: 24,
+//     completedLessons: 24,
+//   },
+//   {
+//     id: 2,
+//     courseName: 'Devops with AWS',
+//     courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to`,
+//     id_teacher: 'Microsoft',
+//     thumbnail:
+//       'https://cdn.mindmajix.com/courses/aws-devops-training-110620.png',
+//     rate: 4.5,
+//     total_hours: 14,
+//     totalLessons: 24,
+//     completedLessons: 14,
+//   },
+//   {
+//     id: 3,
+//     courseName: 'Software Engineering',
+//     courseDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever`,
+//     id_teacher: 'Viet Hoang Nguyen',
+//     thumbnail:
+//       'https://m.media-amazon.com/images/M/MV5BNTFjZmE1ZmQtZTBiNi00M2U3LWFhZjktMDM2NThlYTA3OTJiXkEyXkFqcGdeQXVyODQyNDI4ODg@._V1_.jpg',
+//     rate: 4,
+//     total_hours: 12,
+//     totalLessons: 18,
+//     completedLessons: 12,
+//   },
+// ];
 
 const renderLearingTracking = () => {
   return (
@@ -214,6 +214,7 @@ const MyCourse = props => {
                   total_hours: item.total_hours ?? 24,
                   totalLessons: item.lessons.length,
                   completedLessons: item.completedLessons ?? 12,
+                  id_course: item._id,
                 });
               }}
               activeOpacity={0.7}

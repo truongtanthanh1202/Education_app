@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   SafeAreaView,
@@ -30,6 +30,7 @@ const CourseDetails = props => {
     total_hours,
     totalLessons,
     completedLessons,
+    id_course,
   } = props.route.params;
   const Overview = () => {
     return (
@@ -361,21 +362,24 @@ const CourseDetails = props => {
         'Proin in erat ante. Ut dictum massa non tellus pulvinar, id pellentesque nunc hendrerit. Quisque iaculis ultrices dapibus. In nec dui et quam faucibus faucibus eget in tellus.',
     },
   ];
-
+  const [lessonsData, setLessonsData] = useState(mockLessons);
   const Lessons = () => {
-    // const getLessons = async () => {
-    //   const userdata = {
-    //     email: 'thaoteacher93@gmail.com',
-    //     id_course: '64567ca3f0d7ad445ff61cd1',
-    //   };
-    //   const res = await axios.post(
-    //     `http://10.0.2.2:4848/${role}/MyLessons`,
-    //     userdata,
-    //   );
-    //   const resData = res.data;
-    //   console.log(resData);
-    // };
-    // getLessons();
+    const getLessons = async () => {
+      const userdata = {
+        email: email,
+        id_course: id_course,
+      };
+      const res = await axios.post(
+        `http://10.0.2.2:4848/${role}/MyLessons`,
+        userdata,
+      );
+      const resData = res.data;
+      setLessonsData(resData);
+      console.log(resData);
+    };
+    useEffect(() => {
+      getLessons();
+    }, []);
     return (
       <View
         style={{
@@ -388,7 +392,10 @@ const CourseDetails = props => {
         {role === 'teacher' && (
           <TouchableOpacity
             onPress={() => {
-              props.navigation.navigate('CreateLesson', {});
+              console.log(id_course);
+              props.navigation.navigate('CreateLesson', {
+                id_course: id_course,
+              });
             }}
             activeOpacity={0.7}
             style={{
@@ -435,7 +442,7 @@ const CourseDetails = props => {
             </View>
           </TouchableOpacity>
         )}
-        {mockLessons.map((lesson, index) => {
+        {lessonsData.map((lesson, index) => {
           return (
             <View style={{flexDirection: 'column', gap: 12}} key={index}>
               <TouchableOpacity
@@ -463,9 +470,13 @@ const CourseDetails = props => {
                   <Text
                     style={[
                       styles.screenTitle,
-                      {fontSize: 16, fontWeight: 'bold'},
+                      {
+                        fontSize: 16,
+                        fontWeight: 'bold',
+                        marginRight: 40,
+                      },
                     ]}>
-                    {lesson.title}
+                    {lesson.description}
                   </Text>
                   <Text style={{fontFamily: 'Poppins-Medium', fontSize: 16}}>
                     Lesson {index + 1}{' '}
@@ -479,7 +490,7 @@ const CourseDetails = props => {
                     fontSize: 12,
                     lineHeight: 20,
                   }}>
-                  {lesson.description}
+                  {lesson.topic}
                 </Text>
               </View>
             </View>

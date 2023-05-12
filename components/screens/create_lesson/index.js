@@ -16,15 +16,38 @@ import VideoFrame from '../../atoms/VideoFrame';
 import Pdf from 'react-native-pdf';
 import axios from 'axios';
 
+// Test data
+// Thunmnail: https://www.kindpng.com/picc/m/107-1071309_video-frame-png-frame-design-for-video-transparent.png
+// Pdf: http://samples.leanpub.com/thereactnativebook-sample.pdf
+
 const CreateLesson = props => {
-  const {role, email, fisrtname, lastname} = props.route.params;
+  const {id_course} = props.route.params;
   const [courseName, setCourseName] = useState('none');
   const [courseDescription, setCourseDescription] = useState('none');
   const [thumbnailUrl, setThumbnailUrl] = useState('none');
   const [videoUrl, setVideoUrl] = useState('none');
   const [documentUrl, setDocumentUrl] = useState('none');
   const createLessonToServer = async () => {
-    console.log('createLesson');
+    const data = {
+      id_course: id_course,
+      description: courseName,
+      topic: courseDescription,
+      video: videoUrl,
+      thumbnail: thumbnailUrl,
+      document: documentUrl,
+    };
+    const res = await axios.post(
+      `http://10.0.2.2:4848/teacher/createLesson`,
+      data,
+    );
+    const status = res.data.message;
+    console.log(status);
+    if (status == '200') {
+      alert('Create lesson successfully');
+      props.navigation.goBack();
+    } else {
+      alert('Something went wrong, please try again');
+    }
   };
   const isValidateOK = () => {
     return (
@@ -130,7 +153,7 @@ const CreateLesson = props => {
           <Text style={styles.titleInputField}>Course name, id</Text>
           <TextInput
             style={styles.inputField}
-            value={`Test course`}
+            value={id_course ?? `Test course`}
             placeholderTextColor="black"
             editable={false}></TextInput>
         </View>
