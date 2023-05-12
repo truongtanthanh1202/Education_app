@@ -81,10 +81,15 @@ function Forgot3({route, navigation}) {
                   confirmpassword: confirmpassword,
                 },
               );
-              alert(JSON.stringify(res.data));
-              navigation.navigate('Forgot4', {
-                email: email,
-              });
+              const data = res.data;
+              if (data.message === '200') {
+                navigation.navigate('Forgot4', {
+                  email: email,
+                });
+              } else {
+                alert(JSON.stringify(res.data));
+              }
+
               setAccountTypes(
                 accountTypes.map(eachAccountType => {
                   return {
