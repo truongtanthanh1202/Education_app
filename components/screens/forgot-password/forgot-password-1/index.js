@@ -65,10 +65,16 @@ function Forgot1({navigation}) {
                   email: email,
                 },
               );
-              alert(JSON.stringify(res.data));
-              navigation.navigate('Forgot2', {
-                email: email,
-              });
+              const data = res.data;
+              // alert(JSON.stringify(res.data));
+              console.log(data);
+              if (data.message === '200') {
+                navigation.navigate('Forgot2', {
+                  email: email,
+                });
+              } else {
+                alert(JSON.stringify(res.data));
+              }
               setAccountTypes(
                 accountTypes.map(eachAccountType => {
                   return {

@@ -52,6 +52,7 @@ function Profile5(props) {
               height: 40,
               alignItems: 'center',
             }}
+            secureTextEntry={true}
             placeholder={'Enter old password'}
             placeholderTextColor={'#757372'}></TextInput>
           <View
@@ -66,6 +67,7 @@ function Profile5(props) {
               height: 40,
               alignItems: 'center',
             }}
+            secureTextEntry={true}
             placeholder={'Enter new password'}
             placeholderTextColor={'#757372'}></TextInput>
           <View
