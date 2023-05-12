@@ -9,10 +9,16 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
+  Dimensions,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import VideoFrame from '../../atoms/VideoFrame';
+import Pdf from 'react-native-pdf';
 import axios from 'axios';
+
+// Test data
+// Thunmnail: https://www.kindpng.com/picc/m/107-1071309_video-frame-png-frame-design-for-video-transparent.png
+// Pdf: http://samples.leanpub.com/thereactnativebook-sample.pdf
 
 const CreateCourse = props => {
   const {role, email, fisrtname, lastname} = props.route.params;
@@ -21,6 +27,15 @@ const CreateCourse = props => {
   const [thumbnailUrl, setThumbnailUrl] = useState('none');
   const [videoUrl, setVideoUrl] = useState('none');
   const [documentUrl, setDocumentUrl] = useState('none');
+  const isValidateOK = () => {
+    return (
+      courseName.length > 5 &&
+      courseDescription.length > 5 &&
+      thumbnailUrl.length > 2 &&
+      videoUrl.length > 2 &&
+      documentUrl.length > 2
+    );
+  };
 
   const [viewType, setViewType] = useState('');
   const [viewUrl, setViewUrl] = useState('');
@@ -29,20 +44,20 @@ const CreateCourse = props => {
   }
   const createCourseToServer = async () => {
     console.log(courseName, courseDescription, thumbnailUrl, videoUrl);
-    const userdata = {
-      email: email,
-      description: courseDescription,
-      name: courseName,
-      video: videoUrl,
-      thumbnail: thumbnailUrl,
-      document: documentUrl,
-    };
-    const res = await axios.post(
-      `http://10.0.2.2:4848/${role}/createCourse`,
-      userdata,
-    );
-    const status = res.data.message;
-    console.log(status);
+    // const userdata = {
+    //   email: email,
+    //   description: courseDescription,
+    //   name: courseName,
+    //   video: videoUrl,
+    //   thumbnail: thumbnailUrl,
+    //   document: documentUrl,
+    // };
+    // const res = await axios.post(
+    //   `http://10.0.2.2:4848/${role}/createCourse`,
+    //   userdata,
+    // );
+    // const status = res.data.message;
+    // console.log(status);
   };
   function renderHeader() {
     return (
@@ -91,13 +106,37 @@ const CreateCourse = props => {
           <VideoFrame thumbnail={url} />
         </View>
       );
+    } else if (type === 'pdf') {
+      return (
+        <Pdf
+          trustAllCerts={false}
+          source={{
+            uri: documentUrl,
+            cache: true,
+          }}
+          spacing={16}
+          horizontal={true}
+          minScale={0.5}
+          maxScale={3}
+          style={{
+            flex: 1,
+            backgroundColor: '#e4f1f9',
+            width: Dimensions.get('window').width - 12 * 2,
+          }}
+        />
+      );
     } else if (type === '') {
       return (
         <View
           style={{height: 240, justifyContent: 'center', alignItems: 'center'}}>
           <Text
-            style={{fontFamily: 'Poppins-Medium', fontSize: 16, color: '#555'}}>
-            Frame for demo Video and Thumbnail
+            style={{
+              fontFamily: 'Poppins-Medium',
+              fontSize: 16,
+              color: '#555',
+              textAlign: 'center',
+            }}>
+            Frame for demo Pdf, Video and Thumbnail
           </Text>
         </View>
       );
@@ -211,13 +250,37 @@ const CreateCourse = props => {
 
         <View style={styles.profileInforItem}>
           <Text style={styles.titleInputField}>Course's document url</Text>
-          <TextInput
-            style={styles.inputField}
-            placeholder="enter document url"
-            placeholderTextColor="#555"
-            onChangeText={text => {
-              setDocumentUrl(text);
-            }}></TextInput>
+          <View style={{flexDirection: 'row'}}>
+            <TextInput
+              style={styles.inputField}
+              placeholder="enter document url"
+              placeholderTextColor="#555"
+              onChangeText={text => {
+                setDocumentUrl(text);
+              }}></TextInput>
+            <TouchableOpacity
+              onPress={() => {
+                setViewType('pdf');
+                setViewUrl(documentUrl);
+              }}
+              style={{
+                backgroundColor: '#3787ff',
+                justifyContent: 'center',
+                alignItems: 'center',
+                paddingHorizontal: 6,
+                borderRadius: 12,
+                marginLeft: 8,
+              }}>
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Medium',
+                  fontSize: 16,
+                  color: '#fff',
+                }}>
+                check
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </>
     );
@@ -230,7 +293,6 @@ const CreateCourse = props => {
           flex: 1,
         }}>
         {/* Body */}
-        {/* https://www.kindpng.com/picc/m/107-1071309_video-frame-png-frame-design-for-video-transparent.png */}
         <View
           style={{
             height: 240,
@@ -255,7 +317,13 @@ const CreateCourse = props => {
         <View
           style={{flex: 50, justifyContent: 'center', alignItems: 'center'}}>
           <TouchableOpacity
-            style={styles.buttonSubmit}
+            disabled={!isValidateOK()}
+            style={[
+              styles.buttonSubmit,
+              {
+                opacity: isValidateOK() ? 1 : 0.7,
+              },
+            ]}
             onPress={createCourseToServer}>
             <Text style={styles.textSubmit}>Submit</Text>
           </TouchableOpacity>
