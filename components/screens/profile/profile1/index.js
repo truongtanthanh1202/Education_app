@@ -20,6 +20,7 @@ import styles from './style';
 import {images, fontSizes, fontFamilys} from '../../../../constants';
 import {ProgressBar, ProfileValue, ProfileInformation} from '../../../atoms';
 const Profile1 = props => {
+  const role = props.route.params.role;
   const initialEmail = props.route.params.email;
   const initialPassword = props.route.params.password;
 
@@ -147,6 +148,7 @@ const Profile1 = props => {
               <TouchableOpacity
                 onPress={() => {
                   props.navigation.navigate('Profile2', {
+                    role: role,
                     email: dataSource[0].value,
                     firstName: dataSource[1].value,
                     lastName: dataSource[2].value,

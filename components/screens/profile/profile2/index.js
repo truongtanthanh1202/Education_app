@@ -22,8 +22,11 @@ import {
   ProfileInformation,
   ProfileDetails,
 } from '../../../atoms';
+import axios from 'axios';
 const Profile2 = props => {
-  let {email, firstName, lastName, password} = props.route.params;
+  let {role, email, firstName, lastName, password} = props.route.params;
+  const [hoten, setHoten] = useState(firstName);
+  const [ten, setTen] = useState(lastName);
 
   const [keyboardIsShown, setKeyboardIsShown] = useState(false);
   useEffect(() => {
@@ -97,8 +100,18 @@ const Profile2 = props => {
       <View style={styles.profileSectionContainer}>
         <ProfileDetails label="Email Address" value={email}></ProfileDetails>
         <ProfileDetails label="Password" value={password}></ProfileDetails>
-        <ProfileDetails label="First Name" value={firstName}></ProfileDetails>
-        <ProfileDetails label="Last Name" value={lastName}></ProfileDetails>
+        <ProfileDetails
+          label="First Name"
+          value={hoten}
+          onChangeText={text => {
+            setHoten(text);
+          }}></ProfileDetails>
+        <ProfileDetails
+          label="Last Name"
+          value={ten}
+          onChangeText={text => {
+            setTen(text);
+          }}></ProfileDetails>
         <View style={{margin: 20}}></View>
       </View>
     );
@@ -154,9 +167,27 @@ const Profile2 = props => {
               <Text style={styles.textInButton}>Cancel</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => {
+              onPress={async () => {
                 // need to call api save profile to server
-                props.navigation.goBack();
+                const data = {
+                  title: role,
+                  email: email,
+                  lastname: ten,
+                  firstname: hoten,
+                };
+                // console.log(data);
+                const res = await axios.post(
+                  `http://10.0.2.2:4848/me/changeProfile`,
+                  data,
+                );
+                const message = res.data.message;
+                console.log(message);
+                if (message === '200') {
+                  alert('Change profile successfully');
+                  props.navigation.goBack();
+                } else {
+                  alert('something went wrong');
+                }
               }}
               style={styles.button}>
               <Text style={styles.textInButton}>Save</Text>

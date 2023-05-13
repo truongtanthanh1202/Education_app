@@ -42,6 +42,7 @@ const ProfileDetails = ({icon, label, value, onChangeText}) => {
         editable={
           label === 'Password' || label === 'Email Address' ? false : true
         }
+        onChangeText={onChangeText}
         paddingLeft={20}
         value={value}
         placeholderTextColor={'black'}

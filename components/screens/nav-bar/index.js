@@ -119,6 +119,7 @@ const Navbar = ({route, navigation}) => {
         name="Profile"
         component={Profile1}
         initialParams={{
+          role: userData.title,
           email: userData.email,
           password: userData.password,
         }}
