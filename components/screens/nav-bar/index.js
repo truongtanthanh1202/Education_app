@@ -11,15 +11,15 @@ import {Profile1, Profile2, Profile3} from '../profile';
 const Tab = createBottomTabNavigator();
 
 const Navbar = ({route, navigation}) => {
-  // let userData = route.params.data.user;
-  let userData = {
-    //fake data for testing, please comment this before push to github
-    email: 'ttt2003@gmail.com',
-    fisrtname: 'Truong Tan',
-    lastname: 'Thanh',
-    password: '123456',
-    title: 'student', //teacher || student
-  };
+  let userData = route.params.data.user;
+  // let userData = {
+  //   //fake data for testing, please comment this before push to github
+  //   email: 'ttt2003@gmail.com',
+  //   fisrtname: 'Truong Tan',
+  //   lastname: 'Thanh',
+  //   password: '123456',
+  //   title: 'student', //teacher || student
+  // };
 
   const [bottomMarginStatus, setbottomMarginStatus] = useState(20);
   useEffect(() => {

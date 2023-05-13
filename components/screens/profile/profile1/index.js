@@ -38,7 +38,6 @@ const Profile1 = props => {
     };
     const res = await axios.post(`http://10.0.2.2:4848/me/logintest`, userdata);
     const data = res.data.user;
-    // console.log(data);
 
     let temp = [
       {name: 'Email', value: data.email},
@@ -90,7 +89,8 @@ const Profile1 = props => {
         {/* Detail */}
         <View>
           <Text style={styles.name}>
-            {dataSource[1].value + ' ' + dataSource[2].value ?? `Thanh Truong`}
+            {/* {dataSource[1].value + ' ' + dataSource[2].value ?? `Thanh Truong`} */}
+            {`Thanh Truong`}
           </Text>
           <ProgressBar
             progress="60%"
