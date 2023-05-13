@@ -62,6 +62,8 @@ function Login({route, navigation}) {
       navigation.navigate('Navbar', {
         data: data,
       });
+    } else {
+      alert('Username or Password is Incorrect');
     }
   };
   return (

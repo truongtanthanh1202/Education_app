@@ -63,7 +63,7 @@ function Forgot2({route, navigation}) {
                 email: email,
               });
             } else {
-              alert(JSON.stringify(res.data));
+              alert('The code you entered is incorrect');
             }
 
             setAccountTypes(

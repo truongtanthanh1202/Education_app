@@ -73,7 +73,7 @@ function Forgot1({navigation}) {
                   email: email,
                 });
               } else {
-                alert(JSON.stringify(res.data));
+                alert("Email doesn't exist");
               }
               setAccountTypes(
                 accountTypes.map(eachAccountType => {

@@ -87,7 +87,7 @@ function Forgot3({route, navigation}) {
                   email: email,
                 });
               } else {
-                alert(JSON.stringify(res.data));
+                alert('Passwords do not match');
               }
 
               setAccountTypes(
