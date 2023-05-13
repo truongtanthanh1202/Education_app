@@ -25,6 +25,7 @@ const Profile1 = props => {
 
   const [refreshing, setRefreshing] = useState(true);
   const [dataSource, setDataSource] = useState([]);
+  const [fullName, setFullName] = useState('Thanh Truong');
 
   useEffect(() => {
     getData();
@@ -45,7 +46,7 @@ const Profile1 = props => {
       {name: 'Last name', value: data.lastname},
       {name: 'Password', value: data.password},
     ];
-    // console.log(temp);
+    setFullName(`${data.firstname} ${data.lastname}`);
     setRefreshing(false);
     setDataSource(temp);
   };
@@ -88,10 +89,7 @@ const Profile1 = props => {
         <Image source={images.account} style={styles.image}></Image>
         {/* Detail */}
         <View>
-          <Text style={styles.name}>
-            {/* {dataSource[1].value + ' ' + dataSource[2].value ?? `Thanh Truong`} */}
-            {`Thanh Truong`}
-          </Text>
+          <Text style={styles.name}>{fullName}</Text>
           <ProgressBar
             progress="60%"
             containerStyle={{maginTop: 10}}></ProgressBar>

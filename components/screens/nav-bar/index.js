@@ -97,7 +97,13 @@ const Navbar = ({route, navigation}) => {
           );
         },
       })}>
-      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        initialParams={{
+          lastname: userData.lastname,
+        }}
+      />
       <Tab.Screen name="Search" component={Search1} />
       <Tab.Screen
         name="Course"

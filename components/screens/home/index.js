@@ -51,7 +51,7 @@ const fakeCourses = [
 ];
 
 const Home = ({route, navigation}) => {
-  const fullName = 'Thanhf';
+  const fullName = route.params.lastname ?? 'Thanhf';
   const realtimeLearning = 46;
   const targetTimeLearning = 60;
 
