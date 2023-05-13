@@ -146,6 +146,7 @@ const Course = props => {
   const initialEmail = props.route.params.email;
   const fisrtname = props.route.params.fisrtname;
   const lastname = props.route.params.lastname;
+  const courseArray = props.route.params.courseArray;
 
   const categories = [
     {
@@ -377,12 +378,12 @@ const Course = props => {
           <View style={styles.scrollContainer}>
             {!hideFlatlist && (
               <FlatList
-                data={filterCourse(option)}
+                data={courseArray}
                 renderItem={({item, index}) => (
                   <TouchableOpacity
                     onPress={() => {
                       props.navigation.navigate('CourseEnroll', {
-                        id_coure: item.id,
+                        id_course: item._id,
                         email: initialEmail,
                         role: userRole,
                         courseName: item.courseName,
@@ -433,14 +434,14 @@ const Course = props => {
                           color: '#222',
                           maxHeight: 36,
                         }}>
-                        {item.courseName}
+                        {item.name}
                       </Text>
                       <View
                         style={{flexDirection: 'row', alignItems: 'center'}}>
                         <Ionicons name="person" color="#555" size={12} />
                         <Text
                           style={{marginLeft: 2, fontFamily: 'Poppins-Medium'}}>
-                          {item.id_teacher}
+                          {item.nameOfteacher}
                         </Text>
                       </View>
                       <View
@@ -459,7 +460,7 @@ const Course = props => {
                             fontWeight: '500',
                             fontSize: 14,
                           }}>
-                          {item.rate}
+                          {item.rating}
                         </Text>
                         <Text
                           style={{
@@ -474,7 +475,7 @@ const Course = props => {
                             lineHeight: 14,
                             marginLeft: 12,
                           }}>
-                          {item.total_hours} hours
+                          {Math.floor(Math.random() * 5)} hours
                         </Text>
                       </View>
                     </View>

@@ -12,6 +12,7 @@ const Tab = createBottomTabNavigator();
 
 const Navbar = ({route, navigation}) => {
   let userData = route.params.data.user;
+  let courseArray = route.params.data.course;
   // let userData = {
   //   //fake data for testing, please comment this before push to github
   //   email: 'ttt2003@gmail.com',
@@ -113,6 +114,7 @@ const Navbar = ({route, navigation}) => {
           email: userData.email,
           fisrtname: userData.fisrtname,
           lastname: userData.lastname,
+          courseArray: courseArray,
         }}
       />
       <Tab.Screen

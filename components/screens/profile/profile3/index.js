@@ -127,7 +127,7 @@ function Profile3(props) {
               }}
               onPress={() => {
                 // AsyncStorage.clear();
-                // props.navigation.replace('Login');
+                props.navigation.navigate('Splash4');
               }}>
               Sign out
             </Text>

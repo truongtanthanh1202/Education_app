@@ -21,7 +21,7 @@ import styles from './style';
 
 const CourseEnroll = props => {
   const {
-    id_courses,
+    id_course,
     email,
     role,
     courseName,
@@ -220,13 +220,13 @@ const CourseEnroll = props => {
     const handerRegisterThisCoure = async () => {
       const userdata = {
         email: email,
-        id_course: id_courses,
+        id_course: id_course,
       };
       const res = await axios.post(
         `http://10.0.2.2:4848/student/purchaseCourse`,
         userdata,
       );
-      const resData = res.data;
+      const resData = res.data.message;
       if (resData === '200') {
         alert('Register this course successfully');
       } else {
